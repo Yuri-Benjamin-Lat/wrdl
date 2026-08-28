@@ -1,0 +1,2059 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Wordle Low Fidelity Screens</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Wordle Low Fidelity Screens" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;Wordle Low Fidelity Screens&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --radius: var(--border-radius-lg, 12.5px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: 5px;
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: superellipse(1.5);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress {
+  display: flex;
+  height: 6px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 6px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: superellipse(1.5);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed=&quot;true&quot;],
+  [aria-selected=&quot;true&quot;],
+  .is-selected
+) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+  .btn,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control,
+  .form-select {
+    font-size: max(16px, var(--font-size-normal));
+  }
+
+  .form-control[type=&quot;file&quot;]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type=&quot;color&quot;] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type=&quot;date&quot;],
+    [type=&quot;datetime-local&quot;],
+    [type=&quot;month&quot;],
+    [type=&quot;time&quot;],
+    [type=&quot;week&quot;]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: &quot;&quot;;
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+
+  .form-range::-webkit-slider-runnable-track {
+    height: 44px;
+  }
+
+  .form-range::-moz-range-track {
+    height: 44px;
+  }
+
+  .form-range::-webkit-slider-thumb {
+    margin-top: 12px;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: 16px !important;
+  height: 16px !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;wordle-low-fidelity-screens&quot;&gt;
+  &lt;style&gt;
+    #wordle-low-fidelity-screens {
+      --wordle-wire-bg: light-dark(#f3f3f0, #121412);
+      --wordle-wire-panel: light-dark(#ffffff, #1c1f1c);
+      --wordle-wire-soft: light-dark(#e7e8e3, #292d29);
+      --wordle-wire-mid: light-dark(#c8cbc3, #454b44);
+      --wordle-wire-ink: light-dark(#242721, #f0f2ed);
+      --wordle-wire-subtle: light-dark(#6d7269, #abb2a7);
+      --wordle-wire-line: light-dark(#d1d4cc, #3c423b);
+      --wordle-wire-active: light-dark(#3f6746, #83aa89);
+      --wordle-wire-active-ink: light-dark(#ffffff, #101410);
+      --wordle-wire-error: light-dark(#a33838, #ef9696);
+      color-scheme: light dark;
+      color: var(--wordle-wire-ink);
+      font-family: ui-sans-serif, system-ui, sans-serif;
+    }
+    #wordle-low-fidelity-screens * { box-sizing: border-box; }
+    #wordle-low-fidelity-screens .wordle-wire-controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; margin-bottom: 14px; }
+    #wordle-low-fidelity-screens .wordle-wire-control { display: grid; gap: 5px; }
+    #wordle-low-fidelity-screens label { color: var(--wordle-wire-subtle); font-size: .82rem; }
+    #wordle-low-fidelity-screens select { background: var(--wordle-wire-panel); color: var(--wordle-wire-ink); border: 1px solid var(--wordle-wire-line); border-radius: 8px; padding: 9px 34px 9px 10px; }
+    #wordle-low-fidelity-screens .wordle-wire-stage { background: var(--wordle-wire-bg); border: 1px solid var(--wordle-wire-line); border-radius: 16px; overflow: hidden; min-height: 620px; }
+    #wordle-low-fidelity-screens .wordle-wire-shell { display: grid; grid-template-columns: 1fr 176px; min-height: 620px; }
+    #wordle-low-fidelity-screens .wordle-wire-main { padding: 22px; min-width: 0; container-type: inline-size; }
+    #wordle-low-fidelity-screens .wordle-wire-side { border-left: 1px solid var(--wordle-wire-line); background: var(--wordle-wire-panel); padding: 18px 13px; }
+    #wordle-low-fidelity-screens .wordle-wire-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 22px; }
+    #wordle-low-fidelity-screens .wordle-wire-top-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+    #wordle-low-fidelity-screens .wordle-wire-logo { font-weight: 500; letter-spacing: .06em; }
+    #wordle-low-fidelity-screens .wordle-wire-auth-label { margin-left: auto; }
+    #wordle-low-fidelity-screens .wordle-wire-heading { margin: 0 0 6px; font-size: 1.35rem; font-weight: 500; }
+    #wordle-low-fidelity-screens .wordle-wire-copy { color: var(--wordle-wire-subtle); margin: 0 0 18px; }
+    #wordle-low-fidelity-screens .wordle-wire-nav-person { display: flex; gap: 8px; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--wordle-wire-line); }
+    #wordle-low-fidelity-screens .wordle-wire-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--wordle-wire-mid); flex: none; }
+    #wordle-low-fidelity-screens .wordle-wire-nav-links { display: grid; gap: 5px; margin-top: 14px; }
+    #wordle-low-fidelity-screens .wordle-wire-nav-link { padding: 9px; border-radius: 7px; }
+    #wordle-low-fidelity-screens .wordle-wire-nav-link.is-active { background: var(--wordle-wire-soft); font-weight: 500; }
+    #wordle-low-fidelity-screens .wordle-wire-grid2 { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+    #wordle-low-fidelity-screens .wordle-wire-home-grid { width: 100%; max-width: 510px; margin-inline: auto; }
+    #wordle-low-fidelity-screens .wordle-wire-grid3 { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; }
+    #wordle-low-fidelity-screens .wordle-wire-box { background: var(--wordle-wire-panel); border: 1px solid var(--wordle-wire-line); border-radius: 12px; padding: 15px; }
+    #wordle-low-fidelity-screens .wordle-wire-mode { min-height: 180px; display: flex; flex-direction: column; text-align: left; color: var(--wordle-wire-ink); cursor: pointer; }
+    #wordle-low-fidelity-screens .wordle-wire-mode strong { font-size: 1.18rem; font-weight: 500; }
+    #wordle-low-fidelity-screens .wordle-wire-mode .wordle-wire-mode-description { font-size: 1rem; margin: 16px 0; color: var(--wordle-wire-subtle); max-width: 28ch; }
+    #wordle-low-fidelity-screens .wordle-wire-mode .wordle-wire-mode-detail { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--wordle-wire-line); font-size: .84rem; color: var(--wordle-wire-subtle); }
+    #wordle-low-fidelity-screens .wordle-wire-mode:focus-visible { outline: 3px solid var(--wordle-wire-active); outline-offset: 2px; }
+    #wordle-low-fidelity-screens .wordle-wire-muted { color: var(--wordle-wire-subtle); }
+    #wordle-low-fidelity-screens .wordle-wire-grow { margin-top: auto; }
+    #wordle-low-fidelity-screens .wordle-wire-action { display: inline-flex; align-items: center; justify-content: center; background: var(--wordle-wire-active); color: var(--wordle-wire-active-ink); border: 0; border-radius: 8px; padding: 9px 13px; font-weight: 500; }
+    #wordle-low-fidelity-screens .wordle-wire-action.secondary { background: var(--wordle-wire-soft); color: var(--wordle-wire-ink); border: 1px solid var(--wordle-wire-line); }
+    #wordle-low-fidelity-screens .wordle-wire-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--wordle-wire-line); }
+    #wordle-low-fidelity-screens .wordle-wire-row:last-child { border-bottom: 0; }
+    #wordle-low-fidelity-screens .wordle-wire-person { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    #wordle-low-fidelity-screens .wordle-wire-tabs { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 16px; }
+    #wordle-low-fidelity-screens .wordle-wire-tab { min-width: 44px; padding: 8px 13px; border: 1px solid var(--wordle-wire-line); border-radius: 999px; background: var(--wordle-wire-soft); color: var(--wordle-wire-ink); }
+    #wordle-low-fidelity-screens .wordle-wire-tab.is-active { background: var(--wordle-wire-active); border-color: var(--wordle-wire-active); color: var(--wordle-wire-active-ink); font-weight: 500; }
+    #wordle-low-fidelity-screens .wordle-wire-field { height: 42px; background: var(--wordle-wire-panel); border: 1px solid var(--wordle-wire-line); border-radius: 8px; padding: 10px; color: var(--wordle-wire-subtle); }
+    #wordle-low-fidelity-screens .wordle-wire-play { display: grid; grid-template-columns: minmax(0,1fr); gap: 8px; align-items: start; width: min(100%,560px); margin: 0 auto; }
+    #wordle-low-fidelity-screens .wordle-wire-board { --wordle-tile-size: clamp(44px,5.4vw,58px); display: grid; grid-template-columns: repeat(5,var(--wordle-tile-size)); gap: clamp(5px,.8vw,8px); justify-content: center; margin: 14px auto; }
+    #wordle-low-fidelity-screens .wordle-wire-tile { width: var(--wordle-tile-size); height: var(--wordle-tile-size); border: 2px solid var(--wordle-wire-mid); display: grid; place-items: center; font-weight: 500; }
+    #wordle-low-fidelity-screens .wordle-wire-tile.filled { background: var(--wordle-wire-mid); border-color: var(--wordle-wire-mid); }
+    #wordle-low-fidelity-screens .wordle-wire-keyboard { width: min(100%,500px); margin: 16px auto 0; display: grid; gap: 7px; }
+    #wordle-low-fidelity-screens .wordle-wire-keyrow { display: flex; justify-content: center; gap: 4px; }
+    #wordle-low-fidelity-screens .wordle-wire-key { min-width: 0; flex: 1 1 28px; max-width: 42px; height: clamp(38px,5vw,52px); background: var(--wordle-wire-soft); border-radius: 6px; display: grid; place-items: center; font-size: .72rem; }
+    #wordle-low-fidelity-screens .wordle-wire-key.wide { flex: 1.6 1 56px; max-width: 74px; }
+    #wordle-low-fidelity-screens .wordle-wire-battle { display: grid; grid-template-columns: 1fr 220px; gap: 14px; }
+    #wordle-low-fidelity-screens .wordle-wire-battle aside &gt; .wordle-wire-action { display: none; }
+    #wordle-low-fidelity-screens .wordle-wire-opponents { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+    #wordle-low-fidelity-screens .wordle-wire-mini { background: var(--wordle-wire-panel); border: 1px solid var(--wordle-wire-line); border-radius: 9px; padding: 9px; }
+    #wordle-low-fidelity-screens .wordle-wire-mini-grid { display: grid; grid-template-columns: repeat(5,10px); gap: 2px; margin-top: 7px; }
+    #wordle-low-fidelity-screens .wordle-wire-mini-grid span { width: 10px; height: 10px; background: var(--wordle-wire-mid); }
+    #wordle-low-fidelity-screens .wordle-wire-statline { display: flex; gap: 14px; flex-wrap: wrap; margin: 10px 0 16px; }
+    #wordle-low-fidelity-screens .wordle-wire-statline.is-centered { justify-content: center; }
+    #wordle-low-fidelity-screens .wordle-wire-pill { background: var(--wordle-wire-soft); border-radius: 999px; padding: 6px 10px; }
+    #wordle-low-fidelity-screens .wordle-wire-settings { display: grid; gap: 13px; }
+    #wordle-low-fidelity-screens .wordle-wire-setting { background: var(--wordle-wire-panel); border: 1px solid var(--wordle-wire-line); border-radius: 10px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    #wordle-low-fidelity-screens .wordle-wire-switch { width: 42px; height: 24px; border-radius: 20px; background: var(--wordle-wire-active); position: relative; }
+    #wordle-low-fidelity-screens .wordle-wire-switch::after { content: &#x27;&#x27;; width: 18px; height: 18px; border-radius: 50%; background: var(--wordle-wire-panel); position: absolute; right: 3px; top: 3px; }
+    #wordle-low-fidelity-screens .wordle-wire-invite { position: absolute; right: 190px; bottom: 18px; width: 42px; height: 42px; border-radius: 50%; background: var(--wordle-wire-active); color: var(--wordle-wire-active-ink); display: grid; place-items: center; font-weight: 500; }
+    #wordle-low-fidelity-screens button.wordle-wire-invite { border: 0; cursor: pointer; }
+    #wordle-low-fidelity-screens .wordle-wire-invitation-panel { position: absolute; z-index: 8; right: 190px; bottom: 68px; width: min(320px,calc(100% - 220px)); display: grid; gap: 8px; background: var(--wordle-wire-panel); border: 1px solid var(--wordle-wire-line); border-radius: 12px; padding: 10px; box-shadow: 0 10px 24px color-mix(in srgb, var(--wordle-wire-ink) 16%, transparent); }
+    #wordle-low-fidelity-screens .wordle-wire-invitation-card { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 10px; align-items: center; background: var(--wordle-wire-soft); border-radius: 9px; padding: 10px; }
+    #wordle-low-fidelity-screens .wordle-wire-invitation-actions { display: flex; gap: 6px; }
+    #wordle-low-fidelity-screens .wordle-wire-lobby-invite-picker { position: absolute; z-index: 8; right: 20px; top: 76px; width: min(340px,calc(100% - 40px)); background: var(--wordle-wire-panel); border: 1px solid var(--wordle-wire-line); border-radius: 12px; padding: 12px; box-shadow: 0 10px 24px color-mix(in srgb, var(--wordle-wire-ink) 16%, transparent); }
+    #wordle-low-fidelity-screens .wordle-wire-stage { position: relative; }
+    #wordle-low-fidelity-screens .wordle-wire-mobile-menu { display: none; width: 40px; height: 40px; padding: 0; font-size: 1.15rem; }
+    #wordle-low-fidelity-screens .wordle-wire-note { padding: 10px; background: var(--wordle-wire-soft); border-radius: 8px; color: var(--wordle-wire-subtle); }
+    #wordle-low-fidelity-screens .wordle-wire-auth { min-height: 620px; display: grid; grid-template-rows: auto 1fr; }
+    #wordle-low-fidelity-screens .wordle-wire-center { width: min(100%,430px); margin: 0 auto; align-self: center; text-align: center; padding-bottom: 55px; }
+    #wordle-low-fidelity-screens .wordle-wire-center .wordle-wire-box { text-align: left; }
+    #wordle-low-fidelity-screens .wordle-wire-onboarding-mark { display: flex; justify-content: center; gap: 5px; margin-bottom: 18px; }
+    #wordle-low-fidelity-screens .wordle-wire-onboarding-mark span { width: 30px; height: 30px; border-radius: 5px; background: var(--wordle-wire-soft); border: 1px solid var(--wordle-wire-line); }
+    #wordle-low-fidelity-screens .wordle-wire-onboarding-mark span:nth-child(2),
+    #wordle-low-fidelity-screens .wordle-wire-onboarding-mark span:nth-child(4) { background: var(--wordle-wire-active); border-color: var(--wordle-wire-active); }
+    #wordle-low-fidelity-screens .wordle-wire-username-card { padding: 20px; margin-top: 20px; }
+    #wordle-low-fidelity-screens .wordle-wire-input-label { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 7px; color: var(--wordle-wire-ink); }
+    #wordle-low-fidelity-screens .wordle-wire-input-wrap { display: flex; align-items: center; background: var(--wordle-wire-panel); border: 2px solid var(--wordle-wire-active); border-radius: 10px; overflow: hidden; }
+    #wordle-low-fidelity-screens .wordle-wire-prefix { padding: 11px 0 11px 12px; color: var(--wordle-wire-subtle); }
+    #wordle-low-fidelity-screens .wordle-wire-input { min-width: 0; flex: 1; border: 0; outline: 0; background: transparent; color: var(--wordle-wire-ink); padding: 11px 12px 11px 3px; font: inherit; }
+    #wordle-low-fidelity-screens .wordle-wire-available { display: flex; align-items: center; gap: 8px; margin: 11px 0; color: var(--wordle-wire-active); }
+    #wordle-low-fidelity-screens .wordle-wire-available-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--wordle-wire-active); }
+    #wordle-low-fidelity-screens .wordle-wire-validation-error { color: var(--wordle-wire-error); margin: 11px 0; }
+    #wordle-low-fidelity-screens .wordle-wire-hidden { display: none; }
+    #wordle-low-fidelity-screens .wordle-wire-full-action { width: 100%; margin-top: 14px; }
+    #wordle-low-fidelity-screens .wordle-wire-choice-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+    #wordle-low-fidelity-screens .wordle-wire-choice { min-height: 150px; border: 2px solid var(--wordle-wire-line); border-radius: 22px; background: var(--wordle-wire-panel); padding: 18px; display: flex; flex-direction: column; justify-content: space-between; }
+    #wordle-low-fidelity-screens .wordle-wire-choice.is-selected { border-color: var(--wordle-wire-active); background: var(--wordle-wire-soft); }
+    #wordle-low-fidelity-screens .wordle-wire-choice-mark { width: 58px; height: 58px; border-radius: 18px; background: var(--wordle-wire-soft); display: grid; place-items: center; font-size: 1.3rem; }
+    #wordle-low-fidelity-screens .wordle-wire-actions-end { display: flex; justify-content: flex-end; margin-top: 16px; }
+    #wordle-low-fidelity-screens .wordle-wire-profile-head { position: relative; }
+    #wordle-low-fidelity-screens .wordle-wire-profile-avatar-wrap { position: relative; flex: none; }
+    #wordle-low-fidelity-screens .wordle-wire-profile-avatar-button { width: 66px; height: 66px; padding: 0; border: 0; border-radius: 50%; background: var(--wordle-wire-mid); color: var(--wordle-wire-ink); cursor: pointer; }
+    #wordle-low-fidelity-screens .wordle-wire-profile-avatar-menu { left: 0; top: 72px; }
+    #wordle-low-fidelity-screens .wordle-wire-profile-identity { display: flex; align-items: center; gap: 13px; padding-right: 150px; }
+    #wordle-low-fidelity-screens .wordle-wire-display-name-row { display: flex; align-items: center; gap: 7px; margin-top: 3px; }
+    #wordle-low-fidelity-screens .wordle-wire-inline-edit { width: min(220px,100%); background: var(--wordle-wire-panel); color: var(--wordle-wire-ink); border: 1px solid var(--wordle-wire-line); border-radius: 7px; padding: 6px 8px; font: inherit; }
+    #wordle-low-fidelity-screens .wordle-wire-tiny-action { width: 30px; height: 30px; padding: 0; }
+    #wordle-low-fidelity-screens .wordle-wire-profile-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 14px; }
+    #wordle-low-fidelity-screens .wordle-wire-profile-menu-wrap,
+    #wordle-low-fidelity-screens .wordle-wire-audience-wrap { position: relative; }
+    #wordle-low-fidelity-screens .wordle-wire-profile-actions-menu { right: 0; top: 40px; }
+    #wordle-low-fidelity-screens .wordle-wire-audience-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    #wordle-low-fidelity-screens .wordle-wire-audience-menu { right: 0; top: 34px; }
+    #wordle-low-fidelity-screens .wordle-wire-settings-section { display: grid; gap: 8px; margin-bottom: 22px; }
+    #wordle-low-fidelity-screens .wordle-wire-settings-section h3 { margin: 0 0 2px; }
+    #wordle-low-fidelity-screens .wordle-wire-setting-select { min-width: 135px; background: var(--wordle-wire-panel); color: var(--wordle-wire-ink); border: 1px solid var(--wordle-wire-line); border-radius: 8px; padding: 8px 30px 8px 10px; font: inherit; }
+    #wordle-low-fidelity-screens .wordle-wire-online { position: absolute; right: 15px; top: 15px; display: flex; align-items: center; gap: 7px; }
+    #wordle-low-fidelity-screens .wordle-wire-online-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--wordle-wire-active); }
+    #wordle-low-fidelity-screens .wordle-wire-progress { height: 10px; border-radius: 999px; background: var(--wordle-wire-soft); overflow: hidden; margin-top: 7px; }
+    #wordle-low-fidelity-screens .wordle-wire-progress span { display: block; width: 62%; height: 100%; background: var(--wordle-wire-active); }
+    #wordle-low-fidelity-screens .wordle-wire-profile-stats { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; margin-top: 14px; }
+    #wordle-low-fidelity-screens .wordle-wire-carousel-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 18px; }
+    #wordle-low-fidelity-screens .wordle-wire-carousel-wrap { display: grid; grid-template-columns: 38px minmax(0,1fr) 38px; gap: 8px; align-items: center; }
+    #wordle-low-fidelity-screens .wordle-wire-carousel { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(145px,1fr); gap: 10px; overflow: hidden; }
+    #wordle-low-fidelity-screens .wordle-wire-podium { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); align-items: end; gap: 8px; max-width: 560px; margin: 10px auto 18px; }
+    #wordle-low-fidelity-screens .wordle-wire-podium-place { background: var(--wordle-wire-panel); border: 1px solid var(--wordle-wire-line); border-radius: 14px 14px 6px 6px; text-align: center; padding: 14px 8px; }
+    #wordle-low-fidelity-screens .wordle-wire-podium-place.first { min-height: 160px; }
+    #wordle-low-fidelity-screens .wordle-wire-podium-place.second { min-height: 132px; }
+    #wordle-low-fidelity-screens .wordle-wire-podium-place.third { min-height: 112px; }
+    #wordle-low-fidelity-screens .wordle-wire-podium-place.second,
+    #wordle-low-fidelity-screens .wordle-wire-podium-place.third { transform: translateY(16px); }
+    #wordle-low-fidelity-screens .wordle-wire-you-rank { margin-top: 28px; border: 2px solid var(--wordle-wire-active); }
+    #wordle-low-fidelity-screens .wordle-wire-rank-groups { display: grid; gap: 9px; }
+    #wordle-low-fidelity-screens .wordle-wire-rank-group { display: grid; grid-template-columns: 54px minmax(0,1fr); gap: 10px; align-items: stretch; background: var(--wordle-wire-panel); border: 1px solid var(--wordle-wire-line); border-radius: 11px; padding: 9px; }
+    #wordle-low-fidelity-screens .wordle-wire-rank-number { display: grid; place-items: center; font-size: 1.15rem; font-weight: 500; border-right: 1px solid var(--wordle-wire-line); }
+    #wordle-low-fidelity-screens .wordle-wire-rank-players { display: flex; flex-wrap: wrap; gap: 8px; }
+    #wordle-low-fidelity-screens .wordle-wire-rank-player { flex: 1 1 220px; min-width: 0; display: flex; align-items: center; gap: 9px; background: var(--wordle-wire-soft); border-radius: 8px; padding: 8px; }
+    #wordle-low-fidelity-screens .wordle-wire-rank-value { margin-left: auto; font-weight: 500; white-space: nowrap; }
+    #wordle-low-fidelity-screens .wordle-wire-round-gain { display: inline-block; margin-left: 7px; color: var(--wordle-wire-active); animation: wordle-wire-points-rise 1.3s ease-out both; }
+    @keyframes wordle-wire-points-rise { 0% { transform: translateY(8px); opacity: 0; } 25%,70% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-8px); opacity: 0; } }
+    #wordle-low-fidelity-screens .wordle-wire-leaderboard-own { position: sticky; bottom: 10px; z-index: 3; margin-top: 12px; border: 2px solid var(--wordle-wire-active); box-shadow: 0 6px 14px color-mix(in srgb, var(--wordle-wire-ink) 12%, transparent); }
+    #wordle-low-fidelity-screens .wordle-wire-config-list { display: grid; gap: 8px; margin-bottom: 18px; }
+    #wordle-low-fidelity-screens .wordle-wire-config { display: flex; align-items: center; justify-content: space-between; gap: 14px; background: var(--wordle-wire-panel); border: 1px solid var(--wordle-wire-line); border-radius: 12px; padding: 12px 14px; }
+    #wordle-low-fidelity-screens .wordle-wire-stepper { display: flex; align-items: center; gap: 10px; margin-left: auto; }
+    #wordle-low-fidelity-screens .wordle-wire-step { width: 34px; height: 34px; border: 1px solid var(--wordle-wire-line); border-radius: 50%; background: var(--wordle-wire-soft); color: var(--wordle-wire-ink); }
+    #wordle-low-fidelity-screens .wordle-wire-section-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; }
+    #wordle-low-fidelity-screens .wordle-wire-section-title .wordle-wire-heading { margin: 0; }
+    #wordle-low-fidelity-screens .wordle-wire-lobby-player { cursor: context-menu; }
+    #wordle-low-fidelity-screens .wordle-wire-context-menu { position: absolute; z-index: 5; min-width: 150px; background: var(--wordle-wire-panel); border: 1px solid var(--wordle-wire-line); border-radius: 9px; padding: 6px; box-shadow: 0 8px 20px color-mix(in srgb, var(--wordle-wire-ink) 18%, transparent); }
+    #wordle-low-fidelity-screens .wordle-wire-context-menu button { width: 100%; padding: 8px; border: 0; background: transparent; color: var(--wordle-wire-ink); text-align: left; }
+    #wordle-low-fidelity-screens .wordle-wire-lobby-actions { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-top: 14px; }
+    #wordle-low-fidelity-screens .wordle-wire-lobby-actions-right { display: flex; align-items: center; gap: 8px; }
+    #wordle-low-fidelity-screens .wordle-wire-readonly-value { min-width: 112px; text-align: center; padding: 8px 10px; background: var(--wordle-wire-soft); border-radius: 999px; font-weight: 500; }
+    #wordle-low-fidelity-screens .wordle-wire-action:disabled { opacity: .46; cursor: not-allowed; }
+    #wordle-low-fidelity-screens .wordle-wire-modal-backdrop { position: absolute; inset: 0; z-index: 12; display: grid; place-items: center; padding: 18px; background: color-mix(in srgb, var(--wordle-wire-ink) 28%, transparent); }
+    #wordle-low-fidelity-screens .wordle-wire-modal { width: min(100%,390px); background: var(--wordle-wire-panel); color: var(--wordle-wire-ink); border: 1px solid var(--wordle-wire-line); border-radius: 14px; padding: 20px; box-shadow: 0 14px 34px color-mix(in srgb, var(--wordle-wire-ink) 22%, transparent); }
+    #wordle-low-fidelity-screens .wordle-wire-modal h3 { margin: 0 0 8px; }
+    #wordle-low-fidelity-screens .wordle-wire-modal p { margin: 0 0 18px; color: var(--wordle-wire-subtle); }
+    #wordle-low-fidelity-screens .wordle-wire-modal-actions { display: flex; justify-content: flex-end; gap: 8px; }
+    #wordle-low-fidelity-screens .wordle-wire-toast { position: absolute; z-index: 11; right: 18px; bottom: 18px; background: var(--wordle-wire-ink); color: var(--wordle-wire-panel); border-radius: 8px; padding: 10px 13px; }
+    #wordle-low-fidelity-screens .wordle-wire-offline-banner { display: flex; justify-content: center; align-items: center; gap: 8px; background: var(--wordle-wire-soft); border: 1px solid var(--wordle-wire-line); padding: 9px 12px; margin: -10px 0 18px; font-weight: 500; }
+    #wordle-low-fidelity-screens .wordle-wire-state-center { min-height: 430px; display: grid; place-items: center; text-align: center; }
+    #wordle-low-fidelity-screens .wordle-wire-state-content { width: min(100%,420px); }
+    #wordle-low-fidelity-screens .wordle-wire-state-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 18px; }
+    #wordle-low-fidelity-screens .wordle-wire-skeleton-stack { display: grid; gap: 10px; }
+    #wordle-low-fidelity-screens .wordle-wire-skeleton-row { display: grid; grid-template-columns: 42px minmax(0,1fr) 88px; gap: 11px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--wordle-wire-line); }
+    #wordle-low-fidelity-screens .wordle-wire-skeleton-circle { width: 42px; height: 42px; border-radius: 50%; background: var(--wordle-wire-mid); }
+    #wordle-low-fidelity-screens .wordle-wire-skeleton-lines { display: grid; gap: 7px; }
+    #wordle-low-fidelity-screens .wordle-wire-skeleton-line { height: 11px; border-radius: 999px; background: var(--wordle-wire-mid); }
+    #wordle-low-fidelity-screens .wordle-wire-skeleton-line.short { width: 62%; }
+    #wordle-low-fidelity-screens .wordle-wire-skeleton-action { height: 34px; border-radius: 8px; background: var(--wordle-wire-mid); }
+    #wordle-low-fidelity-screens .wordle-wire-drawer-backdrop { position: absolute; inset: 0; z-index: 10; background: color-mix(in srgb, var(--wordle-wire-ink) 24%, transparent); }
+    #wordle-low-fidelity-screens .wordle-wire-drawer { position: absolute; z-index: 11; inset: 0 0 0 auto; width: min(84%,310px); background: var(--wordle-wire-panel); border-left: 1px solid var(--wordle-wire-line); padding: 18px; }
+    #wordle-low-fidelity-screens .wordle-wire-drawer-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid var(--wordle-wire-line); }
+    #wordle-low-fidelity-screens .wordle-wire-drawer-links { display: grid; gap: 5px; margin-top: 14px; }
+    #wordle-low-fidelity-screens .wordle-wire-drawer-link { padding: 12px; border-radius: 8px; }
+    #wordle-low-fidelity-screens .wordle-wire-drawer-link.is-active { background: var(--wordle-wire-soft); }
+    #wordle-low-fidelity-screens .wordle-wire-checkline { display: flex; align-items: center; gap: 8px; margin-top: 14px; }
+    #wordle-low-fidelity-screens .wordle-wire-battle-play { container-type: inline-size; min-width: 0; }
+    #wordle-low-fidelity-screens .wordle-wire-battle-status { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; margin-bottom: 8px; }
+    #wordle-low-fidelity-screens .wordle-wire-battle-time { font-size: 1.15rem; font-weight: 500; text-align: center; }
+    #wordle-low-fidelity-screens .wordle-wire-battle-points { justify-self: end; }
+    #wordle-low-fidelity-screens .wordle-wire-active-arena { display: grid; grid-template-columns: minmax(0,1fr) minmax(210px,270px); gap: 18px; align-items: start; }
+    #wordle-low-fidelity-screens .wordle-wire-active-arena.is-spectating { grid-template-columns: minmax(260px,.7fr) minmax(0,1.3fr); }
+    #wordle-low-fidelity-screens .wordle-wire-own-game { position: relative; min-width: 0; container-type: inline-size; }
+    #wordle-low-fidelity-screens .wordle-wire-active-arena .wordle-wire-play { grid-template-columns: minmax(0,1fr); gap: 8px; }
+    #wordle-low-fidelity-screens .wordle-wire-opponent-rail { display: grid; gap: 10px; max-height: 510px; overflow-y: auto; padding-right: 4px; }
+    #wordle-low-fidelity-screens .wordle-wire-opponent-card { position: relative; background: var(--wordle-wire-panel); border: 1px solid var(--wordle-wire-line); border-radius: 10px; padding: 10px; }
+    #wordle-low-fidelity-screens .wordle-wire-opponent-name { display: block; margin-bottom: 7px; }
+    #wordle-low-fidelity-screens .wordle-wire-opponent-grid { display: grid; grid-template-columns: repeat(5,14px); gap: 3px; justify-content: center; }
+    #wordle-low-fidelity-screens .wordle-wire-opponent-grid span { width: 14px; height: 14px; display: grid; place-items: center; background: var(--wordle-wire-mid); font-size: .56rem; }
+    #wordle-low-fidelity-screens .wordle-wire-opponent-card.is-large .wordle-wire-opponent-grid { grid-template-columns: repeat(5,clamp(25px,3.3vw,34px)); gap: 5px; }
+    #wordle-low-fidelity-screens .wordle-wire-opponent-card.is-large .wordle-wire-opponent-grid span { width: clamp(25px,3.3vw,34px); height: clamp(25px,3.3vw,34px); }
+    #wordle-low-fidelity-screens .wordle-wire-opponent-card.is-disconnected .wordle-wire-opponent-content { filter: grayscale(1); opacity: .28; }
+    #wordle-low-fidelity-screens .wordle-wire-disconnected-label { position: absolute; z-index: 2; top: 9px; left: 50%; transform: translateX(-50%); font-weight: 500; }
+    #wordle-low-fidelity-screens .wordle-wire-disconnect-count { position: absolute; z-index: 2; inset: 0; display: grid; place-items: center; font-size: 1.35rem; font-weight: 500; }
+    #wordle-low-fidelity-screens .wordle-wire-countdown-overlay { position: absolute; z-index: 4; inset: 0; display: grid; place-items: center; background: color-mix(in srgb, var(--wordle-wire-bg) 72%, transparent); font-size: 3rem; font-weight: 500; }
+    #wordle-low-fidelity-screens .wordle-wire-finished-note { text-align: center; margin-bottom: 10px; color: var(--wordle-wire-subtle); }
+    #wordle-low-fidelity-screens .wordle-wire-opponent-rail.is-expanded { grid-template-columns: repeat(2,minmax(0,1fr)); max-height: none; }
+    #wordle-low-fidelity-screens .wordle-wire-opponent-rail.is-expanded .wordle-wire-opponent-grid { grid-template-columns: repeat(5,18px); }
+    #wordle-low-fidelity-screens .wordle-wire-opponent-rail.is-expanded .wordle-wire-opponent-grid span { width: 18px; height: 18px; }
+    #wordle-low-fidelity-screens .wordle-wire-battle-time.is-urgent { animation: wordle-wire-timer-shake .22s ease-in-out 1; color: var(--wordle-wire-error); }
+    @keyframes wordle-wire-timer-shake { 0%,100% { transform: translateX(0); } 30% { transform: translateX(-4px); } 70% { transform: translateX(4px); } }
+    @media (prefers-reduced-motion: reduce) { #wordle-low-fidelity-screens .wordle-wire-battle-time.is-urgent, #wordle-low-fidelity-screens .wordle-wire-round-gain { animation: none; } }
+    #wordle-low-fidelity-screens .wordle-wire-result-layout { grid-template-columns: minmax(300px,1fr) minmax(280px,.85fr); gap: clamp(24px,3vw,34px); align-items: center; max-width: 790px; margin: 8px auto 0; }
+    #wordle-low-fidelity-screens .wordle-wire-result-layout .wordle-wire-board { margin: 0 auto; }
+    #wordle-low-fidelity-screens .wordle-wire-result-panel { display: grid; gap: 18px; align-content: center; max-width: 360px; width: 100%; margin-inline: auto; }
+    #wordle-low-fidelity-screens .wordle-wire-result-panel .wordle-wire-copy,
+    #wordle-low-fidelity-screens .wordle-wire-result-panel .wordle-wire-full-action { margin-bottom: 0; margin-top: 0; }
+    #wordle-low-fidelity-screens .wordle-wire-result-mark { font-size: 1.8rem; font-weight: 500; }
+    #wordle-low-fidelity-screens .wordle-wire-result-details { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+    #wordle-low-fidelity-screens .wordle-wire-result-detail { background: var(--wordle-wire-soft); border-radius: 10px; padding: 12px; }
+    #wordle-low-fidelity-screens .wordle-wire-result-detail strong { display: block; margin-top: 5px; }
+    #wordle-low-fidelity-screens .wordle-wire-result-board .wordle-wire-tile.filled:nth-child(5n+1),
+    #wordle-low-fidelity-screens .wordle-wire-result-board .wordle-wire-tile.filled:nth-child(5n+4) { background: var(--wordle-wire-active); border-color: var(--wordle-wire-active); color: var(--wordle-wire-active-ink); }
+    #wordle-low-fidelity-screens .wordle-wire-result-board .wordle-wire-tile.filled:nth-child(5n+2) { background: var(--wordle-wire-soft); }
+    #wordle-low-fidelity-screens .wordle-wire-result-board .wordle-wire-tile.unused { background: var(--wordle-wire-panel); border-color: var(--wordle-wire-mid); }
+    #wordle-low-fidelity-screens .wordle-wire-copy-confirm { position: absolute; right: 18px; bottom: 18px; background: var(--wordle-wire-ink); color: var(--wordle-wire-panel); border-radius: 8px; padding: 10px 13px; }
+    #wordle-low-fidelity-screens .wordle-wire-confetti { display: inline-flex; gap: 8px; margin-left: 8px; color: var(--wordle-wire-active); }
+    #wordle-low-fidelity-screens .wordle-wire-friend-toolbar { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 10px; margin-bottom: 14px; }
+    #wordle-low-fidelity-screens .wordle-wire-friend-search { width: 100%; height: 42px; background: var(--wordle-wire-panel); color: var(--wordle-wire-ink); border: 1px solid var(--wordle-wire-line); border-radius: 8px; padding: 10px; font: inherit; }
+    #wordle-low-fidelity-screens .wordle-wire-sort { min-width: 178px; background: var(--wordle-wire-panel); color: var(--wordle-wire-ink); border: 1px solid var(--wordle-wire-line); border-radius: 8px; padding: 9px 30px 9px 10px; }
+    #wordle-low-fidelity-screens .wordle-wire-filter-icon { display: none; width: 42px; height: 42px; padding: 0; }
+    #wordle-low-fidelity-screens .wordle-wire-request-actions { display: flex; gap: 7px; }
+    #wordle-low-fidelity-screens .wordle-wire-icon-action { width: 38px; height: 38px; padding: 0; font-size: 1.1rem; }
+    #wordle-low-fidelity-screens .wordle-wire-empty { padding: 48px 16px; text-align: center; color: var(--wordle-wire-subtle); }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-stage { max-width: 390px; margin-inline: auto; min-height: 690px; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-shell { display: block; min-height: 690px; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-side { display: none; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-main { padding: 15px 12px 22px; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-mobile-menu { display: inline-flex; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-grid2 { gap: 8px; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-mode { min-height: 152px; padding: 11px; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-home-grid .wordle-wire-mode { aspect-ratio: 1 / 1; min-height: 0; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-battle { display: block; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-opponents { margin-top: 12px; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-active-arena { grid-template-columns: 1fr; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-opponent-rail { grid-template-columns: repeat(2,minmax(0,1fr)); max-height: 350px; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-opponent-card.is-large .wordle-wire-opponent-grid { grid-template-columns: repeat(5,32px); }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-opponent-card.is-large .wordle-wire-opponent-grid span { width: 32px; height: 32px; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-grid3 { grid-template-columns: 1fr; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-invite { right: 14px; bottom: 14px; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-invitation-panel { right: 14px; bottom: 64px; width: calc(100% - 28px); }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-lobby-invite-picker { left: 12px; right: 12px; top: 66px; width: auto; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-auth { min-height: 690px; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-center { padding-bottom: 70px; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-play { display: block; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-board { --wordle-tile-size: clamp(46px,14vw,58px); }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-keyboard { width: 100%; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-choice-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-choice { min-height: 105px; padding: 12px; flex-direction: row; align-items: center; justify-content: flex-start; gap: 14px; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-choice-mark { width: 44px; height: 44px; border-radius: 13px; flex: none; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-profile-stats { grid-template-columns: 1fr; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-carousel { grid-auto-columns: 72%; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-carousel-wrap { grid-template-columns: 34px minmax(0,1fr) 34px; gap: 5px; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-result-layout { display: grid; grid-template-columns: 1fr; gap: 22px; margin-top: 14px; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-result-panel { max-width: 330px; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-profile-identity { padding-right: 0; padding-top: 34px; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-profile-actions { justify-content: stretch; flex-wrap: wrap; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-profile-actions &gt; .wordle-wire-action:first-child { flex: 1; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-sort { display: none; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-filter-icon { display: inline-flex; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-toast { right: 50%; transform: translateX(50%); white-space: nowrap; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-top { flex-wrap: wrap; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-top-actions { gap: 6px; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-lobby-actions { align-items: stretch; flex-direction: column; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-lobby-actions-right { width: 100%; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-lobby-actions-right .wordle-wire-action { flex: 1; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-rank-group { grid-template-columns: 42px minmax(0,1fr); gap: 7px; padding: 7px; }
+    #wordle-low-fidelity-screens .wordle-wire-device-mobile .wordle-wire-rank-player { flex-basis: 100%; }
+    @media (min-width: 621px) {
+      #wordle-low-fidelity-screens .wordle-wire-home-grid .wordle-wire-mode { aspect-ratio: 1 / 1; min-height: 0; }
+    }
+    @container (max-width: 760px) {
+      #wordle-low-fidelity-screens .wordle-wire-keyboard { width: min(100%,560px); margin-top: 4px; }
+    }
+    @container (max-width: 650px) {
+      #wordle-low-fidelity-screens .wordle-wire-result-layout { grid-template-columns: 1fr; gap: 22px; margin-top: 8px; }
+    }
+    @media (max-width: 620px) {
+      #wordle-low-fidelity-screens .wordle-wire-stage { min-height: 650px; }
+      #wordle-low-fidelity-screens .wordle-wire-shell { display: block; min-height: 650px; }
+      #wordle-low-fidelity-screens .wordle-wire-side { display: none; }
+      #wordle-low-fidelity-screens .wordle-wire-main { padding: 15px 12px 22px; }
+      #wordle-low-fidelity-screens .wordle-wire-home-grid .wordle-wire-mode { aspect-ratio: 1 / 1; min-height: 0; }
+      #wordle-low-fidelity-screens .wordle-wire-mobile-menu { display: inline-flex; }
+      #wordle-low-fidelity-screens .wordle-wire-battle { display: block; }
+      #wordle-low-fidelity-screens .wordle-wire-play { display: block; }
+      #wordle-low-fidelity-screens .wordle-wire-result-layout { display: grid; }
+      #wordle-low-fidelity-screens .wordle-wire-board { --wordle-tile-size: clamp(44px,13vw,56px); }
+      #wordle-low-fidelity-screens .wordle-wire-opponents { margin-top: 12px; }
+      #wordle-low-fidelity-screens .wordle-wire-active-arena { grid-template-columns: 1fr; }
+      #wordle-low-fidelity-screens .wordle-wire-grid3 { grid-template-columns: 1fr; }
+      #wordle-low-fidelity-screens .wordle-wire-invite { right: 14px; }
+    }
+  &lt;/style&gt;
+  &lt;div class=&quot;wordle-wire-controls&quot;&gt;
+    &lt;div class=&quot;wordle-wire-control&quot;&gt;
+      &lt;label for=&quot;wordle-wire-screen&quot;&gt;Screen&lt;/label&gt;
+      &lt;select id=&quot;wordle-wire-screen&quot;&gt;
+        &lt;option value=&quot;signin&quot;&gt;Sign in&lt;/option&gt;
+        &lt;option value=&quot;username&quot;&gt;Username setup&lt;/option&gt;
+        &lt;option value=&quot;home&quot; selected&gt;Home&lt;/option&gt;
+        &lt;option value=&quot;daily&quot;&gt;Daily Wordle&lt;/option&gt;
+        &lt;option value=&quot;daily-result&quot;&gt;Daily Wordle result&lt;/option&gt;
+        &lt;option value=&quot;free-setup&quot;&gt;Free Play setup&lt;/option&gt;
+        &lt;option value=&quot;free-game&quot;&gt;Free Play game&lt;/option&gt;
+        &lt;option value=&quot;free-result&quot;&gt;Free Play result&lt;/option&gt;
+        &lt;option value=&quot;friends&quot;&gt;Friends&lt;/option&gt;
+        &lt;option value=&quot;friend-requests&quot;&gt;Friend requests&lt;/option&gt;
+        &lt;option value=&quot;find-friends&quot;&gt;Find friends&lt;/option&gt;
+        &lt;option value=&quot;profile&quot;&gt;Profile&lt;/option&gt;
+        &lt;option value=&quot;friend-profile&quot;&gt;Friend profile&lt;/option&gt;
+        &lt;option value=&quot;leaderboards&quot;&gt;Leaderboards&lt;/option&gt;
+        &lt;option value=&quot;settings&quot;&gt;Settings&lt;/option&gt;
+        &lt;option value=&quot;mobile-menu&quot;&gt;Mobile navigation drawer&lt;/option&gt;
+        &lt;option value=&quot;loading&quot;&gt;Loading skeleton&lt;/option&gt;
+        &lt;option value=&quot;offline&quot;&gt;Offline state&lt;/option&gt;
+        &lt;option value=&quot;free-leave&quot;&gt;Free Play leave confirmation&lt;/option&gt;
+        &lt;option value=&quot;page-error&quot;&gt;Standard page error&lt;/option&gt;
+        &lt;option value=&quot;daily-error&quot;&gt;Daily Wordle loading error&lt;/option&gt;
+        &lt;option value=&quot;battle-elsewhere&quot;&gt;Battle opened elsewhere&lt;/option&gt;
+        &lt;option value=&quot;auth-expired&quot;&gt;Authentication expired&lt;/option&gt;
+        &lt;option value=&quot;maintenance&quot;&gt;Maintenance&lt;/option&gt;
+        &lt;option value=&quot;battle-setup&quot;&gt;Battle setup + lobby (host)&lt;/option&gt;
+        &lt;option value=&quot;battle-setup-member&quot;&gt;Battle setup + lobby (member)&lt;/option&gt;
+        &lt;option value=&quot;battle-lobby-countdown&quot;&gt;Battle lobby countdown&lt;/option&gt;
+        &lt;option value=&quot;battle-two&quot;&gt;Active battle (2 players)&lt;/option&gt;
+        &lt;option value=&quot;battle&quot;&gt;Active battle (3–8 players)&lt;/option&gt;
+        &lt;option value=&quot;battle-countdown&quot;&gt;Active battle countdown&lt;/option&gt;
+        &lt;option value=&quot;battle-finished&quot;&gt;Active battle (finished / spectating)&lt;/option&gt;
+        &lt;option value=&quot;round-results&quot;&gt;Leaderboard + Ready&lt;/option&gt;
+        &lt;option value=&quot;final-results&quot;&gt;Final battle leaderboard&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;wordle-wire-control&quot;&gt;
+      &lt;label for=&quot;wordle-wire-device&quot;&gt;Viewport&lt;/label&gt;
+      &lt;select id=&quot;wordle-wire-device&quot;&gt;
+        &lt;option value=&quot;desktop&quot; selected&gt;Desktop&lt;/option&gt;
+        &lt;option value=&quot;mobile&quot;&gt;Mobile&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;wordle-wire-device-wrap&quot;&gt;
+    &lt;div id=&quot;wordle-wire-stage&quot; class=&quot;wordle-wire-stage&quot; aria-live=&quot;polite&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;script&gt;
+    (() =&gt; {
+      const root = document.getElementById(&#x27;wordle-low-fidelity-screens&#x27;);
+      const screenSelect = root.querySelector(&#x27;#wordle-wire-screen&#x27;);
+      const deviceSelect = root.querySelector(&#x27;#wordle-wire-device&#x27;);
+      const deviceWrap = root.querySelector(&#x27;#wordle-wire-device-wrap&#x27;);
+      const stage = root.querySelector(&#x27;#wordle-wire-stage&#x27;);
+
+      const top = (title, showMenu=true, exitLabel=&#x27;&#x27;) =&gt; {
+        const inferredExit = title === &#x27;Leaderboards&#x27; ? &#x27;Exit&#x27; : title.startsWith(&#x27;Friendly Battle&#x27;) || title.startsWith(&#x27;Round Complete&#x27;) ? &#x27;Exit Battle&#x27; : &#x27;&#x27;;
+        const resolvedExit = exitLabel || inferredExit;
+        return showMenu
+          ? `&lt;div class=&quot;wordle-wire-top&quot;&gt;&lt;span class=&quot;wordle-wire-logo&quot;&gt;WORDLE&lt;/span&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;${title}&lt;/span&gt;&lt;span class=&quot;wordle-wire-top-actions&quot;&gt;${resolvedExit?`&lt;button class=&quot;wordle-wire-action secondary wire-mode-exit&quot; type=&quot;button&quot;&gt;${resolvedExit}&lt;/button&gt;`:&#x27;&#x27;}&lt;button class=&quot;wordle-wire-action secondary wordle-wire-mobile-menu&quot; type=&quot;button&quot; aria-label=&quot;Open menu&quot;&gt;☰&lt;/button&gt;&lt;/span&gt;&lt;/div&gt;`
+          : `&lt;div class=&quot;wordle-wire-top&quot;&gt;&lt;span class=&quot;wordle-wire-logo&quot;&gt;WORDLE&lt;/span&gt;&lt;span class=&quot;wordle-wire-muted wordle-wire-auth-label&quot;&gt;${title}&lt;/span&gt;&lt;/div&gt;`;
+      };
+      const side = (active) =&gt; `&lt;aside class=&quot;wordle-wire-side&quot;&gt;&lt;div class=&quot;wordle-wire-nav-person&quot;&gt;&lt;span class=&quot;wordle-wire-avatar&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;strong&gt;Yuri&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;@yuri&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-nav-links&quot;&gt;${[&#x27;Home&#x27;,&#x27;Profile&#x27;,&#x27;Friends&#x27;,&#x27;Settings&#x27;].map(item =&gt; `&lt;div class=&quot;wordle-wire-nav-link ${item.toLowerCase()===active?&#x27;is-active&#x27;:&#x27;&#x27;}&quot;&gt;${item}&lt;/div&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;&lt;/aside&gt;`;
+      const shell = (content, active=&#x27;home&#x27;, invite=true) =&gt; `&lt;div class=&quot;wordle-wire-shell&quot;&gt;&lt;main class=&quot;wordle-wire-main&quot;&gt;${content}&lt;/main&gt;${side(active)}&lt;/div&gt;${invite?&#x27;&lt;button id=&quot;wire-invite-bubble&quot; class=&quot;wordle-wire-invite&quot; type=&quot;button&quot; aria-label=&quot;Two battle invitations&quot;&gt;2&lt;/button&gt;&lt;div id=&quot;wire-invitation-panel&quot; class=&quot;wordle-wire-invitation-panel wordle-wire-hidden&quot;&gt;&lt;div class=&quot;wordle-wire-invitation-card&quot;&gt;&lt;div class=&quot;wordle-wire-person&quot;&gt;&lt;span class=&quot;wordle-wire-avatar&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;strong&gt;Mika&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;@mika · 3/8 players&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-invitation-actions&quot;&gt;&lt;button class=&quot;wordle-wire-action wire-accept-invitation&quot; type=&quot;button&quot; aria-label=&quot;Accept Mika’s invitation&quot;&gt;✓&lt;/button&gt;&lt;button class=&quot;wordle-wire-action secondary wire-decline-invitation&quot; type=&quot;button&quot; aria-label=&quot;Decline Mika’s invitation&quot;&gt;×&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-invitation-card&quot;&gt;&lt;div class=&quot;wordle-wire-person&quot;&gt;&lt;span class=&quot;wordle-wire-avatar&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;strong&gt;Ari&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;@ari · 2/5 players&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-invitation-actions&quot;&gt;&lt;button class=&quot;wordle-wire-action wire-accept-invitation&quot; type=&quot;button&quot; aria-label=&quot;Accept Ari’s invitation&quot;&gt;✓&lt;/button&gt;&lt;button class=&quot;wordle-wire-action secondary wire-decline-invitation&quot; type=&quot;button&quot; aria-label=&quot;Decline Ari’s invitation&quot;&gt;×&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&#x27;:&#x27;&#x27;}`;
+      const board = () =&gt; `&lt;div class=&quot;wordle-wire-board&quot;&gt;${Array.from({length:30},(_,i)=&gt;`&lt;span class=&quot;wordle-wire-tile ${i&lt;10?&#x27;filled&#x27;:&#x27;&#x27;}&quot;&gt;${i&lt;5?&#x27;A&#x27;:&#x27;&#x27;}&lt;/span&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;`;
+      const completedBoard = () =&gt; `&lt;div class=&quot;wordle-wire-board wordle-wire-result-board&quot; role=&quot;img&quot; aria-label=&quot;Completed Wordle board: four used rows and two unused rows&quot;&gt;${&#x27;CRANESTOILMIGHTBRAVE&#x27;.padEnd(30,&#x27;&#x27;).split(&#x27;&#x27;).map((letter,i)=&gt;`&lt;span class=&quot;wordle-wire-tile ${i&lt;20?&#x27;filled&#x27;:&#x27;unused&#x27;}&quot;&gt;${i&lt;20?letter:&#x27;&#x27;}&lt;/span&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;`;
+      const keyboard = () =&gt; `&lt;div class=&quot;wordle-wire-keyboard&quot;&gt;&lt;div class=&quot;wordle-wire-keyrow&quot;&gt;${Array.from({length:10},()=&gt;&#x27;&lt;span class=&quot;wordle-wire-key&quot;&gt;&lt;/span&gt;&#x27;).join(&#x27;&#x27;)}&lt;/div&gt;&lt;div class=&quot;wordle-wire-keyrow&quot;&gt;${Array.from({length:9},()=&gt;&#x27;&lt;span class=&quot;wordle-wire-key&quot;&gt;&lt;/span&gt;&#x27;).join(&#x27;&#x27;)}&lt;/div&gt;&lt;div class=&quot;wordle-wire-keyrow&quot;&gt;&lt;span class=&quot;wordle-wire-key wide&quot;&gt;ENTER&lt;/span&gt;${Array.from({length:7},()=&gt;&#x27;&lt;span class=&quot;wordle-wire-key&quot;&gt;&lt;/span&gt;&#x27;).join(&#x27;&#x27;)}&lt;span class=&quot;wordle-wire-key wide&quot;&gt;ERASE&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;`;
+      const personRow = (name, status, action=&#x27;&#x27;) =&gt; `&lt;div class=&quot;wordle-wire-row&quot;&gt;&lt;div class=&quot;wordle-wire-person&quot;&gt;&lt;span class=&quot;wordle-wire-avatar&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;strong&gt;${name}&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;${status}&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;${action?`&lt;button class=&quot;wordle-wire-action secondary&quot; type=&quot;button&quot;&gt;${action}&lt;/button&gt;`:&#x27;&#x27;}&lt;/div&gt;`;
+      const friendRow = (name, handle, online) =&gt; `&lt;div class=&quot;wordle-wire-row&quot;&gt;&lt;div class=&quot;wordle-wire-person&quot;&gt;&lt;span class=&quot;wordle-wire-avatar&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;strong&gt;${name}&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;${handle}&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;${online}&lt;/span&gt;&lt;/div&gt;`;
+      const friendTabs = (active) =&gt; `&lt;div class=&quot;wordle-wire-tabs&quot;&gt;&lt;button class=&quot;wordle-wire-tab ${active===&#x27;friends&#x27;?&#x27;is-active&#x27;:&#x27;&#x27;} wordle-wire-friends-tab&quot; data-screen=&quot;friends&quot; type=&quot;button&quot; aria-label=&quot;Friends&quot;&gt;●●&lt;/button&gt;&lt;button class=&quot;wordle-wire-tab ${active===&#x27;friend-requests&#x27;?&#x27;is-active&#x27;:&#x27;&#x27;} wordle-wire-friends-tab&quot; data-screen=&quot;friend-requests&quot; type=&quot;button&quot; aria-label=&quot;Friend requests&quot;&gt;●＋ · 3&lt;/button&gt;&lt;button class=&quot;wordle-wire-tab ${active===&#x27;find-friends&#x27;?&#x27;is-active&#x27;:&#x27;&#x27;} wordle-wire-friends-tab&quot; data-screen=&quot;find-friends&quot; type=&quot;button&quot; aria-label=&quot;Find friends&quot;&gt;⌕&lt;/button&gt;&lt;/div&gt;`;
+      const requestRow = (name, handle) =&gt; `&lt;div class=&quot;wordle-wire-row wordle-wire-request-row&quot;&gt;&lt;div class=&quot;wordle-wire-person&quot;&gt;&lt;span class=&quot;wordle-wire-avatar&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;strong&gt;${name}&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;${handle}&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-request-actions&quot;&gt;&lt;button class=&quot;wordle-wire-action wordle-wire-icon-action wire-accept-request&quot; type=&quot;button&quot; aria-label=&quot;Accept ${name}&#x27;s friend request&quot;&gt;✓&lt;/button&gt;&lt;button class=&quot;wordle-wire-action secondary wordle-wire-icon-action wire-decline-request&quot; type=&quot;button&quot; aria-label=&quot;Decline ${name}&#x27;s friend request&quot;&gt;×&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`;
+      const findRow = (name, display, relation) =&gt; `&lt;div class=&quot;wordle-wire-row wordle-wire-find-row&quot; data-username=&quot;${name.toLowerCase()}&quot;&gt;&lt;div class=&quot;wordle-wire-person&quot;&gt;&lt;span class=&quot;wordle-wire-avatar&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;strong&gt;${name}&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;${display}&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;button class=&quot;wordle-wire-action ${relation===&#x27;Add Friend&#x27;?&#x27;&#x27;:&#x27;secondary&#x27;} wire-relationship-action&quot; type=&quot;button&quot;&gt;${relation}&lt;/button&gt;&lt;/div&gt;`;
+      const rankPlayer = (name, details, value, you=false) =&gt; `&lt;button class=&quot;wordle-wire-rank-player&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;wordle-wire-avatar&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;strong&gt;${name}${you?&#x27; · YOU&#x27;:&#x27;&#x27;}&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;${details}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;wordle-wire-rank-value&quot;&gt;${value}&lt;/span&gt;&lt;/button&gt;`;
+      const rankGroup = (rank, players, extraClass=&#x27;&#x27;) =&gt; `&lt;div class=&quot;wordle-wire-rank-group ${extraClass}&quot;&gt;&lt;div class=&quot;wordle-wire-rank-number&quot;&gt;#${rank}&lt;/div&gt;&lt;div class=&quot;wordle-wire-rank-players&quot;&gt;${players}&lt;/div&gt;&lt;/div&gt;`;
+      const lobbyRow = (name, status, contextual=false) =&gt; `&lt;div class=&quot;wordle-wire-row ${contextual?&#x27;wordle-wire-lobby-player&#x27;:&#x27;&#x27;}&quot;&gt;&lt;div class=&quot;wordle-wire-person&quot;&gt;&lt;span class=&quot;wordle-wire-avatar&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;strong&gt;${name}&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;${status}&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;`;
+      const mini = (name) =&gt; `&lt;div class=&quot;wordle-wire-mini&quot;&gt;&lt;strong&gt;${name}&lt;/strong&gt;&lt;div class=&quot;wordle-wire-mini-grid&quot;&gt;${Array.from({length:30},()=&gt;&#x27;&lt;span&gt;&lt;/span&gt;&#x27;).join(&#x27;&#x27;)}&lt;/div&gt;&lt;/div&gt;`;
+      const audienceHeading = (title, audience=&#x27;Public&#x27;) =&gt; `&lt;div class=&quot;wordle-wire-audience-heading&quot;&gt;&lt;h3&gt;${title}&lt;/h3&gt;&lt;span class=&quot;wordle-wire-audience-wrap&quot;&gt;&lt;button class=&quot;wordle-wire-action secondary wordle-wire-tiny-action wire-audience-button&quot; type=&quot;button&quot; aria-label=&quot;${title} visibility: ${audience}&quot;&gt;${audience===&#x27;Public&#x27;?&#x27;◎&#x27;:audience===&#x27;Friends&#x27;?&#x27;●●&#x27;:&#x27;▣&#x27;}&lt;/button&gt;&lt;span class=&quot;wordle-wire-context-menu wordle-wire-audience-menu wordle-wire-hidden&quot;&gt;&lt;button type=&quot;button&quot; data-audience=&quot;Public&quot;&gt;◎ Public&lt;/button&gt;&lt;button type=&quot;button&quot; data-audience=&quot;Friends&quot;&gt;●● Friends&lt;/button&gt;&lt;button type=&quot;button&quot; data-audience=&quot;Private&quot;&gt;▣ Private&lt;/button&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;`;
+      const dailyCarousel = (lockedToday=false) =&gt; `&lt;div class=&quot;wordle-wire-carousel-wrap&quot;&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot; aria-label=&quot;Previous Daily Wordles&quot;&gt;←&lt;/button&gt;&lt;div class=&quot;wordle-wire-carousel&quot;&gt;${[&#x27;Today&#x27;,&#x27;Yesterday&#x27;,&#x27;2 days ago&#x27;,&#x27;3 days ago&#x27;].map((d,i)=&gt;`&lt;div class=&quot;wordle-wire-box&quot;&gt;&lt;strong&gt;${d}&lt;/strong&gt;${lockedToday&amp;&amp;i===0?&#x27;&lt;p class=&quot;wordle-wire-muted&quot;&gt;Letters available after you finish today’s Wordle&lt;/p&gt;&#x27;:&#x27;&#x27;}&lt;div class=&quot;wordle-wire-mini-grid&quot;&gt;${Array.from({length:30},()=&gt;&#x27;&lt;span&gt;&lt;/span&gt;&#x27;).join(&#x27;&#x27;)}&lt;/div&gt;&lt;/div&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot; aria-label=&quot;Next Daily Wordles&quot;&gt;→&lt;/button&gt;&lt;/div&gt;`;
+
+      const views = {
+        signin: () =&gt; `&lt;main class=&quot;wordle-wire-main wordle-wire-auth&quot;&gt;${top(&#x27;Sign in&#x27;,false)}&lt;div class=&quot;wordle-wire-center&quot;&gt;&lt;div class=&quot;wordle-wire-onboarding-mark&quot; aria-hidden=&quot;true&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Welcome to Wordle&lt;/h2&gt;&lt;p class=&quot;wordle-wire-copy&quot;&gt;Daily puzzles and friendly competition.&lt;/p&gt;&lt;button class=&quot;wordle-wire-action wordle-wire-full-action&quot; type=&quot;button&quot;&gt;Sign in with Google&lt;/button&gt;&lt;/div&gt;&lt;/main&gt;`,
+        username: () =&gt; `&lt;main class=&quot;wordle-wire-main wordle-wire-auth&quot;&gt;${top(&#x27;Account setup&#x27;,false)}&lt;div class=&quot;wordle-wire-center&quot;&gt;&lt;div class=&quot;wordle-wire-onboarding-mark&quot; aria-hidden=&quot;true&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Choose your username&lt;/h2&gt;&lt;p class=&quot;wordle-wire-copy&quot;&gt;This is how friends will find and recognize you.&lt;/p&gt;&lt;div class=&quot;wordle-wire-box wordle-wire-username-card&quot;&gt;&lt;label class=&quot;wordle-wire-input-label&quot; for=&quot;wire-username&quot;&gt;&lt;strong&gt;Username&lt;/strong&gt;&lt;span id=&quot;wire-username-count&quot; class=&quot;wordle-wire-muted&quot;&gt;6 / 20&lt;/span&gt;&lt;/label&gt;&lt;div class=&quot;wordle-wire-input-wrap&quot;&gt;&lt;span class=&quot;wordle-wire-prefix&quot;&gt;@&lt;/span&gt;&lt;input id=&quot;wire-username&quot; class=&quot;wordle-wire-input&quot; value=&quot;yuri25&quot; aria-describedby=&quot;wire-username-error&quot;&gt;&lt;/div&gt;&lt;div id=&quot;wire-username-available&quot; class=&quot;wordle-wire-available&quot;&gt;&lt;span class=&quot;wordle-wire-available-dot&quot;&gt;&lt;/span&gt;&lt;span&gt;Username available&lt;/span&gt;&lt;/div&gt;&lt;p id=&quot;wire-username-error&quot; class=&quot;wordle-wire-validation-error wordle-wire-hidden&quot; role=&quot;alert&quot;&gt;&lt;/p&gt;&lt;div class=&quot;wordle-wire-note&quot;&gt;You can change your username again after 90 days.&lt;/div&gt;&lt;button id=&quot;wire-username-continue&quot; class=&quot;wordle-wire-action wordle-wire-full-action&quot; type=&quot;button&quot;&gt;Continue&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/main&gt;`,
+        home: () =&gt; shell(`${top(&#x27;Home&#x27;)}&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Choose a game&lt;/h2&gt;&lt;p class=&quot;wordle-wire-copy&quot;&gt;Welcome back, Yuri.&lt;/p&gt;&lt;div class=&quot;wordle-wire-grid2 wordle-wire-home-grid&quot;&gt;&lt;button class=&quot;wordle-wire-box wordle-wire-mode&quot; type=&quot;button&quot;&gt;&lt;strong&gt;Daily Wordle&lt;/strong&gt;&lt;span class=&quot;wordle-wire-mode-detail&quot;&gt;In progress · Next puzzle 08:42:16&lt;/span&gt;&lt;/button&gt;&lt;button class=&quot;wordle-wire-box wordle-wire-mode&quot; type=&quot;button&quot;&gt;&lt;strong&gt;Free Play&lt;/strong&gt;&lt;span class=&quot;wordle-wire-mode-description&quot;&gt;Unlimited practice.&lt;/span&gt;&lt;span class=&quot;wordle-wire-mode-detail&quot;&gt;Common · Uncommon · Rare&lt;/span&gt;&lt;/button&gt;&lt;button class=&quot;wordle-wire-box wordle-wire-mode&quot; type=&quot;button&quot;&gt;&lt;strong&gt;Friendly Battle&lt;/strong&gt;&lt;span class=&quot;wordle-wire-mode-description&quot;&gt;Battle with friends.&lt;/span&gt;&lt;span class=&quot;wordle-wire-mode-detail&quot;&gt;Choose rounds, timer, and ready-up&lt;/span&gt;&lt;/button&gt;&lt;button class=&quot;wordle-wire-box wordle-wire-mode&quot; type=&quot;button&quot;&gt;&lt;strong&gt;Leaderboards&lt;/strong&gt;&lt;span class=&quot;wordle-wire-mode-detail&quot;&gt;Your streak: 12 · Global rank: #58&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;`),
+        daily: () =&gt; shell(`${top(&#x27;Daily Wordle&#x27;,true,&#x27;Exit&#x27;)}&lt;div class=&quot;wordle-wire-statline&quot;&gt;&lt;span class=&quot;wordle-wire-pill&quot;&gt;Next puzzle 08:42:16&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-play&quot;&gt;&lt;div&gt;${board()}&lt;/div&gt;&lt;div&gt;${keyboard()}&lt;/div&gt;&lt;/div&gt;`,&#x27;home&#x27;,false),
+        &#x27;daily-result&#x27;: () =&gt; shell(`${top(&#x27;Daily Wordle&#x27;,true,&#x27;Exit&#x27;)}&lt;div class=&quot;wordle-wire-play wordle-wire-result-layout&quot;&gt;&lt;div&gt;${completedBoard()}&lt;/div&gt;&lt;section class=&quot;wordle-wire-result-panel&quot; aria-label=&quot;Daily Wordle result&quot;&gt;&lt;div&gt;&lt;div class=&quot;wordle-wire-result-mark&quot;&gt;You got it!&lt;/div&gt;&lt;p class=&quot;wordle-wire-copy&quot;&gt;Daily Wordle 1,893 · 4/6&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-result-details&quot;&gt;&lt;div class=&quot;wordle-wire-result-detail&quot;&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Current streak&lt;/span&gt;&lt;strong&gt;12 days&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-result-detail&quot;&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Next puzzle&lt;/span&gt;&lt;strong&gt;08:42:16&lt;/strong&gt;&lt;/div&gt;&lt;/div&gt;&lt;button id=&quot;wire-share-results&quot; class=&quot;wordle-wire-action wordle-wire-full-action&quot; type=&quot;button&quot;&gt;Share Results&lt;/button&gt;&lt;/section&gt;&lt;/div&gt;&lt;div id=&quot;wire-copy-confirm&quot; class=&quot;wordle-wire-copy-confirm wordle-wire-hidden&quot; role=&quot;status&quot;&gt;Copied to clipboard&lt;/div&gt;`,&#x27;home&#x27;,false),
+        &#x27;free-setup&#x27;: () =&gt; shell(`${top(&#x27;Free Play&#x27;,true,&#x27;Exit&#x27;)}&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Choose your word pool&lt;/h2&gt;&lt;p class=&quot;wordle-wire-copy&quot;&gt;Build the mix you want to practice.&lt;/p&gt;&lt;div class=&quot;wordle-wire-grid3&quot;&gt;&lt;div class=&quot;wordle-wire-choice is-selected&quot;&gt;&lt;span class=&quot;wordle-wire-choice-mark&quot;&gt;C&lt;/span&gt;&lt;span&gt;&lt;strong&gt;Common&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Everyday words · Selected&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-choice&quot;&gt;&lt;span class=&quot;wordle-wire-choice-mark&quot;&gt;U&lt;/span&gt;&lt;span&gt;&lt;strong&gt;Uncommon&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Less familiar words&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-choice&quot;&gt;&lt;span class=&quot;wordle-wire-choice-mark&quot;&gt;R&lt;/span&gt;&lt;span&gt;&lt;strong&gt;Rare&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;The hardest words&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-actions-end&quot;&gt;&lt;button class=&quot;wordle-wire-action&quot; type=&quot;button&quot;&gt;Start Game&lt;/button&gt;&lt;/div&gt;`),
+        &#x27;free-game&#x27;: () =&gt; shell(`${top(&#x27;Free Play&#x27;,true,&#x27;Exit&#x27;)}&lt;div class=&quot;wordle-wire-statline is-centered&quot;&gt;&lt;span class=&quot;wordle-wire-pill&quot;&gt;Common&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-play&quot;&gt;&lt;div&gt;${board()}&lt;/div&gt;&lt;div&gt;${keyboard()}&lt;/div&gt;&lt;/div&gt;`,&#x27;home&#x27;,false),
+        &#x27;free-result&#x27;: () =&gt; shell(`${top(&#x27;Free Play&#x27;,true,&#x27;Exit&#x27;)}&lt;div class=&quot;wordle-wire-play wordle-wire-result-layout&quot;&gt;&lt;div&gt;${completedBoard()}&lt;/div&gt;&lt;section class=&quot;wordle-wire-result-panel&quot; aria-label=&quot;Free Play result&quot;&gt;&lt;div&gt;&lt;div class=&quot;wordle-wire-result-mark&quot;&gt;You got it! &lt;span class=&quot;wordle-wire-confetti&quot; aria-hidden=&quot;true&quot;&gt;✦ · ✦&lt;/span&gt;&lt;/div&gt;&lt;p class=&quot;wordle-wire-copy&quot;&gt;4/6&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-result-details&quot;&gt;&lt;div class=&quot;wordle-wire-result-detail&quot;&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Answer&lt;/span&gt;&lt;strong&gt;CRANE&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-result-detail&quot;&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Word type&lt;/span&gt;&lt;strong&gt;Common&lt;/strong&gt;&lt;/div&gt;&lt;/div&gt;&lt;button id=&quot;wire-next-word&quot; class=&quot;wordle-wire-action wordle-wire-full-action&quot; type=&quot;button&quot;&gt;Next Word&lt;/button&gt;&lt;/section&gt;&lt;/div&gt;`,&#x27;home&#x27;,false),
+        friends: () =&gt; shell(`${top(&#x27;Friends&#x27;)}${friendTabs(&#x27;friends&#x27;)}&lt;div class=&quot;wordle-wire-friend-toolbar&quot;&gt;&lt;input class=&quot;wordle-wire-friend-search&quot; aria-label=&quot;Search your friends&quot; placeholder=&quot;Search your friends&quot;&gt;&lt;select class=&quot;wordle-wire-sort&quot; aria-label=&quot;Sort friends&quot;&gt;&lt;option&gt;Recently Active&lt;/option&gt;&lt;option&gt;Least Recently Active&lt;/option&gt;&lt;option&gt;Added First&lt;/option&gt;&lt;option&gt;Added Last&lt;/option&gt;&lt;option&gt;Alphabetical&lt;/option&gt;&lt;/select&gt;&lt;button class=&quot;wordle-wire-action secondary wordle-wire-filter-icon&quot; type=&quot;button&quot; aria-label=&quot;Sort friends&quot;&gt;⇅&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-box&quot;&gt;${friendRow(&#x27;Mika&#x27;,&#x27;@mika&#x27;,&#x27;Online now&#x27;)}${friendRow(&#x27;Ari&#x27;,&#x27;@ari&#x27;,&#x27;Last online 4 min ago&#x27;)}${friendRow(&#x27;Sam&#x27;,&#x27;@sam&#x27;,&#x27;Last online 3 days ago&#x27;)}${friendRow(&#x27;Lee&#x27;,&#x27;@lee&#x27;,&#x27;Last online 18 days ago&#x27;)}&lt;/div&gt;`,&#x27;friends&#x27;),
+        &#x27;friend-requests&#x27;: () =&gt; shell(`${top(&#x27;Friends&#x27;)}${friendTabs(&#x27;friend-requests&#x27;)}&lt;div id=&quot;wire-request-list&quot; class=&quot;wordle-wire-box&quot;&gt;${requestRow(&#x27;Nia&#x27;,&#x27;@nia&#x27;)}${requestRow(&#x27;Theo&#x27;,&#x27;@theo&#x27;)}&lt;/div&gt;&lt;div id=&quot;wire-request-empty&quot; class=&quot;wordle-wire-box wordle-wire-empty wordle-wire-hidden&quot;&gt;No friend requests right now&lt;/div&gt;`,&#x27;friends&#x27;),
+        &#x27;find-friends&#x27;: () =&gt; shell(`${top(&#x27;Friends&#x27;)}${friendTabs(&#x27;find-friends&#x27;)}&lt;div class=&quot;wordle-wire-friend-toolbar&quot;&gt;&lt;input id=&quot;wire-find-friends&quot; class=&quot;wordle-wire-friend-search&quot; aria-label=&quot;Search by username&quot; placeholder=&quot;Search by username&quot;&gt;&lt;/div&gt;&lt;div id=&quot;wire-find-results&quot; class=&quot;wordle-wire-box&quot;&gt;${findRow(&#x27;Mika25&#x27;,&#x27;Mika&#x27;,&#x27;Add Friend&#x27;)}${findRow(&#x27;AriPlays&#x27;,&#x27;Ari&#x27;,&#x27;Cancel Request&#x27;)}${findRow(&#x27;SamWordle&#x27;,&#x27;Sam&#x27;,&#x27;Friends&#x27;)}&lt;/div&gt;&lt;div id=&quot;wire-find-empty&quot; class=&quot;wordle-wire-box wordle-wire-empty wordle-wire-hidden&quot;&gt;No players found&lt;/div&gt;`,&#x27;friends&#x27;),
+        profile: () =&gt; shell(`${top(&#x27;Profile&#x27;)}&lt;div class=&quot;wordle-wire-box wordle-wire-profile-head&quot;&gt;&lt;div class=&quot;wordle-wire-online&quot;&gt;&lt;span&gt;Online now&lt;/span&gt;&lt;span class=&quot;wordle-wire-online-dot&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-profile-identity&quot;&gt;&lt;span class=&quot;wordle-wire-profile-avatar-wrap&quot;&gt;&lt;button id=&quot;wire-avatar-button&quot; class=&quot;wordle-wire-profile-avatar-button&quot; type=&quot;button&quot; aria-label=&quot;Profile picture options&quot;&gt;&lt;/button&gt;&lt;span id=&quot;wire-avatar-menu&quot; class=&quot;wordle-wire-context-menu wordle-wire-profile-avatar-menu wordle-wire-hidden&quot;&gt;&lt;button type=&quot;button&quot;&gt;View Profile Picture&lt;/button&gt;&lt;button type=&quot;button&quot;&gt;Change Profile Picture&lt;/button&gt;&lt;button type=&quot;button&quot;&gt;Remove Profile Picture&lt;/button&gt;&lt;/span&gt;&lt;/span&gt;&lt;span&gt;&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Yuri&lt;/h2&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;@yuri&lt;/span&gt;&lt;div class=&quot;wordle-wire-display-name-row&quot;&gt;&lt;span id=&quot;wire-display-name&quot;&gt;Yuri Flores&lt;/span&gt;&lt;input id=&quot;wire-display-name-input&quot; class=&quot;wordle-wire-inline-edit wordle-wire-hidden&quot; value=&quot;Yuri Flores&quot; aria-label=&quot;Display name&quot;&gt;&lt;button id=&quot;wire-edit-display-name&quot; class=&quot;wordle-wire-action secondary wordle-wire-tiny-action&quot; type=&quot;button&quot; aria-label=&quot;Edit display name&quot;&gt;✎&lt;/button&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-profile-stats&quot;&gt;&lt;div class=&quot;wordle-wire-box&quot;&gt;&lt;strong&gt;Level 5&lt;/strong&gt;&lt;div class=&quot;wordle-wire-progress&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;200 / 320 EXP&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-box&quot;&gt;&lt;strong&gt;12 day streak&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Daily Wordle&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;${audienceHeading(&#x27;Daily Wordle&#x27;,&#x27;Public&#x27;)}${dailyCarousel()}&lt;div class=&quot;wordle-wire-grid2&quot; style=&quot;margin-top:14px&quot;&gt;&lt;section&gt;${audienceHeading(&#x27;Statistics&#x27;,&#x27;Friends&#x27;)}&lt;div class=&quot;wordle-wire-box&quot;&gt;&lt;strong&gt;Daily Wordle&lt;/strong&gt;&lt;p class=&quot;wordle-wire-muted&quot;&gt;Wins · Failed · Missed · Win rate&lt;/p&gt;&lt;strong&gt;Friendly Battles&lt;/strong&gt;&lt;p class=&quot;wordle-wire-muted&quot;&gt;Wins · Losses · Placements&lt;/p&gt;&lt;/div&gt;&lt;/section&gt;&lt;section&gt;${audienceHeading(&#x27;Friendly Battle History&#x27;,&#x27;Private&#x27;)}&lt;div class=&quot;wordle-wire-box&quot;&gt;&lt;p class=&quot;wordle-wire-muted&quot;&gt;Date · Placement · Players · Match settings&lt;/p&gt;&lt;/div&gt;&lt;/section&gt;&lt;/div&gt;`,&#x27;profile&#x27;),
+        &#x27;friend-profile&#x27;: () =&gt; shell(`${top(&#x27;Profile&#x27;)}&lt;div class=&quot;wordle-wire-box wordle-wire-profile-head&quot;&gt;&lt;div class=&quot;wordle-wire-online&quot;&gt;&lt;span&gt;Online now&lt;/span&gt;&lt;span class=&quot;wordle-wire-online-dot&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-profile-identity&quot;&gt;&lt;span class=&quot;wordle-wire-profile-avatar-button&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Mika&lt;/h2&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;@mika&lt;/span&gt;&lt;div class=&quot;wordle-wire-display-name-row&quot;&gt;Mika Santos&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-profile-actions&quot;&gt;&lt;button id=&quot;wire-invite-battle&quot; class=&quot;wordle-wire-action&quot; type=&quot;button&quot;&gt;Invite to Battle&lt;/button&gt;&lt;span class=&quot;wordle-wire-profile-menu-wrap&quot;&gt;&lt;button id=&quot;wire-friend-menu-button&quot; class=&quot;wordle-wire-action secondary wordle-wire-tiny-action&quot; type=&quot;button&quot; aria-label=&quot;Friend options&quot;&gt;•••&lt;/button&gt;&lt;span id=&quot;wire-friend-menu&quot; class=&quot;wordle-wire-context-menu wordle-wire-profile-actions-menu wordle-wire-hidden&quot;&gt;&lt;button type=&quot;button&quot;&gt;Remove Friend&lt;/button&gt;&lt;button id=&quot;wire-block-invites&quot; type=&quot;button&quot;&gt;Block Battle Invites&lt;/button&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-profile-stats&quot;&gt;&lt;div class=&quot;wordle-wire-box&quot;&gt;&lt;strong&gt;Level 8&lt;/strong&gt;&lt;div class=&quot;wordle-wire-progress&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;480 / 640 EXP&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-box&quot;&gt;&lt;strong&gt;21 day streak&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Daily Wordle&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;h3&gt;Daily Wordle&lt;/h3&gt;${dailyCarousel(true)}&lt;div class=&quot;wordle-wire-grid2&quot; style=&quot;margin-top:14px&quot;&gt;&lt;section&gt;&lt;h3&gt;Statistics&lt;/h3&gt;&lt;div class=&quot;wordle-wire-box&quot;&gt;&lt;strong&gt;Daily Wordle&lt;/strong&gt;&lt;p class=&quot;wordle-wire-muted&quot;&gt;Wins · Failed · Missed · Win rate&lt;/p&gt;&lt;strong&gt;Friendly Battles&lt;/strong&gt;&lt;p class=&quot;wordle-wire-muted&quot;&gt;Wins · Losses · Placements&lt;/p&gt;&lt;/div&gt;&lt;/section&gt;&lt;section&gt;&lt;h3&gt;Friendly Battle History&lt;/h3&gt;&lt;div class=&quot;wordle-wire-box&quot;&gt;&lt;p class=&quot;wordle-wire-muted&quot;&gt;Date · Placement · Players · Match settings&lt;/p&gt;&lt;/div&gt;&lt;/section&gt;&lt;/div&gt;`,&#x27;profile&#x27;),
+        leaderboards: () =&gt; shell(`${top(&#x27;Leaderboards&#x27;)}&lt;div class=&quot;wordle-wire-tabs&quot;&gt;&lt;button class=&quot;wordle-wire-tab is-active wire-leaderboard-tab&quot; data-mode=&quot;global&quot; type=&quot;button&quot; aria-label=&quot;Global leaderboard&quot;&gt;◎&lt;/button&gt;&lt;button class=&quot;wordle-wire-tab wire-leaderboard-tab&quot; data-mode=&quot;friends&quot; type=&quot;button&quot; aria-label=&quot;Friends leaderboard&quot;&gt;●●&lt;/button&gt;&lt;/div&gt;&lt;div id=&quot;wire-global-leaderboard&quot; class=&quot;wordle-wire-rank-groups&quot;&gt;${rankGroup(1,rankPlayer(&#x27;Ari&#x27;,&#x27;@ari · Ari Santos&#x27;,&#x27;43 day streak&#x27;)+rankPlayer(&#x27;Mika&#x27;,&#x27;@mika · Mika Flores&#x27;,&#x27;43 day streak&#x27;))}${rankGroup(2,rankPlayer(&#x27;Sam&#x27;,&#x27;@sam · Sam Reyes&#x27;,&#x27;40 day streak&#x27;))}${rankGroup(3,rankPlayer(&#x27;Lee&#x27;,&#x27;@lee · Lee Cruz&#x27;,&#x27;38 day streak&#x27;)+rankPlayer(&#x27;Nia&#x27;,&#x27;@nia · Nia Lim&#x27;,&#x27;38 day streak&#x27;))}${rankGroup(4,rankPlayer(&#x27;Theo&#x27;,&#x27;@theo · Theo Tan&#x27;,&#x27;36 day streak&#x27;))}&lt;div class=&quot;wordle-wire-empty&quot;&gt;… rankings continue through #100&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;wire-friends-leaderboard&quot; class=&quot;wordle-wire-rank-groups wordle-wire-hidden&quot;&gt;${rankGroup(1,rankPlayer(&#x27;Mika&#x27;,&#x27;@mika · Mika Flores&#x27;,&#x27;21 day streak&#x27;))}${rankGroup(2,rankPlayer(&#x27;Yuri&#x27;,&#x27;@yuri · Yuri Flores&#x27;,&#x27;12 day streak&#x27;,true))}${rankGroup(3,rankPlayer(&#x27;Ari&#x27;,&#x27;@ari · Ari Santos&#x27;,&#x27;8 day streak&#x27;)+rankPlayer(&#x27;Sam&#x27;,&#x27;@sam · Sam Reyes&#x27;,&#x27;8 day streak&#x27;))}&lt;/div&gt;${rankGroup(58,rankPlayer(&#x27;Yuri&#x27;,&#x27;@yuri · Yuri Flores&#x27;,&#x27;12 day streak&#x27;,true),&#x27;wordle-wire-leaderboard-own wire-global-own-rank&#x27;)}${rankGroup(2,rankPlayer(&#x27;Yuri&#x27;,&#x27;@yuri · Yuri Flores&#x27;,&#x27;12 day streak&#x27;,true),&#x27;wordle-wire-leaderboard-own wire-friends-own-rank wordle-wire-hidden&#x27;)}`),
+        settings: () =&gt; shell(`${top(&#x27;Settings&#x27;)}&lt;div class=&quot;wordle-wire-settings&quot;&gt;&lt;section class=&quot;wordle-wire-settings-section&quot;&gt;&lt;h3&gt;Sounds&lt;/h3&gt;&lt;div class=&quot;wordle-wire-setting&quot;&gt;&lt;span&gt;&lt;strong&gt;Sound effects&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Master game sounds&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;wordle-wire-switch&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;/section&gt;&lt;section class=&quot;wordle-wire-settings-section&quot;&gt;&lt;h3&gt;Appearance&lt;/h3&gt;&lt;div class=&quot;wordle-wire-setting&quot;&gt;&lt;strong&gt;Theme&lt;/strong&gt;&lt;select class=&quot;wordle-wire-setting-select&quot; aria-label=&quot;Theme&quot;&gt;&lt;option&gt;Follow device&lt;/option&gt;&lt;option&gt;Light&lt;/option&gt;&lt;option&gt;Dark&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-setting&quot;&gt;&lt;span&gt;&lt;strong&gt;High-contrast tiles&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Color-blind mode&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;wordle-wire-switch&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;/section&gt;&lt;section class=&quot;wordle-wire-settings-section&quot;&gt;&lt;h3&gt;Privacy&lt;/h3&gt;&lt;div class=&quot;wordle-wire-setting&quot;&gt;&lt;strong&gt;Daily Wordle History&lt;/strong&gt;&lt;select class=&quot;wordle-wire-setting-select&quot; aria-label=&quot;Daily Wordle History visibility&quot;&gt;&lt;option&gt;Public&lt;/option&gt;&lt;option&gt;Friends&lt;/option&gt;&lt;option&gt;Private&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-setting&quot;&gt;&lt;strong&gt;Statistics&lt;/strong&gt;&lt;select class=&quot;wordle-wire-setting-select&quot; aria-label=&quot;Statistics visibility&quot;&gt;&lt;option&gt;Public&lt;/option&gt;&lt;option&gt;Friends&lt;/option&gt;&lt;option&gt;Private&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-setting&quot;&gt;&lt;strong&gt;Friendly Battle History&lt;/strong&gt;&lt;select class=&quot;wordle-wire-setting-select&quot; aria-label=&quot;Friendly Battle History visibility&quot;&gt;&lt;option&gt;Public&lt;/option&gt;&lt;option&gt;Friends&lt;/option&gt;&lt;option&gt;Private&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-setting&quot;&gt;&lt;strong&gt;Online activity&lt;/strong&gt;&lt;select class=&quot;wordle-wire-setting-select&quot; aria-label=&quot;Online activity visibility&quot;&gt;&lt;option&gt;Public&lt;/option&gt;&lt;option&gt;Hidden&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;/section&gt;&lt;section class=&quot;wordle-wire-settings-section&quot;&gt;&lt;h3&gt;Account&lt;/h3&gt;&lt;div class=&quot;wordle-wire-setting&quot;&gt;&lt;span&gt;&lt;strong&gt;Username&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;@yuri&lt;/span&gt;&lt;/span&gt;&lt;button class=&quot;wordle-wire-action secondary&quot; type=&quot;button&quot;&gt;Change&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-setting&quot;&gt;&lt;span&gt;&lt;strong&gt;Sign out&lt;/strong&gt;&lt;/span&gt;&lt;button class=&quot;wordle-wire-action secondary&quot; type=&quot;button&quot;&gt;Sign out&lt;/button&gt;&lt;/div&gt;&lt;/section&gt;&lt;/div&gt;`,&#x27;settings&#x27;),
+        &#x27;battle-setup&#x27;: () =&gt; shell(`${top(&#x27;Friendly Battle&#x27;)}&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Battle setup&lt;/h2&gt;&lt;p class=&quot;wordle-wire-copy&quot;&gt;Host controls · Changes appear live for everyone&lt;/p&gt;&lt;div class=&quot;wordle-wire-config-list&quot;&gt;&lt;div class=&quot;wordle-wire-config&quot;&gt;&lt;span&gt;&lt;strong&gt;Rounds&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Match length&lt;/span&gt;&lt;/span&gt;&lt;div class=&quot;wordle-wire-stepper&quot;&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot;&gt;←&lt;/button&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot;&gt;→&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-config&quot;&gt;&lt;span&gt;&lt;strong&gt;Round timer&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Time per puzzle&lt;/span&gt;&lt;/span&gt;&lt;div class=&quot;wordle-wire-stepper&quot;&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot;&gt;←&lt;/button&gt;&lt;strong&gt;3 min&lt;/strong&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot;&gt;→&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-config&quot;&gt;&lt;span&gt;&lt;strong&gt;Ready-up&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Between rounds&lt;/span&gt;&lt;/span&gt;&lt;div class=&quot;wordle-wire-stepper&quot;&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot;&gt;←&lt;/button&gt;&lt;strong&gt;60 sec&lt;/strong&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot;&gt;→&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-section-title&quot;&gt;&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Battle lobby&lt;/h2&gt;&lt;button id=&quot;wire-open-lobby-invites&quot; class=&quot;wordle-wire-action secondary&quot; type=&quot;button&quot;&gt;Invite&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-box&quot;&gt;${lobbyRow(&#x27;Yuri&#x27;,&#x27;Host · Ready&#x27;)}${lobbyRow(&#x27;Mika&#x27;,&#x27;Ready&#x27;,true)}${lobbyRow(&#x27;Ari&#x27;,&#x27;Joined&#x27;,true)}&lt;/div&gt;&lt;div class=&quot;wordle-wire-row&quot;&gt;&lt;span&gt;2/3 players ready&lt;/span&gt;&lt;button class=&quot;wordle-wire-action&quot; type=&quot;button&quot;&gt;Start Game&lt;/button&gt;&lt;/div&gt;&lt;div id=&quot;wire-lobby-invite-picker&quot; class=&quot;wordle-wire-lobby-invite-picker wordle-wire-hidden&quot;&gt;&lt;input id=&quot;wire-lobby-friend-search&quot; class=&quot;wordle-wire-friend-search&quot; aria-label=&quot;Search online friends&quot; placeholder=&quot;Search online friends&quot;&gt;&lt;div id=&quot;wire-online-friend-list&quot; class=&quot;wordle-wire-box&quot; style=&quot;margin-top:10px&quot;&gt;${personRow(&#x27;Nia&#x27;,&#x27;@nia · Online&#x27;,&#x27;Invite&#x27;)}${personRow(&#x27;Theo&#x27;,&#x27;@theo · Online&#x27;,&#x27;Invite&#x27;)}${personRow(&#x27;Mika&#x27;,&#x27;@mika · Online&#x27;,&#x27;In Lobby&#x27;)}&lt;/div&gt;&lt;/div&gt;`),
+        battle: () =&gt; `&lt;main class=&quot;wordle-wire-main&quot;&gt;${top(&#x27;Friendly Battle · Round 2/3&#x27;)}&lt;div class=&quot;wordle-wire-battle-status&quot;&gt;&lt;span&gt;Round 2/3&lt;/span&gt;&lt;span class=&quot;wordle-wire-battle-time&quot;&gt;01:42&lt;/span&gt;&lt;span class=&quot;wordle-wire-battle-points&quot;&gt;You · 5 pts&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-battle&quot;&gt;&lt;div class=&quot;wordle-wire-battle-play&quot;&gt;&lt;div class=&quot;wordle-wire-play&quot;&gt;&lt;div&gt;${board()}&lt;/div&gt;&lt;div&gt;${keyboard()}&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;aside&gt;&lt;h3&gt;Opponents&lt;/h3&gt;&lt;div class=&quot;wordle-wire-opponents&quot;&gt;${mini(&#x27;Mika&#x27;)}${mini(&#x27;Ari&#x27;)}${mini(&#x27;Sam&#x27;)}${mini(&#x27;Lee&#x27;)}&lt;/div&gt;&lt;button class=&quot;wordle-wire-action secondary&quot; type=&quot;button&quot;&gt;Exit Battle&lt;/button&gt;&lt;/aside&gt;&lt;/div&gt;&lt;/main&gt;`,
+        &#x27;round-results&#x27;: () =&gt; `&lt;main class=&quot;wordle-wire-main&quot;&gt;${top(&#x27;Round Complete | 2/5&#x27;)}&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Round leaderboard&lt;/h2&gt;&lt;div class=&quot;wordle-wire-rank-groups&quot;&gt;${rankGroup(1,rankPlayer(&#x27;Yuri&#x27;,&#x27;You&#x27;,&#x27;8 pts&#x27;,true))}${rankGroup(2,rankPlayer(&#x27;Mika&#x27;,&#x27;@mika&#x27;,&#x27;5 pts&#x27;)+rankPlayer(&#x27;Ari&#x27;,&#x27;@ari&#x27;,&#x27;5 pts&#x27;))}${rankGroup(3,rankPlayer(&#x27;Sam&#x27;,&#x27;@sam&#x27;,&#x27;2 pts&#x27;))}${rankGroup(4,rankPlayer(&#x27;Lee&#x27;,&#x27;@lee&#x27;,&#x27;1 pt&#x27;))}&lt;/div&gt;&lt;div class=&quot;wordle-wire-row&quot;&gt;&lt;span&gt;2/5 players ready · Next round in 00:38&lt;/span&gt;&lt;button class=&quot;wordle-wire-action&quot; type=&quot;button&quot;&gt;Ready&lt;/button&gt;&lt;/div&gt;&lt;/main&gt;`
+      };
+
+      views[&#x27;battle-setup&#x27;] = () =&gt; shell(`${top(&#x27;Friendly Battle&#x27;,true,&#x27;Leave Lobby&#x27;)}&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Battle setup&lt;/h2&gt;&lt;p class=&quot;wordle-wire-copy&quot;&gt;Host controls · Changes appear live for everyone&lt;/p&gt;&lt;div class=&quot;wordle-wire-config-list&quot;&gt;&lt;div class=&quot;wordle-wire-config&quot;&gt;&lt;span&gt;&lt;strong&gt;Rounds&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Match length&lt;/span&gt;&lt;/span&gt;&lt;div class=&quot;wordle-wire-stepper&quot;&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot;&gt;←&lt;/button&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot;&gt;→&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-config&quot;&gt;&lt;span&gt;&lt;strong&gt;Round timer&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Time per puzzle&lt;/span&gt;&lt;/span&gt;&lt;div class=&quot;wordle-wire-stepper&quot;&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot;&gt;←&lt;/button&gt;&lt;strong&gt;3 min&lt;/strong&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot;&gt;→&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-config&quot;&gt;&lt;span&gt;&lt;strong&gt;Ready-up&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Between rounds&lt;/span&gt;&lt;/span&gt;&lt;div class=&quot;wordle-wire-stepper&quot;&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot;&gt;←&lt;/button&gt;&lt;strong&gt;60 sec&lt;/strong&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot;&gt;→&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-section-title&quot;&gt;&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Battle lobby&lt;/h2&gt;&lt;button id=&quot;wire-open-lobby-invites&quot; class=&quot;wordle-wire-action secondary&quot; type=&quot;button&quot;&gt;Invite&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-box&quot;&gt;${lobbyRow(&#x27;Yuri ♛&#x27;,&#x27;Host&#x27;)}${lobbyRow(&#x27;Mika&#x27;,&#x27;Ready&#x27;,true)}${lobbyRow(&#x27;Ari&#x27;,&#x27;Not Ready&#x27;,true)}&lt;/div&gt;&lt;div class=&quot;wordle-wire-lobby-actions&quot;&gt;&lt;span&gt;3/8 players · 1/2 ready&lt;/span&gt;&lt;div class=&quot;wordle-wire-lobby-actions-right&quot;&gt;&lt;button class=&quot;wordle-wire-action&quot; type=&quot;button&quot; disabled&gt;Start Game&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;wire-lobby-invite-picker&quot; class=&quot;wordle-wire-lobby-invite-picker wordle-wire-hidden&quot;&gt;&lt;input id=&quot;wire-lobby-friend-search&quot; class=&quot;wordle-wire-friend-search&quot; aria-label=&quot;Search online friends&quot; placeholder=&quot;Search online friends&quot;&gt;&lt;div id=&quot;wire-online-friend-list&quot; class=&quot;wordle-wire-box&quot; style=&quot;margin-top:10px&quot;&gt;${personRow(&#x27;Nia&#x27;,&#x27;@nia · Online&#x27;,&#x27;Invite&#x27;)}${personRow(&#x27;Theo&#x27;,&#x27;@theo · Online&#x27;,&#x27;Invite&#x27;)}${personRow(&#x27;Mika&#x27;,&#x27;@mika · Online&#x27;,&#x27;In Lobby&#x27;)}&lt;/div&gt;&lt;/div&gt;`);
+      views[&#x27;battle-setup-member&#x27;] = () =&gt; shell(`${top(&#x27;Friendly Battle&#x27;,true,&#x27;Leave Lobby&#x27;)}&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Battle setup&lt;/h2&gt;&lt;p class=&quot;wordle-wire-copy&quot;&gt;Mika is the host · Changes appear live&lt;/p&gt;&lt;div class=&quot;wordle-wire-config-list&quot;&gt;&lt;div class=&quot;wordle-wire-config&quot;&gt;&lt;span&gt;&lt;strong&gt;Rounds&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Match length&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;wordle-wire-readonly-value&quot;&gt;3&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-config&quot;&gt;&lt;span&gt;&lt;strong&gt;Round timer&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Time per puzzle&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;wordle-wire-readonly-value&quot;&gt;3 min&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-config&quot;&gt;&lt;span&gt;&lt;strong&gt;Ready-up&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Between rounds&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;wordle-wire-readonly-value&quot;&gt;60 sec&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-section-title&quot;&gt;&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Battle lobby&lt;/h2&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-box&quot;&gt;${lobbyRow(&#x27;Mika ♛&#x27;,&#x27;Host&#x27;)}${lobbyRow(&#x27;Yuri&#x27;,&#x27;Not Ready&#x27;)}${lobbyRow(&#x27;Ari&#x27;,&#x27;Ready&#x27;)}&lt;/div&gt;&lt;div class=&quot;wordle-wire-lobby-actions&quot;&gt;&lt;span id=&quot;wire-member-ready-count&quot;&gt;3/8 players · 1/2 ready&lt;/span&gt;&lt;div class=&quot;wordle-wire-lobby-actions-right&quot;&gt;&lt;button id=&quot;wire-member-ready&quot; class=&quot;wordle-wire-action&quot; type=&quot;button&quot;&gt;Ready&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`);
+
+      views[&#x27;battle-setup&#x27;] = () =&gt; shell(`${top(&#x27;Friendly Battle&#x27;,true,&#x27;Leave Lobby&#x27;)}&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Battle setup&lt;/h2&gt;&lt;p class=&quot;wordle-wire-copy&quot;&gt;Host controls · Changes appear live for everyone&lt;/p&gt;&lt;div class=&quot;wordle-wire-config-list&quot;&gt;&lt;div class=&quot;wordle-wire-config&quot;&gt;&lt;span&gt;&lt;strong&gt;Rounds&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Match length&lt;/span&gt;&lt;/span&gt;&lt;div class=&quot;wordle-wire-stepper&quot;&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot;&gt;←&lt;/button&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot;&gt;→&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-config&quot;&gt;&lt;span&gt;&lt;strong&gt;Round timer&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Time per puzzle&lt;/span&gt;&lt;/span&gt;&lt;div class=&quot;wordle-wire-stepper&quot;&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot;&gt;←&lt;/button&gt;&lt;strong&gt;3 min&lt;/strong&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot;&gt;→&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-config&quot;&gt;&lt;span&gt;&lt;strong&gt;Ready-up&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Between rounds&lt;/span&gt;&lt;/span&gt;&lt;div class=&quot;wordle-wire-stepper&quot;&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot;&gt;←&lt;/button&gt;&lt;strong&gt;60 sec&lt;/strong&gt;&lt;button class=&quot;wordle-wire-step&quot; type=&quot;button&quot;&gt;→&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-section-title&quot;&gt;&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Battle lobby&lt;/h2&gt;&lt;button id=&quot;wire-open-lobby-invites&quot; class=&quot;wordle-wire-action secondary&quot; type=&quot;button&quot;&gt;Invite&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-box&quot;&gt;${lobbyRow(&#x27;Yuri ♛&#x27;,&#x27;Host · Not Ready&#x27;)}${lobbyRow(&#x27;Mika&#x27;,&#x27;Ready&#x27;,true)}${lobbyRow(&#x27;Ari&#x27;,&#x27;Not Ready&#x27;,true)}&lt;/div&gt;&lt;div class=&quot;wordle-wire-lobby-actions&quot;&gt;&lt;span id=&quot;wire-lobby-ready-count&quot;&gt;3/8 players · 1/3 ready&lt;/span&gt;&lt;div class=&quot;wordle-wire-lobby-actions-right&quot;&gt;&lt;button id=&quot;wire-lobby-ready&quot; class=&quot;wordle-wire-action&quot; type=&quot;button&quot;&gt;Ready&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;wire-lobby-invite-picker&quot; class=&quot;wordle-wire-lobby-invite-picker wordle-wire-hidden&quot;&gt;&lt;input id=&quot;wire-lobby-friend-search&quot; class=&quot;wordle-wire-friend-search&quot; aria-label=&quot;Search online friends&quot; placeholder=&quot;Search online friends&quot;&gt;&lt;div id=&quot;wire-online-friend-list&quot; class=&quot;wordle-wire-box&quot; style=&quot;margin-top:10px&quot;&gt;${personRow(&#x27;Nia&#x27;,&#x27;@nia · Online&#x27;,&#x27;Invite&#x27;)}${personRow(&#x27;Theo&#x27;,&#x27;@theo · Online&#x27;,&#x27;Invite&#x27;)}${personRow(&#x27;Mika&#x27;,&#x27;@mika · Online&#x27;,&#x27;In Lobby&#x27;)}&lt;/div&gt;&lt;/div&gt;`);
+      views[&#x27;battle-setup-member&#x27;] = () =&gt; shell(`${top(&#x27;Friendly Battle&#x27;,true,&#x27;Leave Lobby&#x27;)}&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Battle setup&lt;/h2&gt;&lt;p class=&quot;wordle-wire-copy&quot;&gt;Mika is the host · Changes appear live&lt;/p&gt;&lt;div class=&quot;wordle-wire-config-list&quot;&gt;&lt;div class=&quot;wordle-wire-config&quot;&gt;&lt;span&gt;&lt;strong&gt;Rounds&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Match length&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;wordle-wire-readonly-value&quot;&gt;3&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-config&quot;&gt;&lt;span&gt;&lt;strong&gt;Round timer&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Time per puzzle&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;wordle-wire-readonly-value&quot;&gt;3 min&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-config&quot;&gt;&lt;span&gt;&lt;strong&gt;Ready-up&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;Between rounds&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;wordle-wire-readonly-value&quot;&gt;60 sec&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-section-title&quot;&gt;&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Battle lobby&lt;/h2&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-box&quot;&gt;${lobbyRow(&#x27;Mika ♛&#x27;,&#x27;Host · Ready&#x27;)}${lobbyRow(&#x27;Yuri&#x27;,&#x27;Not Ready&#x27;)}${lobbyRow(&#x27;Ari&#x27;,&#x27;Ready&#x27;)}&lt;/div&gt;&lt;div class=&quot;wordle-wire-lobby-actions&quot;&gt;&lt;span id=&quot;wire-lobby-ready-count&quot;&gt;3/8 players · 2/3 ready&lt;/span&gt;&lt;div class=&quot;wordle-wire-lobby-actions-right&quot;&gt;&lt;button id=&quot;wire-lobby-ready&quot; class=&quot;wordle-wire-action&quot; type=&quot;button&quot;&gt;Ready&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`);
+      views[&#x27;battle-lobby-countdown&#x27;] = () =&gt; shell(`${top(&#x27;Friendly Battle&#x27;,true,&#x27;Leave Lobby&#x27;)}&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Battle setup&lt;/h2&gt;&lt;div class=&quot;wordle-wire-config-list&quot;&gt;&lt;div class=&quot;wordle-wire-config&quot;&gt;&lt;strong&gt;Rounds&lt;/strong&gt;&lt;span class=&quot;wordle-wire-readonly-value&quot;&gt;3&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-config&quot;&gt;&lt;strong&gt;Round timer&lt;/strong&gt;&lt;span class=&quot;wordle-wire-readonly-value&quot;&gt;3 min&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-config&quot;&gt;&lt;strong&gt;Ready-up&lt;/strong&gt;&lt;span class=&quot;wordle-wire-readonly-value&quot;&gt;60 sec&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-section-title&quot;&gt;&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Battle lobby&lt;/h2&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-box&quot;&gt;${lobbyRow(&#x27;Mika ♛&#x27;,&#x27;Host · Ready&#x27;)}${lobbyRow(&#x27;Yuri&#x27;,&#x27;Ready&#x27;)}${lobbyRow(&#x27;Ari&#x27;,&#x27;Ready&#x27;)}&lt;/div&gt;&lt;div class=&quot;wordle-wire-lobby-actions&quot;&gt;&lt;span&gt;3/8 players · 3/3 ready&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-countdown-overlay&quot; aria-live=&quot;assertive&quot;&gt;3&lt;/div&gt;`);
+      views[&#x27;round-results&#x27;] = () =&gt; `&lt;main class=&quot;wordle-wire-main&quot;&gt;${top(&#x27;Round Complete | 2/5&#x27;)}&lt;div class=&quot;wordle-wire-battle-status&quot;&gt;&lt;span&gt;Round leaderboard&lt;/span&gt;&lt;strong&gt;Next round in 00:38&lt;/strong&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-rank-groups&quot;&gt;${rankGroup(1,rankPlayer(&#x27;Yuri&#x27;,&#x27;You&#x27;,&#x27;&lt;span class=&quot;wire-total&quot; data-total=&quot;8&quot; data-gain=&quot;5&quot;&gt;8 pts&lt;/span&gt;&lt;span class=&quot;wordle-wire-round-gain&quot;&gt;+5&lt;/span&gt;&#x27;,true),&#x27;wordle-wire-you-rank&#x27;)}${rankGroup(2,rankPlayer(&#x27;Mika&#x27;,&#x27;@mika&#x27;,&#x27;5 pts&#x27;)+rankPlayer(&#x27;Ari&#x27;,&#x27;@ari&#x27;,&#x27;5 pts&#x27;))}${rankGroup(3,rankPlayer(&#x27;Sam&#x27;,&#x27;@sam&#x27;,&#x27;2 pts&#x27;))}${rankGroup(4,rankPlayer(&#x27;Lee&#x27;,&#x27;@lee&#x27;,&#x27;1 pt&#x27;))}&lt;/div&gt;&lt;div class=&quot;wordle-wire-row&quot;&gt;&lt;span id=&quot;wire-between-ready-count&quot;&gt;4/5 players ready&lt;/span&gt;&lt;button id=&quot;wire-between-ready&quot; class=&quot;wordle-wire-action&quot; type=&quot;button&quot;&gt;Ready&lt;/button&gt;&lt;/div&gt;&lt;/main&gt;`;
+      views[&#x27;final-results&#x27;] = () =&gt; `&lt;main class=&quot;wordle-wire-main&quot;&gt;${top(&#x27;Battle Complete&#x27;)}&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Final leaderboard&lt;/h2&gt;&lt;div class=&quot;wordle-wire-rank-groups&quot;&gt;${rankGroup(1,rankPlayer(&#x27;Yuri&#x27;,&#x27;You&#x27;,&#x27;18 pts&#x27;,true),&#x27;wordle-wire-you-rank&#x27;)}${rankGroup(2,rankPlayer(&#x27;Mika&#x27;,&#x27;@mika&#x27;,&#x27;13 pts&#x27;))}${rankGroup(3,rankPlayer(&#x27;Ari&#x27;,&#x27;@ari&#x27;,&#x27;10 pts&#x27;))}${rankGroup(4,rankPlayer(&#x27;Sam&#x27;,&#x27;@sam&#x27;,&#x27;6 pts&#x27;))}${rankGroup(5,rankPlayer(&#x27;Lee&#x27;,&#x27;@lee&#x27;,&#x27;2 pts&#x27;))}&lt;/div&gt;&lt;div class=&quot;wordle-wire-actions-end&quot;&gt;&lt;button id=&quot;wire-final-continue&quot; class=&quot;wordle-wire-action&quot; type=&quot;button&quot;&gt;Continue&lt;/button&gt;&lt;/div&gt;&lt;/main&gt;`;
+
+      const stateContent = (heading,copy,actions) =&gt; `&lt;div class=&quot;wordle-wire-state-center&quot;&gt;&lt;section class=&quot;wordle-wire-state-content&quot;&gt;&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;${heading}&lt;/h2&gt;&lt;p class=&quot;wordle-wire-copy&quot;&gt;${copy}&lt;/p&gt;&lt;div class=&quot;wordle-wire-state-actions&quot;&gt;${actions}&lt;/div&gt;&lt;/section&gt;&lt;/div&gt;`;
+      views[&#x27;mobile-menu&#x27;] = () =&gt; `&lt;div class=&quot;wordle-wire-shell&quot;&gt;&lt;main class=&quot;wordle-wire-main&quot;&gt;${top(&#x27;Home&#x27;)}&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Choose a game&lt;/h2&gt;&lt;/main&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-drawer-backdrop&quot;&gt;&lt;/div&gt;&lt;aside class=&quot;wordle-wire-drawer&quot; aria-label=&quot;Mobile navigation&quot;&gt;&lt;div class=&quot;wordle-wire-drawer-head&quot;&gt;&lt;div class=&quot;wordle-wire-person&quot;&gt;&lt;span class=&quot;wordle-wire-avatar&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;strong&gt;Yuri&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;wordle-wire-muted&quot;&gt;@yuri&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;button class=&quot;wordle-wire-action secondary wordle-wire-tiny-action&quot; type=&quot;button&quot; aria-label=&quot;Close menu&quot;&gt;×&lt;/button&gt;&lt;/div&gt;&lt;nav class=&quot;wordle-wire-drawer-links&quot;&gt;&lt;div class=&quot;wordle-wire-drawer-link is-active&quot;&gt;Home&lt;/div&gt;&lt;div class=&quot;wordle-wire-drawer-link&quot;&gt;Profile&lt;/div&gt;&lt;div class=&quot;wordle-wire-drawer-link&quot;&gt;Friends · 3&lt;/div&gt;&lt;div class=&quot;wordle-wire-drawer-link&quot;&gt;Settings&lt;/div&gt;&lt;div class=&quot;wordle-wire-drawer-link&quot;&gt;Sign Out&lt;/div&gt;&lt;/nav&gt;&lt;/aside&gt;`;
+      views.loading = () =&gt; shell(`${top(&#x27;Friends&#x27;)}&lt;h2 class=&quot;wordle-wire-heading&quot;&gt;Friends&lt;/h2&gt;&lt;div class=&quot;wordle-wire-box wordle-wire-skeleton-stack&quot; aria-label=&quot;Loading friends&quot;&gt;${Array.from({length:5},()=&gt;&#x27;&lt;div class=&quot;wordle-wire-skeleton-row&quot;&gt;&lt;span class=&quot;wordle-wire-skeleton-circle&quot;&gt;&lt;/span&gt;&lt;span class=&quot;wordle-wire-skeleton-lines&quot;&gt;&lt;span class=&quot;wordle-wire-skeleton-line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;wordle-wire-skeleton-line short&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;wordle-wire-skeleton-action&quot;&gt;&lt;/span&gt;&lt;/div&gt;&#x27;).join(&#x27;&#x27;)}&lt;/div&gt;`,&#x27;friends&#x27;,false);
+      views.offline = () =&gt; shell(`${top(&#x27;Daily Wordle&#x27;,true,&#x27;Exit&#x27;)}&lt;div class=&quot;wordle-wire-offline-banner&quot; role=&quot;status&quot;&gt;● You&#x27;re offline&lt;/div&gt;${stateContent(&quot;Daily Wordle needs an internet connection&quot;,&#x27;Your saved progress is safe. Reconnect to continue today’s puzzle.&#x27;,&#x27;&lt;button class=&quot;wordle-wire-action&quot; type=&quot;button&quot;&gt;Try Again&lt;/button&gt;&#x27;)}`,&#x27;home&#x27;,false);
+      views[&#x27;free-leave&#x27;] = () =&gt; shell(`${top(&#x27;Free Play&#x27;)}&lt;div class=&quot;wordle-wire-statline is-centered&quot;&gt;&lt;span class=&quot;wordle-wire-pill&quot;&gt;Common&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-play&quot;&gt;&lt;div&gt;${board()}&lt;/div&gt;&lt;div&gt;${keyboard()}&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-modal-backdrop&quot;&gt;&lt;div class=&quot;wordle-wire-modal&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot;&gt;&lt;h3&gt;Leave this game?&lt;/h3&gt;&lt;p&gt;Your current Free Play progress will be lost.&lt;/p&gt;&lt;label class=&quot;wordle-wire-checkline&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt; Don&#x27;t show this again for 30 days&lt;/label&gt;&lt;div class=&quot;wordle-wire-modal-actions&quot;&gt;&lt;button class=&quot;wordle-wire-action secondary&quot; type=&quot;button&quot;&gt;Cancel&lt;/button&gt;&lt;button class=&quot;wordle-wire-action&quot; type=&quot;button&quot;&gt;Leave&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;`,&#x27;home&#x27;,false);
+      views[&#x27;page-error&#x27;] = () =&gt; shell(`${top(&#x27;Friends&#x27;)}${stateContent(&#x27;Unable to load this page&#x27;,&#x27;Something went wrong while loading this content.&#x27;,&#x27;&lt;button class=&quot;wordle-wire-action&quot; type=&quot;button&quot;&gt;Try Again&lt;/button&gt;&lt;button class=&quot;wordle-wire-action secondary&quot; type=&quot;button&quot;&gt;Return Home&lt;/button&gt;&#x27;)}`,&#x27;friends&#x27;,false);
+      views[&#x27;daily-error&#x27;] = () =&gt; shell(`${top(&#x27;Daily Wordle&#x27;,true,&#x27;Exit&#x27;)}${stateContent(&quot;Unable to load today’s puzzle&quot;,&#x27;Check your connection and try again.&#x27;,&#x27;&lt;button class=&quot;wordle-wire-action&quot; type=&quot;button&quot;&gt;Try Again&lt;/button&gt;&lt;button class=&quot;wordle-wire-action secondary&quot; type=&quot;button&quot;&gt;Exit&lt;/button&gt;&#x27;)}`,&#x27;home&#x27;,false);
+      views[&#x27;battle-elsewhere&#x27;] = () =&gt; `&lt;main class=&quot;wordle-wire-main&quot;&gt;${top(&#x27;Friendly Battle · Round 2/3&#x27;)}&lt;div class=&quot;wordle-wire-active-arena&quot;&gt;&lt;div class=&quot;wordle-wire-own-game&quot;&gt;&lt;div class=&quot;wordle-wire-play&quot;&gt;&lt;div&gt;${board()}&lt;/div&gt;&lt;div&gt;${keyboard()}&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-modal-backdrop&quot;&gt;&lt;div class=&quot;wordle-wire-modal&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot;&gt;&lt;h3&gt;Battle opened elsewhere&lt;/h3&gt;&lt;p&gt;This screen can no longer control the battle.&lt;/p&gt;&lt;div class=&quot;wordle-wire-modal-actions&quot;&gt;&lt;button class=&quot;wordle-wire-action&quot; type=&quot;button&quot;&gt;Return Home&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/main&gt;`;
+      views[&#x27;auth-expired&#x27;] = () =&gt; `&lt;main class=&quot;wordle-wire-main&quot;&gt;${top(&#x27;Session expired&#x27;,false)}${stateContent(&#x27;Sign in again&#x27;,&#x27;Your recoverable progress will be restored after you sign in.&#x27;,&#x27;&lt;button class=&quot;wordle-wire-action&quot; type=&quot;button&quot;&gt;Sign in with Google&lt;/button&gt;&#x27;)}&lt;/main&gt;`;
+      views.maintenance = () =&gt; `&lt;main class=&quot;wordle-wire-main wordle-wire-auth&quot;&gt;${top(&#x27;Maintenance&#x27;,false)}${stateContent(&#x27;Wordle is temporarily unavailable&#x27;,&quot;We’re performing maintenance. Please try again shortly.&quot;,&#x27;&lt;button class=&quot;wordle-wire-action&quot; type=&quot;button&quot;&gt;Try Again&lt;/button&gt;&#x27;)}&lt;/main&gt;`;
+
+      const opponentGrid = (reveal=false) =&gt; `&lt;div class=&quot;wordle-wire-opponent-grid&quot; role=&quot;img&quot; aria-label=&quot;Opponent 5 by 6 Wordle grid&quot;&gt;${Array.from({length:30},(_,i)=&gt;`&lt;span&gt;${reveal&amp;&amp;i&lt;15?&#x27;CRANESTOILMIGHT&#x27;[i]:&#x27;&#x27;}&lt;/span&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;`;
+      const opponentCard = (name,{large=false,disconnected=false,reveal=false}={}) =&gt; { const ranks={Mika:1,Ari:3,Sam:4,Lee:5,Nia:6,Theo:7,Kai:8}; return `&lt;section class=&quot;wordle-wire-opponent-card ${large?&#x27;is-large&#x27;:&#x27;&#x27;} ${disconnected?&#x27;is-disconnected&#x27;:&#x27;&#x27;}&quot; aria-label=&quot;${name}&#x27;s puzzle&quot;&gt;${disconnected?&#x27;&lt;strong class=&quot;wordle-wire-disconnected-label&quot;&gt;Disconnected&lt;/strong&gt;&lt;span class=&quot;wordle-wire-disconnect-count&quot;&gt;18s&lt;/span&gt;&#x27;:&#x27;&#x27;}&lt;div class=&quot;wordle-wire-opponent-content&quot;&gt;&lt;strong class=&quot;wordle-wire-opponent-name&quot;&gt;#${ranks[name]||2} · ${name}&lt;/strong&gt;${opponentGrid(reveal)}&lt;/div&gt;&lt;/section&gt;`; };
+      const battleStatus = (time=&#x27;01:42&#x27;,urgent=false) =&gt; `&lt;div class=&quot;wordle-wire-battle-status&quot;&gt;&lt;span&gt;Round 2/3&lt;/span&gt;&lt;span class=&quot;wordle-wire-battle-time ${urgent?&#x27;is-urgent&#x27;:&#x27;&#x27;}&quot;&gt;${time}&lt;/span&gt;&lt;span class=&quot;wordle-wire-battle-points&quot;&gt;You · 5 pts · #2&lt;/span&gt;&lt;/div&gt;`;
+      views[&#x27;battle-two&#x27;] = () =&gt; `&lt;main class=&quot;wordle-wire-main&quot;&gt;${top(&#x27;Friendly Battle · Round 2/3&#x27;)}${battleStatus()}&lt;div class=&quot;wordle-wire-active-arena&quot;&gt;&lt;div class=&quot;wordle-wire-own-game&quot;&gt;&lt;div class=&quot;wordle-wire-play&quot;&gt;&lt;div&gt;${board()}&lt;/div&gt;&lt;div&gt;${keyboard()}&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;aside class=&quot;wordle-wire-opponent-rail&quot;&gt;${opponentCard(&#x27;Mika&#x27;,{large:true})}&lt;/aside&gt;&lt;/div&gt;&lt;/main&gt;`;
+      views.battle = () =&gt; `&lt;main class=&quot;wordle-wire-main&quot;&gt;${top(&#x27;Friendly Battle · Round 2/3&#x27;)}${battleStatus(&#x27;00:09&#x27;,true)}&lt;div class=&quot;wordle-wire-active-arena&quot;&gt;&lt;div class=&quot;wordle-wire-own-game&quot;&gt;&lt;div class=&quot;wordle-wire-play&quot;&gt;&lt;div&gt;${board()}&lt;/div&gt;&lt;div&gt;${keyboard()}&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;aside class=&quot;wordle-wire-opponent-rail&quot;&gt;${opponentCard(&#x27;Mika&#x27;)}${opponentCard(&#x27;Ari&#x27;,{disconnected:true})}${opponentCard(&#x27;Sam&#x27;)}${opponentCard(&#x27;Lee&#x27;)}${opponentCard(&#x27;Nia&#x27;)}${opponentCard(&#x27;Theo&#x27;)}${opponentCard(&#x27;Kai&#x27;)}&lt;/aside&gt;&lt;/div&gt;&lt;/main&gt;`;
+      views[&#x27;battle-countdown&#x27;] = () =&gt; `&lt;main class=&quot;wordle-wire-main&quot;&gt;${top(&#x27;Friendly Battle · Round 2/3&#x27;)}${battleStatus(&#x27;03:00&#x27;)}&lt;div class=&quot;wordle-wire-active-arena&quot;&gt;&lt;div class=&quot;wordle-wire-own-game&quot;&gt;&lt;div class=&quot;wordle-wire-play&quot;&gt;&lt;div&gt;${board()}&lt;/div&gt;&lt;div&gt;${keyboard()}&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wordle-wire-countdown-overlay&quot; aria-live=&quot;assertive&quot;&gt;3&lt;/div&gt;&lt;/div&gt;&lt;aside class=&quot;wordle-wire-opponent-rail&quot;&gt;${opponentCard(&#x27;Mika&#x27;)}${opponentCard(&#x27;Ari&#x27;)}${opponentCard(&#x27;Sam&#x27;)}&lt;/aside&gt;&lt;/div&gt;&lt;/main&gt;`;
+      views[&#x27;battle-finished&#x27;] = () =&gt; `&lt;main class=&quot;wordle-wire-main&quot;&gt;${top(&#x27;Friendly Battle · Round 2/3&#x27;)}${battleStatus(&#x27;00:54&#x27;)}&lt;p class=&quot;wordle-wire-finished-note&quot;&gt;Your puzzle is finished · Opponent letters are now visible&lt;/p&gt;&lt;div class=&quot;wordle-wire-active-arena is-spectating&quot;&gt;&lt;div class=&quot;wordle-wire-own-game&quot;&gt;${completedBoard()}&lt;/div&gt;&lt;aside class=&quot;wordle-wire-opponent-rail is-expanded&quot;&gt;${opponentCard(&#x27;Mika&#x27;,{reveal:true})}${opponentCard(&#x27;Ari&#x27;,{reveal:true})}${opponentCard(&#x27;Sam&#x27;,{reveal:true})}${opponentCard(&#x27;Lee&#x27;,{reveal:true})}&lt;/aside&gt;&lt;/div&gt;&lt;/main&gt;`;
+
+      function render() {
+        deviceWrap.className = deviceSelect.value === &#x27;mobile&#x27; ? &#x27;wordle-wire-device-mobile&#x27; : &#x27;&#x27;;
+        stage.innerHTML = views[screenSelect.value]();
+        stage.querySelectorAll(&#x27;.wire-mode-exit&#x27;).forEach(button =&gt; {
+          button.addEventListener(&#x27;click&#x27;, () =&gt; {
+            const battleScreen = [&#x27;battle-two&#x27;,&#x27;battle&#x27;,&#x27;battle-countdown&#x27;,&#x27;battle-finished&#x27;].includes(screenSelect.value);
+            if (!battleScreen) {
+              screenSelect.value = &#x27;home&#x27;;
+              render();
+              return;
+            }
+            const twoPlayer = screenSelect.value === &#x27;battle-two&#x27;;
+            const backdrop = document.createElement(&#x27;div&#x27;);
+            backdrop.className = &#x27;wordle-wire-modal-backdrop&#x27;;
+            backdrop.innerHTML = `&lt;div class=&quot;wordle-wire-modal&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;wire-exit-title&quot;&gt;&lt;h3 id=&quot;wire-exit-title&quot;&gt;Exit this battle?&lt;/h3&gt;&lt;p&gt;${twoPlayer?&#x27;You have 30 seconds to rejoin before your opponent wins the battle.&#x27;:&#x27;You may rejoin while the battle remains active. If fewer than two players remain connected after the preservation period, the battle will be voided.&#x27;}&lt;/p&gt;&lt;div class=&quot;wordle-wire-modal-actions&quot;&gt;&lt;button class=&quot;wordle-wire-action secondary wire-stay-battle&quot; type=&quot;button&quot;&gt;Stay&lt;/button&gt;&lt;button class=&quot;wordle-wire-action wire-confirm-exit&quot; type=&quot;button&quot;&gt;Exit Battle&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`;
+            stage.appendChild(backdrop);
+            backdrop.querySelector(&#x27;.wire-stay-battle&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; backdrop.remove());
+            backdrop.querySelector(&#x27;.wire-confirm-exit&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; {
+              screenSelect.value = &#x27;home&#x27;;
+              render();
+            });
+          });
+        });
+        if (screenSelect.value === &#x27;battle-countdown&#x27; || screenSelect.value === &#x27;battle-lobby-countdown&#x27;) {
+          const overlay = stage.querySelector(&#x27;.wordle-wire-countdown-overlay&#x27;);
+          let count = 3;
+          const countdown = window.setInterval(() =&gt; {
+            if (!overlay.isConnected) return window.clearInterval(countdown);
+            count -= 1;
+            overlay.textContent = count &gt; 0 ? String(count) : &#x27;GO&#x27;;
+            if (count &lt; 0) {
+              window.clearInterval(countdown);
+              if (screenSelect.value === &#x27;battle-lobby-countdown&#x27;) {
+                screenSelect.value = &#x27;battle-two&#x27;;
+                render();
+              } else overlay.remove();
+            }
+          }, 700);
+        }
+        if (screenSelect.value === &#x27;battle&#x27;) {
+          const timer = stage.querySelector(&#x27;.wordle-wire-battle-time&#x27;);
+          let remaining = 9;
+          const urgentCountdown = window.setInterval(() =&gt; {
+            if (!timer.isConnected || remaining &lt;= 0) return window.clearInterval(urgentCountdown);
+            remaining -= 1;
+            timer.textContent = `00:${String(remaining).padStart(2,&#x27;0&#x27;)}`;
+            timer.classList.remove(&#x27;is-urgent&#x27;);
+            void timer.offsetWidth;
+            timer.classList.add(&#x27;is-urgent&#x27;);
+          }, 1000);
+        }
+        if (screenSelect.value === &#x27;battle-setup&#x27; || screenSelect.value === &#x27;battle-setup-member&#x27;) {
+          const readyButton = stage.querySelector(&#x27;#wire-lobby-ready&#x27;);
+          const readyCount = stage.querySelector(&#x27;#wire-lobby-ready-count&#x27;);
+          const yourStatus = [...stage.querySelectorAll(&#x27;.wordle-wire-row&#x27;)].find(row =&gt; row.querySelector(&#x27;strong&#x27;)?.textContent === &#x27;Yuri&#x27;)?.querySelector(&#x27;.wordle-wire-muted&#x27;);
+          readyButton.addEventListener(&#x27;click&#x27;, () =&gt; {
+            const becomingReady = readyButton.textContent === &#x27;Ready&#x27;;
+            readyButton.textContent = becomingReady ? &#x27;Cancel Ready&#x27; : &#x27;Ready&#x27;;
+            readyButton.classList.toggle(&#x27;secondary&#x27;, becomingReady);
+            const current = Number(readyCount.textContent.match(/· (\d+)\//)?.[1] || 0);
+            const total = Number(readyCount.textContent.match(/\/(\d+) ready/)?.[1] || 3);
+            const next = current + (becomingReady ? 1 : -1);
+            readyCount.textContent = `3/8 players · ${next}/${total} ready`;
+            if (yourStatus) yourStatus.textContent = `${yourStatus.textContent.startsWith(&#x27;Host&#x27;)?&#x27;Host · &#x27;:&#x27;&#x27;}${becomingReady?&#x27;Ready&#x27;:&#x27;Not Ready&#x27;}`;
+            if (becomingReady &amp;&amp; next === total) {
+              screenSelect.value = &#x27;battle-lobby-countdown&#x27;;
+              render();
+            }
+          });
+        }
+        if (screenSelect.value === &#x27;round-results&#x27;) {
+          const total = stage.querySelector(&#x27;.wire-total&#x27;);
+          const gain = stage.querySelector(&#x27;.wordle-wire-round-gain&#x27;);
+          window.setTimeout(() =&gt; {
+            if (!total?.isConnected) return;
+            total.textContent = `${Number(total.dataset.total) + Number(total.dataset.gain)} pts`;
+            gain?.remove();
+          }, 1250);
+          const readyButton = stage.querySelector(&#x27;#wire-between-ready&#x27;);
+          const readyCount = stage.querySelector(&#x27;#wire-between-ready-count&#x27;);
+          readyButton.addEventListener(&#x27;click&#x27;, () =&gt; {
+            readyButton.textContent = &#x27;Ready&#x27;;
+            readyButton.disabled = true;
+            readyCount.textContent = &#x27;5/5 players ready&#x27;;
+            const overlay = document.createElement(&#x27;div&#x27;);
+            overlay.className = &#x27;wordle-wire-countdown-overlay&#x27;;
+            overlay.textContent = &#x27;3&#x27;;
+            stage.appendChild(overlay);
+            let count = 3;
+            const countdown = window.setInterval(() =&gt; {
+              if (!overlay.isConnected) return window.clearInterval(countdown);
+              count -= 1;
+              overlay.textContent = count &gt; 0 ? String(count) : &#x27;GO&#x27;;
+              if (count &lt; 0) {
+                window.clearInterval(countdown);
+                screenSelect.value = &#x27;battle&#x27;;
+                render();
+              }
+            }, 700);
+          });
+        }
+        if (screenSelect.value === &#x27;final-results&#x27;) {
+          stage.querySelector(&#x27;#wire-final-continue&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; {
+            screenSelect.value = &#x27;battle-setup&#x27;;
+            render();
+            const rows = [...stage.querySelectorAll(&#x27;.wordle-wire-box .wordle-wire-row&#x27;)];
+            rows.slice(1).forEach(row =&gt; { const status = row.querySelector(&#x27;.wordle-wire-muted&#x27;); if (status) status.textContent = &#x27;Waiting for player&#x27;; });
+          });
+        }
+        if (screenSelect.value === &#x27;username&#x27;) {
+          const input = stage.querySelector(&#x27;#wire-username&#x27;);
+          const count = stage.querySelector(&#x27;#wire-username-count&#x27;);
+          const available = stage.querySelector(&#x27;#wire-username-available&#x27;);
+          const error = stage.querySelector(&#x27;#wire-username-error&#x27;);
+          const continueButton = stage.querySelector(&#x27;#wire-username-continue&#x27;);
+          input.addEventListener(&#x27;input&#x27;, () =&gt; {
+            const value = input.value;
+            count.textContent = `${value.length} / 20`;
+            let message = &#x27;&#x27;;
+            if (value.length === 0) message = &#x27;Enter a username.&#x27;;
+            else if (/[^A-Za-z0-9]/.test(value)) message = &#x27;Use letters and numbers only.&#x27;;
+            else if (value.length &gt; 20) message = &#x27;Use 20 characters or fewer.&#x27;;
+            error.textContent = message;
+            error.classList.toggle(&#x27;wordle-wire-hidden&#x27;, message === &#x27;&#x27;);
+            available.classList.toggle(&#x27;wordle-wire-hidden&#x27;, message !== &#x27;&#x27;);
+            continueButton.disabled = message !== &#x27;&#x27;;
+          });
+        }
+        if (screenSelect.value === &#x27;settings&#x27;) {
+          stage.querySelectorAll(&#x27;.wordle-wire-setting-select&#x27;).forEach(select =&gt; {
+            select.addEventListener(&#x27;change&#x27;, () =&gt; {
+              stage.querySelector(&#x27;.wordle-wire-toast&#x27;)?.remove();
+              const toast = document.createElement(&#x27;div&#x27;);
+              toast.className = &#x27;wordle-wire-toast&#x27;;
+              toast.textContent = &#x27;Saved&#x27;;
+              stage.appendChild(toast);
+              window.setTimeout(() =&gt; toast.remove(), 2000);
+            });
+          });
+        }
+        if (screenSelect.value === &#x27;daily-result&#x27;) {
+          const shareButton = stage.querySelector(&#x27;#wire-share-results&#x27;);
+          const confirmation = stage.querySelector(&#x27;#wire-copy-confirm&#x27;);
+          shareButton.addEventListener(&#x27;click&#x27;, () =&gt; {
+            confirmation.classList.remove(&#x27;wordle-wire-hidden&#x27;);
+            window.setTimeout(() =&gt; confirmation.classList.add(&#x27;wordle-wire-hidden&#x27;), 1800);
+          });
+        }
+        if (screenSelect.value === &#x27;free-result&#x27;) {
+          stage.querySelector(&#x27;#wire-next-word&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; {
+            screenSelect.value = &#x27;free-game&#x27;;
+            render();
+          });
+        }
+        stage.querySelectorAll(&#x27;.wordle-wire-friends-tab&#x27;).forEach(tabButton =&gt; {
+          tabButton.addEventListener(&#x27;click&#x27;, () =&gt; {
+            screenSelect.value = tabButton.dataset.screen;
+            render();
+          });
+        });
+        const invitationBubble = stage.querySelector(&#x27;#wire-invite-bubble&#x27;);
+        if (invitationBubble) {
+          const invitationPanel = stage.querySelector(&#x27;#wire-invitation-panel&#x27;);
+          invitationBubble.addEventListener(&#x27;click&#x27;, () =&gt; invitationPanel.classList.toggle(&#x27;wordle-wire-hidden&#x27;));
+          invitationPanel.querySelectorAll(&#x27;.wire-decline-invitation&#x27;).forEach(button =&gt; {
+            button.addEventListener(&#x27;click&#x27;, () =&gt; {
+              button.closest(&#x27;.wordle-wire-invitation-card&#x27;).remove();
+              const remaining = invitationPanel.querySelectorAll(&#x27;.wordle-wire-invitation-card&#x27;).length;
+              invitationBubble.textContent = String(remaining);
+              invitationBubble.setAttribute(&#x27;aria-label&#x27;, `${remaining} battle invitation${remaining===1?&#x27;&#x27;:&#x27;s&#x27;}`);
+              if (remaining === 0) {
+                invitationPanel.remove();
+                invitationBubble.remove();
+              }
+            });
+          });
+          invitationPanel.querySelectorAll(&#x27;.wire-accept-invitation&#x27;).forEach(button =&gt; {
+            button.addEventListener(&#x27;click&#x27;, () =&gt; {
+              screenSelect.value = &#x27;battle-setup&#x27;;
+              render();
+            });
+          });
+          stage.addEventListener(&#x27;click&#x27;, event =&gt; {
+            if (!event.target.closest(&#x27;#wire-invitation-panel&#x27;) &amp;&amp; !event.target.closest(&#x27;#wire-invite-bubble&#x27;)) invitationPanel.classList.add(&#x27;wordle-wire-hidden&#x27;);
+          });
+        }
+        if (screenSelect.value === &#x27;friend-requests&#x27;) {
+          const requestList = stage.querySelector(&#x27;#wire-request-list&#x27;);
+          const requestEmpty = stage.querySelector(&#x27;#wire-request-empty&#x27;);
+          requestList.querySelectorAll(&#x27;.wire-accept-request, .wire-decline-request&#x27;).forEach(action =&gt; {
+            action.addEventListener(&#x27;click&#x27;, () =&gt; {
+              action.closest(&#x27;.wordle-wire-request-row&#x27;).remove();
+              if (!requestList.querySelector(&#x27;.wordle-wire-request-row&#x27;)) {
+                requestList.classList.add(&#x27;wordle-wire-hidden&#x27;);
+                requestEmpty.classList.remove(&#x27;wordle-wire-hidden&#x27;);
+              }
+            });
+          });
+        }
+        if (screenSelect.value === &#x27;find-friends&#x27;) {
+          const search = stage.querySelector(&#x27;#wire-find-friends&#x27;);
+          const results = stage.querySelector(&#x27;#wire-find-results&#x27;);
+          const empty = stage.querySelector(&#x27;#wire-find-empty&#x27;);
+          const rows = [...results.querySelectorAll(&#x27;.wordle-wire-find-row&#x27;)];
+          search.addEventListener(&#x27;input&#x27;, () =&gt; {
+            const query = search.value.trim().toLowerCase();
+            let matches = 0;
+            rows.forEach(row =&gt; {
+              const visible = !query || row.dataset.username.includes(query);
+              row.classList.toggle(&#x27;wordle-wire-hidden&#x27;, !visible);
+              if (visible) matches += 1;
+            });
+            results.classList.toggle(&#x27;wordle-wire-hidden&#x27;, matches === 0);
+            empty.classList.toggle(&#x27;wordle-wire-hidden&#x27;, matches !== 0);
+          });
+          results.querySelectorAll(&#x27;.wire-relationship-action&#x27;).forEach(action =&gt; {
+            action.addEventListener(&#x27;click&#x27;, () =&gt; {
+              if (action.textContent === &#x27;Add Friend&#x27;) action.textContent = &#x27;Cancel Request&#x27;;
+              else if (action.textContent === &#x27;Cancel Request&#x27;) action.textContent = &#x27;Add Friend&#x27;;
+              action.classList.toggle(&#x27;secondary&#x27;, action.textContent !== &#x27;Add Friend&#x27;);
+            });
+          });
+        }
+        if (screenSelect.value === &#x27;profile&#x27;) {
+          const avatarButton = stage.querySelector(&#x27;#wire-avatar-button&#x27;);
+          const avatarMenu = stage.querySelector(&#x27;#wire-avatar-menu&#x27;);
+          avatarButton.addEventListener(&#x27;click&#x27;, () =&gt; avatarMenu.classList.toggle(&#x27;wordle-wire-hidden&#x27;));
+          const editButton = stage.querySelector(&#x27;#wire-edit-display-name&#x27;);
+          const displayName = stage.querySelector(&#x27;#wire-display-name&#x27;);
+          const displayInput = stage.querySelector(&#x27;#wire-display-name-input&#x27;);
+          editButton.addEventListener(&#x27;click&#x27;, () =&gt; {
+            const editing = !displayInput.classList.contains(&#x27;wordle-wire-hidden&#x27;);
+            if (editing) displayName.textContent = displayInput.value;
+            displayName.classList.toggle(&#x27;wordle-wire-hidden&#x27;, !editing);
+            displayInput.classList.toggle(&#x27;wordle-wire-hidden&#x27;, editing);
+            editButton.textContent = editing ? &#x27;✎&#x27; : &#x27;✓&#x27;;
+            editButton.setAttribute(&#x27;aria-label&#x27;, editing ? &#x27;Edit display name&#x27; : &#x27;Save display name&#x27;);
+            if (!editing) displayInput.focus();
+          });
+          stage.querySelectorAll(&#x27;.wire-audience-button&#x27;).forEach(button =&gt; {
+            const menu = button.parentElement.querySelector(&#x27;.wordle-wire-audience-menu&#x27;);
+            button.addEventListener(&#x27;click&#x27;, () =&gt; menu.classList.toggle(&#x27;wordle-wire-hidden&#x27;));
+            menu.querySelectorAll(&#x27;[data-audience]&#x27;).forEach(choice =&gt; {
+              choice.addEventListener(&#x27;click&#x27;, () =&gt; {
+                const audience = choice.dataset.audience;
+                button.textContent = audience === &#x27;Public&#x27; ? &#x27;◎&#x27; : audience === &#x27;Friends&#x27; ? &#x27;●●&#x27; : &#x27;▣&#x27;;
+                button.setAttribute(&#x27;aria-label&#x27;, `${button.closest(&#x27;.wordle-wire-audience-heading&#x27;).querySelector(&#x27;h3&#x27;).textContent} visibility: ${audience}`);
+                menu.classList.add(&#x27;wordle-wire-hidden&#x27;);
+              });
+            });
+          });
+        }
+        if (screenSelect.value === &#x27;leaderboards&#x27;) {
+          const globalList = stage.querySelector(&#x27;#wire-global-leaderboard&#x27;);
+          const friendsList = stage.querySelector(&#x27;#wire-friends-leaderboard&#x27;);
+          const globalOwnRank = stage.querySelector(&#x27;.wire-global-own-rank&#x27;);
+          const friendsOwnRank = stage.querySelector(&#x27;.wire-friends-own-rank&#x27;);
+          stage.querySelectorAll(&#x27;.wire-leaderboard-tab&#x27;).forEach(tab =&gt; {
+            tab.addEventListener(&#x27;click&#x27;, () =&gt; {
+              const friendsMode = tab.dataset.mode === &#x27;friends&#x27;;
+              globalList.classList.toggle(&#x27;wordle-wire-hidden&#x27;, friendsMode);
+              friendsList.classList.toggle(&#x27;wordle-wire-hidden&#x27;, !friendsMode);
+              globalOwnRank.classList.toggle(&#x27;wordle-wire-hidden&#x27;, friendsMode);
+              friendsOwnRank.classList.toggle(&#x27;wordle-wire-hidden&#x27;, !friendsMode);
+              stage.querySelectorAll(&#x27;.wire-leaderboard-tab&#x27;).forEach(item =&gt; item.classList.toggle(&#x27;is-active&#x27;, item === tab));
+            });
+          });
+        }
+        if (screenSelect.value === &#x27;friend-profile&#x27;) {
+          const menuButton = stage.querySelector(&#x27;#wire-friend-menu-button&#x27;);
+          const menu = stage.querySelector(&#x27;#wire-friend-menu&#x27;);
+          const blockButton = stage.querySelector(&#x27;#wire-block-invites&#x27;);
+          menuButton.addEventListener(&#x27;click&#x27;, () =&gt; menu.classList.toggle(&#x27;wordle-wire-hidden&#x27;));
+          blockButton.addEventListener(&#x27;click&#x27;, () =&gt; {
+            blockButton.textContent = blockButton.textContent === &#x27;Block Battle Invites&#x27; ? &#x27;Unblock Battle Invites&#x27; : &#x27;Block Battle Invites&#x27;;
+          });
+          stage.querySelector(&#x27;#wire-invite-battle&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; {
+            screenSelect.value = &#x27;battle-setup&#x27;;
+            render();
+          });
+        }
+        if (screenSelect.value === &#x27;battle-setup&#x27;) {
+          const pickerButton = stage.querySelector(&#x27;#wire-open-lobby-invites&#x27;);
+          const picker = stage.querySelector(&#x27;#wire-lobby-invite-picker&#x27;);
+          const friendSearch = stage.querySelector(&#x27;#wire-lobby-friend-search&#x27;);
+          pickerButton.addEventListener(&#x27;click&#x27;, () =&gt; picker.classList.toggle(&#x27;wordle-wire-hidden&#x27;));
+          const friendRows = [...stage.querySelectorAll(&#x27;#wire-online-friend-list .wordle-wire-row&#x27;)];
+          friendRows.forEach(row =&gt; {
+            const action = row.querySelector(&#x27;button&#x27;);
+            if (action.textContent === &#x27;In Lobby&#x27;) action.disabled = true;
+            else action.addEventListener(&#x27;click&#x27;, () =&gt; {
+              action.textContent = &#x27;Invited&#x27;;
+              action.disabled = true;
+            });
+          });
+          friendSearch.addEventListener(&#x27;input&#x27;, () =&gt; {
+            const query = friendSearch.value.trim().toLowerCase();
+            friendRows.forEach(row =&gt; row.classList.toggle(&#x27;wordle-wire-hidden&#x27;, !row.textContent.toLowerCase().includes(query)));
+          });
+          stage.querySelectorAll(&#x27;.wordle-wire-lobby-player&#x27;).forEach(player =&gt; {
+            player.addEventListener(&#x27;contextmenu&#x27;, event =&gt; {
+              event.preventDefault();
+              stage.querySelector(&#x27;.wordle-wire-context-menu&#x27;)?.remove();
+              const playerName = player.querySelector(&#x27;strong&#x27;).textContent;
+              const bounds = stage.getBoundingClientRect();
+              const menu = document.createElement(&#x27;div&#x27;);
+              menu.className = &#x27;wordle-wire-context-menu&#x27;;
+              menu.style.left = `${Math.min(event.clientX - bounds.left, bounds.width - 165)}px`;
+              menu.style.top = `${Math.min(event.clientY - bounds.top, bounds.height - 100)}px`;
+              menu.innerHTML = &#x27;&lt;button class=&quot;wire-transfer-host&quot; type=&quot;button&quot;&gt;Transfer host&lt;/button&gt;&lt;button class=&quot;wire-remove-player&quot; type=&quot;button&quot;&gt;Remove player&lt;/button&gt;&#x27;;
+              stage.appendChild(menu);
+              const showConfirmation = (title, message, confirmLabel, onConfirm) =&gt; {
+                const backdrop = document.createElement(&#x27;div&#x27;);
+                backdrop.className = &#x27;wordle-wire-modal-backdrop&#x27;;
+                backdrop.innerHTML = `&lt;div class=&quot;wordle-wire-modal&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;wire-modal-title&quot;&gt;&lt;h3 id=&quot;wire-modal-title&quot;&gt;${title}&lt;/h3&gt;&lt;p&gt;${message}&lt;/p&gt;&lt;div class=&quot;wordle-wire-modal-actions&quot;&gt;&lt;button class=&quot;wordle-wire-action secondary wire-modal-cancel&quot; type=&quot;button&quot;&gt;Cancel&lt;/button&gt;&lt;button class=&quot;wordle-wire-action wire-modal-confirm&quot; type=&quot;button&quot;&gt;${confirmLabel}&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`;
+                stage.appendChild(backdrop);
+                backdrop.querySelector(&#x27;.wire-modal-cancel&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; backdrop.remove());
+                backdrop.querySelector(&#x27;.wire-modal-confirm&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; { backdrop.remove(); onConfirm(); });
+              };
+              menu.querySelector(&#x27;.wire-transfer-host&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; {
+                showConfirmation(`Make ${playerName} the host?`, &#x27;You will lose control of the lobby settings.&#x27;, &#x27;Transfer&#x27;, () =&gt; {
+                  screenSelect.value = &#x27;battle-setup-member&#x27;;
+                  render();
+                  const toast = document.createElement(&#x27;div&#x27;);
+                  toast.className = &#x27;wordle-wire-toast&#x27;;
+                  toast.textContent = `${playerName} is now the host`;
+                  stage.appendChild(toast);
+                });
+              });
+              menu.querySelector(&#x27;.wire-remove-player&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; {
+                showConfirmation(`Remove ${playerName}?`, &#x27;They can join again if invited later.&#x27;, &#x27;Remove&#x27;, () =&gt; player.remove());
+              });
+              setTimeout(() =&gt; document.addEventListener(&#x27;click&#x27;, () =&gt; menu.remove(), { once: true }), 0);
+            });
+          });
+        }
+      }
+      screenSelect.addEventListener(&#x27;change&#x27;, render);
+      deviceSelect.addEventListener(&#x27;change&#x27;, render);
+      render();
+    })();
+  &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+  let lastPointerWasTouch = false;
+  let pinnedByTouch = false;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    pinnedByTouch = false;
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handlePointer = (event) =&gt; {
+    lastPointerWasTouch =
+      event.type === &quot;pointerdown&quot; &amp;&amp; event.pointerType === &quot;touch&quot;;
+  };
+  const handleTouchClick = (event) =&gt; {
+    const isTouch = event.pointerType === &quot;touch&quot; || lastPointerWasTouch;
+    lastPointerWasTouch = false;
+    if (!isTouch || event.detail === 0) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (
+      trigger == null ||
+      !trigger.isConnected ||
+      getContent(trigger).length === 0 ||
+      (pinnedByTouch &amp;&amp; activeTrigger === trigger)
+    ) {
+      if (pinnedByTouch) {
+        closeTooltip();
+      }
+      return;
+    }
+    openTooltip(trigger);
+    pinnedByTouch = activeTrigger === trigger;
+    window.setTimeout(() =&gt; {
+      if (activeTrigger === trigger &amp;&amp; !trigger.isConnected) {
+        closeTooltip(false);
+      }
+    }, 0);
+  };
+  const handleLeave = (event) =&gt; {
+    if (pinnedByTouch) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    lastPointerWasTouch = false;
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    lastPointerWasTouch = false;
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerdown&quot;, handlePointer);
+    document.removeEventListener(&quot;pointercancel&quot;, handlePointer);
+    document.removeEventListener(&quot;click&quot;, handleTouchClick);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerdown&quot;, handlePointer);
+  document.addEventListener(&quot;pointercancel&quot;, handlePointer);
+  document.addEventListener(&quot;click&quot;, handleTouchClick);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+</body>
+</html>

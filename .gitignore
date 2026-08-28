@@ -1,0 +1,28 @@
+# Dependencies and build output
+node_modules/
+.next/
+out/
+dist/
+coverage/
+playwright-report/
+test-results/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Supabase local state and database exports
+supabase/.branches/
+supabase/.temp/
+backups/
+*.dump
+*.sql.gz
+
+# Tooling and operating-system files
+.turbo/
+.vercel/
+.DS_Store
+Thumbs.db
+*.log

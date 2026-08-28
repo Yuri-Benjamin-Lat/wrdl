@@ -1,0 +1,23 @@
+{
+  "name": "wrdl",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@11.19.0",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @wrdl/web dev",
+    "build": "pnpm --filter @wrdl/web build",
+    "lint": "pnpm --filter @wrdl/web lint",
+    "typecheck": "pnpm --filter @wrdl/web typecheck",
+    "test": "pnpm --recursive test",
+    "db:start": "supabase start",
+    "db:stop": "supabase stop",
+    "db:status": "supabase status",
+    "db:reset": "supabase db reset --local"
+  },
+  "devDependencies": {
+    "supabase": "^2.116.0"
+  }
+}

@@ -1,0 +1,1660 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Wrdl Supporting States Polished</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Wrdl Supporting States Polished" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;Wrdl Supporting States Polished&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --radius: var(--border-radius-lg, 12.5px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: 5px;
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: superellipse(1.5);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress {
+  display: flex;
+  height: 6px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 6px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: superellipse(1.5);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed=&quot;true&quot;],
+  [aria-selected=&quot;true&quot;],
+  .is-selected
+) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+  .btn,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control,
+  .form-select {
+    font-size: max(16px, var(--font-size-normal));
+  }
+
+  .form-control[type=&quot;file&quot;]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type=&quot;color&quot;] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type=&quot;date&quot;],
+    [type=&quot;datetime-local&quot;],
+    [type=&quot;month&quot;],
+    [type=&quot;time&quot;],
+    [type=&quot;week&quot;]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: &quot;&quot;;
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+
+  .form-range::-webkit-slider-runnable-track {
+    height: 44px;
+  }
+
+  .form-range::-moz-range-track {
+    height: 44px;
+  }
+
+  .form-range::-webkit-slider-thumb {
+    margin-top: 12px;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: 16px !important;
+  height: 16px !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;wrdl-supporting-states-polished&quot;&gt;
+  &lt;style&gt;
+    @import url(&#x27;https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&amp;display=swap&#x27;);
+    #wrdl-supporting-states-polished {
+      --wrdl-page:#efeee8;
+      --wrdl-surface:#fffdf6;
+      --wrdl-surface-2:#ece9df;
+      --wrdl-surface-3:#e2e7dc;
+      --wrdl-text:#193026;
+      --wrdl-muted:#6b766f;
+      --wrdl-line:#d8d8ce;
+      --wrdl-green:#4f805a;
+      --wrdl-green-soft:#dce9dc;
+      --wrdl-yellow:#b79a2f;
+      --wrdl-yellow-soft:#f0e7bf;
+      --wrdl-card-green:#4f7d56;
+      --wrdl-card-green-light:#7fa681;
+      --wrdl-card-yellow:#ceb54f;
+      --wrdl-card-yellow-soft:#eee2ad;
+      --wrdl-card-neutral:#e8e4d9;
+      --wrdl-card-deep:#304b36;
+      --wrdl-danger:#ad5c57;
+      --wrdl-danger-soft:#f0dddd;
+      --wrdl-light-text:#fffdf6;
+      --wrdl-green-text:#fffdf7;
+      --wrdl-shadow:rgba(25,48,38,.12);
+      width:100%;
+      color:var(--wrdl-text);
+      font-family:&#x27;Fredoka&#x27;,system-ui,sans-serif;
+    }
+    #wrdl-supporting-states-polished.is-dark {
+      --wrdl-page:#171d19;
+      --wrdl-surface:#202822;
+      --wrdl-surface-2:#2a322c;
+      --wrdl-surface-3:#303c33;
+      --wrdl-text:#f6f0e3;
+      --wrdl-muted:#b9c0b9;
+      --wrdl-line:#3e4941;
+      --wrdl-green:#76a47c;
+      --wrdl-green-soft:#2d4633;
+      --wrdl-yellow:#d1b747;
+      --wrdl-yellow-soft:#4a4122;
+      --wrdl-card-green:#6b9c72;
+      --wrdl-card-green-light:#80ac86;
+      --wrdl-card-yellow:#c9ad47;
+      --wrdl-card-yellow-soft:#514824;
+      --wrdl-card-neutral:#343c35;
+      --wrdl-card-deep:#26392a;
+      --wrdl-danger:#dd827b;
+      --wrdl-danger-soft:#4b302f;
+      --wrdl-light-text:#fffdf6;
+      --wrdl-green-text:#152018;
+      --wrdl-shadow:rgba(0,0,0,.3);
+    }
+    #wrdl-supporting-states-polished * { box-sizing:border-box; }
+    #wrdl-supporting-states-polished button { font:inherit; }
+    #wrdl-supporting-states-polished [hidden] { display:none!important; }
+    #wrdl-supporting-states-polished .wrdl-tools { display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; margin-bottom:10px; }
+    #wrdl-supporting-states-polished .wrdl-tool-group { display:flex; flex-wrap:wrap; gap:6px; }
+    #wrdl-supporting-states-polished .wrdl-tool { min-height:38px; display:inline-flex; align-items:center; justify-content:center; gap:6px; padding:7px 11px; border:1px solid var(--wrdl-line); border-radius:10px; color:var(--wrdl-text); background:var(--wrdl-surface); cursor:pointer; }
+    #wrdl-supporting-states-polished .wrdl-tool.is-selected { color:var(--wrdl-light-text); border-color:var(--wrdl-green); background:var(--wrdl-green); }
+    #wrdl-supporting-states-polished .wrdl-subtools { width:100%; display:flex; flex-wrap:wrap; justify-content:center; gap:6px; }
+    #wrdl-supporting-states-polished .wrdl-stage { display:flex; justify-content:center; padding:12px; border-radius:22px; background:var(--wrdl-page); }
+    #wrdl-supporting-states-polished .wrdl-app { position:relative; width:min(100%,980px); min-height:720px; overflow:hidden; border:1px solid var(--wrdl-line); border-radius:24px; background:var(--wrdl-surface); box-shadow:0 16px 40px var(--wrdl-shadow); }
+    #wrdl-supporting-states-polished .wrdl-shell { min-height:720px; display:grid; grid-template-columns:minmax(0,1fr) 210px; }
+    #wrdl-supporting-states-polished .wrdl-main { position:relative; min-width:0; padding:22px 28px 28px; }
+    #wrdl-supporting-states-polished .wrdl-header { min-height:52px; display:flex; align-items:center; gap:12px; }
+    #wrdl-supporting-states-polished .wrdl-logo { display:grid; grid-template-columns:repeat(2,18px); grid-template-rows:repeat(2,18px); gap:3px; font-size:8px; }
+    #wrdl-supporting-states-polished .wrdl-logo span { display:grid; place-items:center; padding-top:1px; color:#182019; background:var(--wrdl-card-green-light); font-size:inherit; font-weight:500; line-height:1; }
+    #wrdl-supporting-states-polished .wrdl-logo span:nth-child(2),
+    #wrdl-supporting-states-polished .wrdl-logo span:nth-child(3) { background:var(--wrdl-card-yellow); }
+    #wrdl-supporting-states-polished .wrdl-page-name { display:none; }
+    #wrdl-supporting-states-polished .wrdl-menu-button { width:44px; height:44px; display:none; place-items:center; margin-left:auto; border:0; border-radius:11px; color:var(--wrdl-text); background:var(--wrdl-card-neutral); cursor:pointer; }
+    #wrdl-supporting-states-polished .wrdl-desktop-spacer { width:44px; height:44px; }
+    #wrdl-supporting-states-polished .wrdl-sidebar { display:grid; grid-template-rows:auto 1fr; gap:20px; padding:24px 18px; border-left:1px solid var(--wrdl-line); background:color-mix(in srgb,var(--wrdl-card-neutral) 48%,var(--wrdl-surface)); }
+    #wrdl-supporting-states-polished .wrdl-account { display:grid; grid-template-columns:45px minmax(0,1fr); align-items:center; gap:10px; }
+    #wrdl-supporting-states-polished .wrdl-avatar { width:45px; height:45px; display:grid; place-items:center; border-radius:50%; color:var(--wrdl-muted); background:var(--wrdl-card-neutral); font-weight:500; }
+    #wrdl-supporting-states-polished .wrdl-account &gt; span:last-child strong,
+    #wrdl-supporting-states-polished .wrdl-account &gt; span:last-child &gt; span { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    #wrdl-supporting-states-polished .wrdl-account &gt; span:last-child &gt; span { color:var(--wrdl-muted); font-size:13px; }
+    #wrdl-supporting-states-polished .wrdl-nav { display:grid; align-content:start; gap:7px; }
+    #wrdl-supporting-states-polished .wrdl-nav-item { min-height:46px; display:flex; align-items:center; gap:10px; padding:10px 12px; border:0; border-radius:11px; color:var(--wrdl-text); background:transparent; text-align:left; cursor:pointer; }
+    #wrdl-supporting-states-polished .wrdl-nav-item.is-active { color:var(--wrdl-green-text); background:var(--wrdl-green); }
+    #wrdl-supporting-states-polished .wrdl-nav-label { flex:1; }
+    #wrdl-supporting-states-polished .wrdl-count { min-width:23px; height:23px; display:grid; place-items:center; border-radius:50%; color:var(--wrdl-light-text); background:var(--wrdl-danger); font-size:12px; }
+    #wrdl-supporting-states-polished .wrdl-content { width:min(100%,650px); margin:26px auto 0; }
+    #wrdl-supporting-states-polished .wrdl-content h1 { margin:0 0 5px; font-size:30px; font-weight:500; }
+    #wrdl-supporting-states-polished .wrdl-content &gt; p { margin:0; color:var(--wrdl-muted); }
+    #wrdl-supporting-states-polished .wrdl-home-grid { width:min(100%,406px); display:grid; grid-template-columns:repeat(2,minmax(0,190px)); justify-content:center; gap:16px; margin:22px auto 0; }
+    #wrdl-supporting-states-polished .wrdl-home-card { position:relative; aspect-ratio:1; min-width:0; overflow:hidden; display:grid; align-content:space-between; gap:12px; padding:18px; border:0; border-radius:19px; text-align:left; cursor:pointer; box-shadow:0 8px 19px var(--wrdl-shadow); }
+    #wrdl-supporting-states-polished .wrdl-home-card.daily { color:#fffdf7; background:var(--wrdl-card-green); }
+    #wrdl-supporting-states-polished .wrdl-home-card.free { color:#2a2a20; background:var(--wrdl-card-yellow-soft); }
+    #wrdl-supporting-states-polished.is-dark .wrdl-home-card.free { color:#fffdf7; }
+    #wrdl-supporting-states-polished .wrdl-home-card.battle { color:#fffdf7; background:var(--wrdl-card-deep); }
+    #wrdl-supporting-states-polished .wrdl-home-card.leaderboard { color:var(--wrdl-text); background:var(--wrdl-card-neutral); }
+    #wrdl-supporting-states-polished .wrdl-home-card strong { font-weight:500; }
+    #wrdl-supporting-states-polished .wrdl-mode-copy { display:grid; gap:4px; }
+    #wrdl-supporting-states-polished .wrdl-mode-detail { color:inherit; opacity:.78; }
+    #wrdl-supporting-states-polished .wrdl-mode-art { position:absolute; right:18px; bottom:18px; display:grid; place-items:center; opacity:.94; }
+    #wrdl-supporting-states-polished .wrdl-daily-art { grid-template-columns:repeat(5,11px); grid-template-rows:repeat(4,11px); gap:3px; }
+    #wrdl-supporting-states-polished .wrdl-daily-art span { width:11px; height:11px; }
+    #wrdl-supporting-states-polished .wrdl-daily-art .is-gray { background:#aaaca7; }
+    #wrdl-supporting-states-polished .wrdl-daily-art .is-yellow { background:var(--wrdl-card-yellow); }
+    #wrdl-supporting-states-polished .wrdl-daily-art .is-green { background:#8fb291; }
+    #wrdl-supporting-states-polished .wrdl-free-art { display:flex; align-items:flex-end; gap:5px; }
+    #wrdl-supporting-states-polished .wrdl-free-art span { width:25px; height:25px; display:grid; place-items:center; border-radius:4px; background:color-mix(in srgb,#fffdf7 45%,transparent); font-weight:500; }
+    #wrdl-supporting-states-polished .wrdl-free-art span:nth-child(2) { transform:translateY(-9px) rotate(-5deg); }
+    #wrdl-supporting-states-polished .wrdl-battle-art { color:var(--wrdl-card-yellow); }
+    #wrdl-supporting-states-polished .wrdl-leader-art { color:var(--wrdl-card-green); }
+    #wrdl-supporting-states-polished .wrdl-battle-art svg,
+    #wrdl-supporting-states-polished .wrdl-leader-art svg { width:104px; height:104px; }
+
+    #wrdl-supporting-states-polished .wrdl-invite-area { position:absolute; z-index:8; right:228px; bottom:18px; display:grid; justify-items:end; }
+    #wrdl-supporting-states-polished .wrdl-invite-panel { width:350px; overflow:hidden; border:1px solid var(--wrdl-line); border-radius:19px; background:var(--wrdl-surface); box-shadow:0 14px 30px var(--wrdl-shadow); }
+    #wrdl-supporting-states-polished .wrdl-invite-panel-head { min-height:54px; display:grid; grid-template-columns:minmax(0,1fr) auto auto; align-items:center; gap:10px; padding:8px 9px 8px 15px; border-bottom:1px solid var(--wrdl-line); }
+    #wrdl-supporting-states-polished .wrdl-invite-panel-head strong { font-weight:500; }
+    #wrdl-supporting-states-polished .wrdl-invite-panel-head .wrdl-count { color:var(--wrdl-text); background:var(--wrdl-green-soft); }
+    #wrdl-supporting-states-polished .wrdl-invite-stack { display:grid; gap:8px; padding:9px; }
+    #wrdl-supporting-states-polished .wrdl-invite-card { padding:13px; border-radius:14px; background:var(--wrdl-surface-2); }
+    #wrdl-supporting-states-polished .wrdl-invite-person { display:grid; grid-template-columns:42px minmax(0,1fr); align-items:center; gap:10px; }
+    #wrdl-supporting-states-polished .wrdl-invite-person strong,
+    #wrdl-supporting-states-polished .wrdl-invite-person span { display:block; }
+    #wrdl-supporting-states-polished .wrdl-invite-person span { color:var(--wrdl-muted); font-size:13px; }
+    #wrdl-supporting-states-polished .wrdl-invite-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px; }
+    #wrdl-supporting-states-polished .wrdl-action { min-height:42px; display:flex; align-items:center; justify-content:center; gap:7px; padding:8px 12px; border:0; border-radius:11px; color:var(--wrdl-text); background:var(--wrdl-surface-2); cursor:pointer; }
+    #wrdl-supporting-states-polished .wrdl-action.is-primary { color:var(--wrdl-light-text); background:var(--wrdl-green); }
+    #wrdl-supporting-states-polished .wrdl-action.is-danger { color:var(--wrdl-light-text); background:var(--wrdl-danger); }
+    #wrdl-supporting-states-polished .wrdl-invite-bubble { width:54px; height:54px; display:grid; place-items:center; position:relative; border:0; border-radius:50%; color:var(--wrdl-light-text); background:var(--wrdl-green); box-shadow:0 10px 22px var(--wrdl-shadow); cursor:pointer; }
+    #wrdl-supporting-states-polished .wrdl-invite-bubble svg { width:24px; height:24px; }
+    #wrdl-supporting-states-polished .wrdl-bubble-count { position:absolute; right:-3px; top:-4px; min-width:21px; height:21px; display:grid; place-items:center; padding:0 5px; border-radius:12px; color:var(--wrdl-light-text); background:var(--wrdl-danger); font-size:11px; }
+
+    #wrdl-supporting-states-polished .wrdl-screen-dim { position:absolute; z-index:12; inset:0; padding:0; border:0; background:rgba(13,23,17,.42); cursor:pointer; }
+    #wrdl-supporting-states-polished .wrdl-drawer { position:absolute; z-index:13; inset:0 0 0 auto; width:min(84%,320px); padding:18px; border-left:1px solid var(--wrdl-line); background:color-mix(in srgb,var(--wrdl-card-neutral) 48%,var(--wrdl-surface)); box-shadow:-16px 0 34px var(--wrdl-shadow); }
+    #wrdl-supporting-states-polished .wrdl-drawer-head { min-height:44px; display:flex; align-items:center; justify-content:flex-end; margin-bottom:16px; }
+    #wrdl-supporting-states-polished .wrdl-icon-button { width:42px; height:42px; display:grid; place-items:center; border:0; border-radius:11px; color:var(--wrdl-text); background:var(--wrdl-surface-2); cursor:pointer; }
+    #wrdl-supporting-states-polished .wrdl-drawer .wrdl-account { margin-bottom:20px; }
+    #wrdl-supporting-states-polished .wrdl-drawer .wrdl-nav { margin-bottom:9px; }
+    #wrdl-supporting-states-polished .wrdl-drawer &gt; .wrdl-nav-item { color:var(--wrdl-danger); }
+
+    #wrdl-supporting-states-polished .wrdl-modal-layer { position:absolute; z-index:14; inset:0; display:grid; place-items:center; padding:20px; background:rgba(13,23,17,.48); }
+    #wrdl-supporting-states-polished .wrdl-modal { width:min(100%,430px); padding:23px; border-radius:20px; color:var(--wrdl-text); background:var(--wrdl-surface); box-shadow:0 18px 46px rgba(0,0,0,.24); }
+    #wrdl-supporting-states-polished .wrdl-modal-mark { width:46px; height:46px; display:grid; place-items:center; margin-bottom:16px; border-radius:14px; color:var(--wrdl-danger); background:var(--wrdl-danger-soft); }
+    #wrdl-supporting-states-polished .wrdl-modal h2 { margin:0 0 8px; font-size:24px; font-weight:500; }
+    #wrdl-supporting-states-polished .wrdl-modal p { margin:0; color:var(--wrdl-muted); line-height:1.45; }
+    #wrdl-supporting-states-polished .wrdl-checkbox { display:flex; align-items:flex-start; gap:9px; margin-top:17px; color:var(--wrdl-muted); }
+    #wrdl-supporting-states-polished .wrdl-checkbox input { width:18px; height:18px; margin-top:1px; accent-color:var(--wrdl-green); }
+    #wrdl-supporting-states-polished .wrdl-modal-actions { display:flex; justify-content:flex-end; gap:9px; margin-top:22px; }
+
+    #wrdl-supporting-states-polished .wrdl-skeleton-title,
+    #wrdl-supporting-states-polished .wrdl-skeleton-line,
+    #wrdl-supporting-states-polished .wrdl-skeleton-avatar,
+    #wrdl-supporting-states-polished .wrdl-skeleton-block { position:relative; overflow:hidden; background:var(--wrdl-surface-2); }
+    #wrdl-supporting-states-polished .wrdl-skeleton-title::after,
+    #wrdl-supporting-states-polished .wrdl-skeleton-line::after,
+    #wrdl-supporting-states-polished .wrdl-skeleton-avatar::after,
+    #wrdl-supporting-states-polished .wrdl-skeleton-block::after { content:&#x27;&#x27;; position:absolute; inset:0; transform:translateX(-100%); background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--wrdl-surface) 72%,transparent),transparent); animation:wrdl-shimmer 1.4s infinite; }
+    #wrdl-supporting-states-polished .wrdl-skeleton-title { width:180px; height:30px; border-radius:9px; }
+    #wrdl-supporting-states-polished .wrdl-skeleton-line { height:13px; border-radius:7px; }
+    #wrdl-supporting-states-polished .wrdl-skeleton-avatar { width:46px; height:46px; border-radius:50%; }
+    #wrdl-supporting-states-polished .wrdl-skeleton-list { display:grid; gap:10px; margin-top:26px; }
+    #wrdl-supporting-states-polished .wrdl-skeleton-row { min-height:72px; display:grid; grid-template-columns:46px minmax(0,1fr) 90px; align-items:center; gap:12px; padding:12px 14px; border-radius:16px; background:var(--wrdl-surface-3); }
+    #wrdl-supporting-states-polished .wrdl-skeleton-copy { display:grid; gap:9px; }
+    #wrdl-supporting-states-polished .wrdl-skeleton-copy .wrdl-skeleton-line:first-child { width:54%; }
+    #wrdl-supporting-states-polished .wrdl-skeleton-copy .wrdl-skeleton-line:last-child { width:34%; }
+    #wrdl-supporting-states-polished .wrdl-skeleton-row &gt; .wrdl-skeleton-line { width:100%; }
+    @keyframes wrdl-shimmer { to { transform:translateX(100%); } }
+
+    #wrdl-supporting-states-polished .wrdl-offline-banner { display:flex; align-items:center; justify-content:center; gap:8px; margin:9px -28px 0; padding:9px 18px; color:var(--wrdl-text); background:var(--wrdl-yellow-soft); font-weight:500; }
+    #wrdl-supporting-states-polished .wrdl-offline-card { opacity:.55; }
+    #wrdl-supporting-states-polished .wrdl-status-note { display:flex; align-items:center; gap:7px; margin-top:auto; color:var(--wrdl-muted); font-size:13px; }
+
+    #wrdl-supporting-states-polished .wrdl-empty-state { min-height:500px; display:grid; place-items:center; text-align:center; }
+    #wrdl-supporting-states-polished .wrdl-empty-inner { width:min(100%,470px); }
+    #wrdl-supporting-states-polished .wrdl-empty-mark { width:68px; height:68px; display:grid; place-items:center; margin:0 auto 18px; border-radius:20px; color:var(--wrdl-green); background:var(--wrdl-green-soft); }
+    #wrdl-supporting-states-polished .wrdl-empty-mark svg { width:30px; height:30px; }
+    #wrdl-supporting-states-polished .wrdl-empty-mark.is-danger { color:var(--wrdl-danger); background:var(--wrdl-danger-soft); }
+    #wrdl-supporting-states-polished .wrdl-empty-state h1 { margin:0 0 9px; font-size:28px; font-weight:500; }
+    #wrdl-supporting-states-polished .wrdl-empty-state p { margin:0 auto; color:var(--wrdl-muted); line-height:1.45; }
+    #wrdl-supporting-states-polished .wrdl-empty-actions { display:flex; justify-content:center; flex-wrap:wrap; gap:9px; margin-top:22px; }
+    #wrdl-supporting-states-polished .wrdl-maintenance { min-height:720px; display:grid; place-items:center; padding:28px; text-align:center; background:var(--wrdl-page); }
+    #wrdl-supporting-states-polished .wrdl-brand-large { display:grid; grid-template-columns:repeat(2,42px); grid-template-rows:repeat(2,42px); gap:6px; width:max-content; margin:0 auto 24px; font-size:20px; }
+    #wrdl-supporting-states-polished .wrdl-brand-large span { display:grid; place-items:center; color:#182019; background:#7fa681; font-weight:500; }
+    #wrdl-supporting-states-polished .wrdl-brand-large span:nth-child(2),
+    #wrdl-supporting-states-polished .wrdl-brand-large span:nth-child(3) { background:#ceb54f; }
+    #wrdl-supporting-states-polished .wrdl-maintenance h1 { margin:0 0 9px; font-size:30px; font-weight:500; }
+    #wrdl-supporting-states-polished .wrdl-maintenance p { max-width:460px; margin:0 auto; color:var(--wrdl-muted); }
+    #wrdl-supporting-states-polished .wrdl-maintenance .wrdl-action { width:160px; margin:22px auto 0; }
+
+    #wrdl-supporting-states-polished .wrdl-stage.is-mobile .wrdl-app { width:min(100%,390px); min-height:820px; }
+    #wrdl-supporting-states-polished .wrdl-stage.is-mobile .wrdl-shell { min-height:820px; grid-template-columns:1fr; }
+    #wrdl-supporting-states-polished .wrdl-stage.is-mobile .wrdl-main { padding:16px 16px 22px; }
+    #wrdl-supporting-states-polished .wrdl-stage.is-mobile .wrdl-menu-button { display:grid; }
+    #wrdl-supporting-states-polished .wrdl-stage.is-mobile .wrdl-sidebar { display:none; }
+    #wrdl-supporting-states-polished .wrdl-stage.is-mobile .wrdl-content { margin-top:20px; }
+    #wrdl-supporting-states-polished .wrdl-stage.is-mobile .wrdl-content h1 { font-size:25px; }
+    #wrdl-supporting-states-polished .wrdl-stage.is-mobile .wrdl-home-grid { width:100%; grid-template-columns:repeat(2,minmax(0,1fr)); gap:11px; }
+    #wrdl-supporting-states-polished .wrdl-stage.is-mobile .wrdl-home-card { padding:14px; border-radius:16px; }
+    #wrdl-supporting-states-polished .wrdl-stage.is-mobile .wrdl-mode-art { right:14px; bottom:14px; transform:scale(.85); transform-origin:right bottom; }
+    #wrdl-supporting-states-polished .wrdl-stage.is-mobile .wrdl-invite-area { right:12px; bottom:16px; }
+    #wrdl-supporting-states-polished .wrdl-stage.is-mobile .wrdl-invite-panel { width:min(350px,calc(100vw - 52px)); }
+    #wrdl-supporting-states-polished .wrdl-stage.is-mobile .wrdl-offline-banner { margin-left:-16px; margin-right:-16px; }
+    #wrdl-supporting-states-polished .wrdl-stage.is-mobile .wrdl-modal { padding:20px; }
+    #wrdl-supporting-states-polished .wrdl-stage.is-mobile .wrdl-modal-actions { display:grid; grid-template-columns:1fr 1fr; }
+    #wrdl-supporting-states-polished .wrdl-stage.is-mobile .wrdl-skeleton-row { grid-template-columns:42px minmax(0,1fr) 56px; padding:11px; }
+    #wrdl-supporting-states-polished .wrdl-stage.is-mobile .wrdl-skeleton-avatar { width:42px; height:42px; }
+    #wrdl-supporting-states-polished .wrdl-stage.is-mobile .wrdl-empty-state { min-height:610px; }
+    #wrdl-supporting-states-polished .wrdl-stage.is-mobile .wrdl-maintenance { min-height:820px; padding:20px; }
+    @media (max-width:520px) {
+      #wrdl-supporting-states-polished .wrdl-stage { padding:7px; }
+      #wrdl-supporting-states-polished .wrdl-tools { justify-content:center; }
+      #wrdl-supporting-states-polished .wrdl-tool-group { justify-content:center; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      #wrdl-supporting-states-polished * { animation:none!important; transition:none!important; }
+    }
+  &lt;/style&gt;
+
+  &lt;div class=&quot;wrdl-tools&quot;&gt;
+    &lt;div class=&quot;wrdl-tool-group&quot; aria-label=&quot;Supporting screen&quot;&gt;
+      &lt;button class=&quot;wrdl-tool&quot; type=&quot;button&quot; data-screen=&quot;invites&quot;&gt;Invitations&lt;/button&gt;
+      &lt;button class=&quot;wrdl-tool&quot; type=&quot;button&quot; data-screen=&quot;menu&quot;&gt;Menu&lt;/button&gt;
+      &lt;button class=&quot;wrdl-tool is-selected&quot; type=&quot;button&quot; data-screen=&quot;confirm&quot;&gt;Confirmations&lt;/button&gt;
+      &lt;button class=&quot;wrdl-tool&quot; type=&quot;button&quot; data-screen=&quot;loading&quot;&gt;Loading&lt;/button&gt;
+      &lt;button class=&quot;wrdl-tool&quot; type=&quot;button&quot; data-screen=&quot;offline&quot;&gt;Offline&lt;/button&gt;
+      &lt;button class=&quot;wrdl-tool&quot; type=&quot;button&quot; data-screen=&quot;error&quot;&gt;Errors&lt;/button&gt;
+      &lt;button class=&quot;wrdl-tool&quot; type=&quot;button&quot; data-screen=&quot;maintenance&quot;&gt;Maintenance&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;wrdl-tool-group&quot; aria-label=&quot;Viewport&quot;&gt;
+      &lt;button class=&quot;wrdl-tool is-selected&quot; type=&quot;button&quot; data-viewport=&quot;desktop&quot;&gt;Desktop&lt;/button&gt;
+      &lt;button class=&quot;wrdl-tool&quot; type=&quot;button&quot; data-viewport=&quot;mobile&quot;&gt;Mobile&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;wrdl-tool-group&quot; aria-label=&quot;Theme&quot;&gt;
+      &lt;button class=&quot;wrdl-tool is-selected&quot; type=&quot;button&quot; data-theme=&quot;light&quot;&gt;Light&lt;/button&gt;
+      &lt;button class=&quot;wrdl-tool&quot; type=&quot;button&quot; data-theme=&quot;dark&quot;&gt;Dark&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;wrdl-subtools&quot; data-confirm-tools hidden&gt;
+      &lt;button class=&quot;wrdl-tool is-selected&quot; type=&quot;button&quot; data-confirm=&quot;free&quot;&gt;Free Play&lt;/button&gt;
+      &lt;button class=&quot;wrdl-tool&quot; type=&quot;button&quot; data-confirm=&quot;two&quot;&gt;2-Player Battle&lt;/button&gt;
+      &lt;button class=&quot;wrdl-tool&quot; type=&quot;button&quot; data-confirm=&quot;multi&quot;&gt;3+ Player Battle&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;wrdl-subtools&quot; data-error-tools hidden&gt;
+      &lt;button class=&quot;wrdl-tool is-selected&quot; type=&quot;button&quot; data-error=&quot;standard&quot;&gt;Page Error&lt;/button&gt;
+      &lt;button class=&quot;wrdl-tool&quot; type=&quot;button&quot; data-error=&quot;daily&quot;&gt;Daily Wordle&lt;/button&gt;
+      &lt;button class=&quot;wrdl-tool&quot; type=&quot;button&quot; data-error=&quot;battle&quot;&gt;Battle Elsewhere&lt;/button&gt;
+      &lt;button class=&quot;wrdl-tool&quot; type=&quot;button&quot; data-error=&quot;auth&quot;&gt;Sign-in Expired&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;wrdl-stage&quot; id=&quot;wrdl-supporting-stage&quot;&gt;
+    &lt;div class=&quot;wrdl-app&quot; data-app aria-live=&quot;polite&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    (() =&gt; {
+      const root = document.getElementById(&#x27;wrdl-supporting-states-polished&#x27;);
+      const stage = root.querySelector(&#x27;#wrdl-supporting-stage&#x27;);
+      const app = root.querySelector(&#x27;[data-app]&#x27;);
+      let screen = &#x27;confirm&#x27;;
+      let confirmation = &#x27;free&#x27;;
+      let errorType = &#x27;standard&#x27;;
+      let invitesOpen = true;
+      let inviteCount = 2;
+      let viewport = &#x27;desktop&#x27;;
+      let drawerOpen = true;
+
+      const logo = () =&gt; &#x27;&lt;div class=&quot;wrdl-logo&quot; aria-label=&quot;WRDL&quot;&gt;&lt;span&gt;W&lt;/span&gt;&lt;span&gt;R&lt;/span&gt;&lt;span&gt;D&lt;/span&gt;&lt;span&gt;L&lt;/span&gt;&lt;/div&gt;&#x27;;
+      const icon = name =&gt; `&lt;i data-lucide=&quot;${name}&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;`;
+      const account = () =&gt; `&lt;div class=&quot;wrdl-account&quot;&gt;&lt;span class=&quot;wrdl-avatar&quot; aria-hidden=&quot;true&quot;&gt;${icon(&#x27;user&#x27;)}&lt;/span&gt;&lt;span&gt;&lt;strong&gt;Yuri&lt;/strong&gt;&lt;span&gt;@yuri&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;`;
+      const nav = active =&gt; `&lt;nav class=&quot;wrdl-nav&quot; aria-label=&quot;Main navigation&quot;&gt;
+        &lt;button class=&quot;wrdl-nav-item ${active === &#x27;Home&#x27; ? &#x27;is-active&#x27; : &#x27;&#x27;}&quot; type=&quot;button&quot;&gt;${icon(&#x27;house&#x27;)}&lt;span class=&quot;wrdl-nav-label&quot;&gt;Home&lt;/span&gt;&lt;/button&gt;
+        &lt;button class=&quot;wrdl-nav-item ${active === &#x27;Profile&#x27; ? &#x27;is-active&#x27; : &#x27;&#x27;}&quot; type=&quot;button&quot;&gt;${icon(&#x27;user&#x27;)}&lt;span class=&quot;wrdl-nav-label&quot;&gt;Profile&lt;/span&gt;&lt;/button&gt;
+        &lt;button class=&quot;wrdl-nav-item ${active === &#x27;Friends&#x27; ? &#x27;is-active&#x27; : &#x27;&#x27;}&quot; type=&quot;button&quot;&gt;${icon(&#x27;users&#x27;)}&lt;span class=&quot;wrdl-nav-label&quot;&gt;Friends&lt;/span&gt;&lt;span class=&quot;wrdl-count&quot;&gt;3&lt;/span&gt;&lt;/button&gt;
+        &lt;button class=&quot;wrdl-nav-item ${active === &#x27;Settings&#x27; ? &#x27;is-active&#x27; : &#x27;&#x27;}&quot; type=&quot;button&quot;&gt;${icon(&#x27;settings&#x27;)}&lt;span class=&quot;wrdl-nav-label&quot;&gt;Settings&lt;/span&gt;&lt;/button&gt;
+      &lt;/nav&gt;`;
+      const header = (title, offline = false) =&gt; `&lt;header class=&quot;wrdl-header&quot;&gt;${logo()}&lt;div class=&quot;wrdl-page-name&quot;&gt;${title}&lt;/div&gt;&lt;button class=&quot;wrdl-menu-button&quot; type=&quot;button&quot; aria-label=&quot;Open menu&quot;&gt;${icon(&#x27;menu&#x27;)}&lt;/button&gt;&lt;/header&gt;${offline ? `&lt;div class=&quot;wrdl-offline-banner&quot; role=&quot;status&quot;&gt;${icon(&#x27;wifi-off&#x27;)}&lt;span&gt;You&#x27;re offline&lt;/span&gt;&lt;/div&gt;` : &#x27;&#x27;}`;
+      const sidebar = active =&gt; `&lt;aside class=&quot;wrdl-sidebar&quot;&gt;${account()}${nav(active)}&lt;/aside&gt;`;
+      const homeCards = (offline = false) =&gt; `&lt;div class=&quot;wrdl-content&quot;&gt;&lt;h1&gt;Choose a game&lt;/h1&gt;&lt;p&gt;Welcome back, Yuri.&lt;/p&gt;&lt;div class=&quot;wrdl-home-grid&quot;&gt;
+        &lt;button class=&quot;wrdl-home-card daily ${offline ? &#x27;wrdl-offline-card&#x27; : &#x27;&#x27;}&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;wrdl-mode-copy&quot;&gt;&lt;strong&gt;Daily Wordle&lt;/strong&gt;&lt;span class=&quot;wrdl-mode-detail&quot;&gt;${offline ? &#x27;Connection required&#x27; : &#x27;Next puzzle 08:42:16&#x27;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;wrdl-mode-art wrdl-daily-art&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;is-gray&quot;&gt;&lt;/span&gt;&lt;span class=&quot;is-gray&quot;&gt;&lt;/span&gt;&lt;span class=&quot;is-gray&quot;&gt;&lt;/span&gt;&lt;span class=&quot;is-gray&quot;&gt;&lt;/span&gt;&lt;span class=&quot;is-gray&quot;&gt;&lt;/span&gt;&lt;span class=&quot;is-yellow&quot;&gt;&lt;/span&gt;&lt;span class=&quot;is-gray&quot;&gt;&lt;/span&gt;&lt;span class=&quot;is-gray&quot;&gt;&lt;/span&gt;&lt;span class=&quot;is-yellow&quot;&gt;&lt;/span&gt;&lt;span class=&quot;is-gray&quot;&gt;&lt;/span&gt;&lt;span class=&quot;is-green&quot;&gt;&lt;/span&gt;&lt;span class=&quot;is-green&quot;&gt;&lt;/span&gt;&lt;span class=&quot;is-yellow&quot;&gt;&lt;/span&gt;&lt;span class=&quot;is-green&quot;&gt;&lt;/span&gt;&lt;span class=&quot;is-yellow&quot;&gt;&lt;/span&gt;&lt;span class=&quot;is-green&quot;&gt;&lt;/span&gt;&lt;span class=&quot;is-green&quot;&gt;&lt;/span&gt;&lt;span class=&quot;is-green&quot;&gt;&lt;/span&gt;&lt;span class=&quot;is-green&quot;&gt;&lt;/span&gt;&lt;span class=&quot;is-green&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+        &lt;button class=&quot;wrdl-home-card free&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;wrdl-mode-copy&quot;&gt;&lt;strong&gt;Free Play&lt;/strong&gt;&lt;span class=&quot;wrdl-mode-detail&quot;&gt;Practice freely.&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;wrdl-mode-art wrdl-free-art&quot; aria-hidden=&quot;true&quot;&gt;&lt;span&gt;W&lt;/span&gt;&lt;span&gt;R&lt;/span&gt;&lt;span&gt;D&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+        &lt;button class=&quot;wrdl-home-card battle&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;wrdl-mode-copy&quot;&gt;&lt;strong&gt;Friendly Battle&lt;/strong&gt;&lt;span class=&quot;wrdl-mode-detail&quot;&gt;Play with friends.&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;wrdl-mode-art wrdl-battle-art&quot; aria-hidden=&quot;true&quot;&gt;${icon(&#x27;swords&#x27;)}&lt;/span&gt;&lt;/button&gt;
+        &lt;button class=&quot;wrdl-home-card leaderboard&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;wrdl-mode-copy&quot;&gt;&lt;strong&gt;Leaderboards&lt;/strong&gt;&lt;span class=&quot;wrdl-mode-detail&quot;&gt;See the rankings.&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;wrdl-mode-art wrdl-leader-art&quot; aria-hidden=&quot;true&quot;&gt;${icon(&#x27;trophy&#x27;)}&lt;/span&gt;&lt;/button&gt;
+      &lt;/div&gt;&lt;/div&gt;`;
+      const shell = (main, active = &#x27;Home&#x27;, options = {}) =&gt; `&lt;div class=&quot;wrdl-shell&quot;&gt;&lt;main class=&quot;wrdl-main&quot;&gt;${header(options.title || active, options.offline)}${main}&lt;/main&gt;${sidebar(active)}&lt;/div&gt;`;
+
+      function invitationMarkup() {
+        const cards = inviteCount ? `&lt;div class=&quot;wrdl-invite-stack&quot;&gt;
+          ${inviteCount &gt; 1 ? `&lt;article class=&quot;wrdl-invite-card&quot;&gt;&lt;div class=&quot;wrdl-invite-person&quot;&gt;&lt;div class=&quot;wrdl-avatar&quot; aria-hidden=&quot;true&quot;&gt;M&lt;/div&gt;&lt;div&gt;&lt;strong&gt;Mika invited you&lt;/strong&gt;&lt;span&gt;@mika · 3 players in lobby&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wrdl-invite-actions&quot;&gt;&lt;button class=&quot;wrdl-action is-primary&quot; type=&quot;button&quot; data-invite-action&gt;${icon(&#x27;check&#x27;)} Accept&lt;/button&gt;&lt;button class=&quot;wrdl-action&quot; type=&quot;button&quot; data-invite-action&gt;${icon(&#x27;x&#x27;)} Decline&lt;/button&gt;&lt;/div&gt;&lt;/article&gt;` : &#x27;&#x27;}
+          &lt;article class=&quot;wrdl-invite-card&quot;&gt;&lt;div class=&quot;wrdl-invite-person&quot;&gt;&lt;div class=&quot;wrdl-avatar&quot; aria-hidden=&quot;true&quot;&gt;A&lt;/div&gt;&lt;div&gt;&lt;strong&gt;Ari invited you&lt;/strong&gt;&lt;span&gt;@ari · 2 players in lobby&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wrdl-invite-actions&quot;&gt;&lt;button class=&quot;wrdl-action is-primary&quot; type=&quot;button&quot; data-invite-action&gt;${icon(&#x27;check&#x27;)} Accept&lt;/button&gt;&lt;button class=&quot;wrdl-action&quot; type=&quot;button&quot; data-invite-action&gt;${icon(&#x27;x&#x27;)} Decline&lt;/button&gt;&lt;/div&gt;&lt;/article&gt;
+        &lt;/div&gt;` : &#x27;&#x27;;
+        const invitationControl = !inviteCount ? &#x27;&#x27; : invitesOpen
+          ? `&lt;section class=&quot;wrdl-invite-panel&quot; aria-label=&quot;Battle invitations&quot;&gt;&lt;div class=&quot;wrdl-invite-panel-head&quot;&gt;&lt;strong&gt;Battle Invitations&lt;/strong&gt;&lt;span class=&quot;wrdl-count&quot;&gt;${inviteCount}&lt;/span&gt;&lt;button class=&quot;wrdl-icon-button&quot; type=&quot;button&quot; data-invite-bubble aria-label=&quot;Minimize battle invitations&quot;&gt;${icon(&#x27;chevron-down&#x27;)}&lt;/button&gt;&lt;/div&gt;${cards}&lt;/section&gt;`
+          : `&lt;button class=&quot;wrdl-invite-bubble&quot; type=&quot;button&quot; data-invite-bubble aria-label=&quot;Open battle invitations&quot;&gt;${icon(&#x27;swords&#x27;)}&lt;span class=&quot;wrdl-bubble-count&quot;&gt;${inviteCount}&lt;/span&gt;&lt;/button&gt;`;
+        return `${shell(homeCards())}&lt;div class=&quot;wrdl-invite-area&quot;&gt;${invitationControl}&lt;/div&gt;`;
+      }
+
+      function menuMarkup() {
+        if (viewport === &#x27;desktop&#x27;) return shell(homeCards());
+        if (!drawerOpen) return shell(homeCards());
+        return `${shell(homeCards())}&lt;button class=&quot;wrdl-screen-dim&quot; type=&quot;button&quot; data-close-drawer aria-label=&quot;Close navigation menu&quot;&gt;&lt;/button&gt;&lt;aside class=&quot;wrdl-drawer&quot; aria-label=&quot;Navigation menu&quot;&gt;${account()}${nav(&#x27;Home&#x27;)}&lt;button class=&quot;wrdl-nav-item&quot; type=&quot;button&quot;&gt;${icon(&#x27;log-out&#x27;)}&lt;span class=&quot;wrdl-nav-label&quot;&gt;Sign Out&lt;/span&gt;&lt;/button&gt;&lt;/aside&gt;`;
+      }
+
+      function confirmationMarkup() {
+        const copy = {
+          free:{title:&#x27;Leave this game?&#x27;,body:&#x27;Your current Free Play progress will be lost.&#x27;,stay:&#x27;Cancel&#x27;,leave:&#x27;Leave&#x27;,check:true},
+          two:{title:&#x27;Exit battle?&#x27;,body:&#x27;You will have 30 seconds to rejoin. If you do not return, your opponent wins the battle.&#x27;,stay:&#x27;Stay&#x27;,leave:&#x27;Exit Battle&#x27;},
+          multi:{title:&#x27;Exit battle?&#x27;,body:&#x27;You may rejoin while the battle remains active. If fewer than two players remain connected, the battle may be voided after the preservation period.&#x27;,stay:&#x27;Stay&#x27;,leave:&#x27;Exit Battle&#x27;}
+        }[confirmation];
+        return `${shell(homeCards())}&lt;div class=&quot;wrdl-modal-layer&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-label=&quot;${copy.title}&quot;&gt;&lt;section class=&quot;wrdl-modal&quot;&gt;&lt;div class=&quot;wrdl-modal-mark&quot;&gt;${icon(&#x27;log-out&#x27;)}&lt;/div&gt;&lt;h2&gt;${copy.title}&lt;/h2&gt;&lt;p&gt;${copy.body}&lt;/p&gt;${copy.check ? &#x27;&lt;label class=&quot;wrdl-checkbox&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;span&gt;Don\&#x27;t show this again for 30 days&lt;/span&gt;&lt;/label&gt;&#x27; : &#x27;&#x27;}&lt;div class=&quot;wrdl-modal-actions&quot;&gt;&lt;button class=&quot;wrdl-action&quot; type=&quot;button&quot;&gt;${copy.stay}&lt;/button&gt;&lt;button class=&quot;wrdl-action is-danger&quot; type=&quot;button&quot;&gt;${copy.leave}&lt;/button&gt;&lt;/div&gt;&lt;/section&gt;&lt;/div&gt;`;
+      }
+
+      function loadingMarkup() {
+        const rows = Array.from({length:5},() =&gt; &#x27;&lt;div class=&quot;wrdl-skeleton-row&quot;&gt;&lt;div class=&quot;wrdl-skeleton-avatar&quot;&gt;&lt;/div&gt;&lt;div class=&quot;wrdl-skeleton-copy&quot;&gt;&lt;div class=&quot;wrdl-skeleton-line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;wrdl-skeleton-line&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;wrdl-skeleton-line&quot;&gt;&lt;/div&gt;&lt;/div&gt;&#x27;).join(&#x27;&#x27;);
+        return shell(`&lt;div class=&quot;wrdl-content&quot; aria-label=&quot;Friends are loading&quot;&gt;&lt;div class=&quot;wrdl-skeleton-title&quot;&gt;&lt;/div&gt;&lt;div class=&quot;wrdl-skeleton-list&quot;&gt;${rows}&lt;/div&gt;&lt;/div&gt;`,&#x27;Friends&#x27;,{title:&#x27;Friends&#x27;});
+      }
+
+      function offlineMarkup() {
+        return shell(homeCards(true),&#x27;Home&#x27;,{offline:true,title:&#x27;Home&#x27;});
+      }
+
+      function errorMarkup() {
+        const states = {
+          standard:{icon:&#x27;triangle-alert&#x27;,danger:true,title:&quot;We couldn&#x27;t load this page&quot;,body:&#x27;Something went wrong. Please try again.&#x27;,actions:[&#x27;Try Again&#x27;,&#x27;Return Home&#x27;]},
+          daily:{icon:&#x27;wifi-off&#x27;,danger:true,title:&quot;Unable to load today&#x27;s puzzle&quot;,body:&#x27;Check your connection and try again. Your saved progress is safe.&#x27;,actions:[&#x27;Try Again&#x27;,&#x27;Exit&#x27;]},
+          battle:{icon:&#x27;monitor-x&#x27;,danger:true,title:&#x27;Battle opened elsewhere&#x27;,body:&#x27;This screen can no longer control the battle.&#x27;,actions:[&#x27;Return Home&#x27;]},
+          auth:{icon:&#x27;log-in&#x27;,danger:false,title:&#x27;Sign in again&#x27;,body:&#x27;Your session expired. Sign in to return to your saved progress.&#x27;,actions:[&#x27;Sign in with Google&#x27;]}
+        }[errorType];
+        const buttons = states.actions.map((label,index) =&gt; `&lt;button class=&quot;wrdl-action ${index === 0 ? &#x27;is-primary&#x27; : &#x27;&#x27;}&quot; type=&quot;button&quot;&gt;${label}&lt;/button&gt;`).join(&#x27;&#x27;);
+        const empty = `&lt;section class=&quot;wrdl-empty-state&quot;&gt;&lt;div class=&quot;wrdl-empty-inner&quot;&gt;&lt;div class=&quot;wrdl-empty-mark ${states.danger ? &#x27;is-danger&#x27; : &#x27;&#x27;}&quot;&gt;${icon(states.icon)}&lt;/div&gt;&lt;h1&gt;${states.title}&lt;/h1&gt;&lt;p&gt;${states.body}&lt;/p&gt;&lt;div class=&quot;wrdl-empty-actions&quot;&gt;${buttons}&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;`;
+        return shell(empty,&#x27;Home&#x27;,{title:errorType === &#x27;daily&#x27; ? &#x27;Daily Wordle&#x27; : errorType === &#x27;battle&#x27; ? &#x27;Friendly Battle&#x27; : &#x27;Home&#x27;});
+      }
+
+      function maintenanceMarkup() {
+        return `&lt;main class=&quot;wrdl-maintenance&quot;&gt;&lt;div&gt;&lt;div class=&quot;wrdl-brand-large&quot; aria-label=&quot;WRDL&quot;&gt;&lt;span&gt;W&lt;/span&gt;&lt;span&gt;R&lt;/span&gt;&lt;span&gt;D&lt;/span&gt;&lt;span&gt;L&lt;/span&gt;&lt;/div&gt;&lt;h1&gt;WRDL is temporarily unavailable&lt;/h1&gt;&lt;p&gt;We&#x27;re performing maintenance. Please try again shortly.&lt;/p&gt;&lt;button class=&quot;wrdl-action is-primary&quot; type=&quot;button&quot;&gt;${icon(&#x27;refresh-cw&#x27;)} Try Again&lt;/button&gt;&lt;/div&gt;&lt;/main&gt;`;
+      }
+
+      function refreshIcons() {
+        if (window.lucide &amp;&amp; typeof window.lucide.createIcons === &#x27;function&#x27;) window.lucide.createIcons({attrs:{width:18,height:18}});
+      }
+      function render() {
+        const markup = screen === &#x27;invites&#x27; ? invitationMarkup() : screen === &#x27;menu&#x27; ? menuMarkup() : screen === &#x27;confirm&#x27; ? confirmationMarkup() : screen === &#x27;loading&#x27; ? loadingMarkup() : screen === &#x27;offline&#x27; ? offlineMarkup() : screen === &#x27;error&#x27; ? errorMarkup() : maintenanceMarkup();
+        app.innerHTML = markup;
+        root.querySelector(&#x27;[data-confirm-tools]&#x27;).hidden = screen !== &#x27;confirm&#x27;;
+        root.querySelector(&#x27;[data-error-tools]&#x27;).hidden = screen !== &#x27;error&#x27;;
+        refreshIcons();
+        app.querySelector(&#x27;[data-invite-bubble]&#x27;)?.addEventListener(&#x27;click&#x27;,() =&gt; { invitesOpen = !invitesOpen; render(); });
+        app.querySelectorAll(&#x27;[data-invite-action]&#x27;).forEach(button =&gt; button.addEventListener(&#x27;click&#x27;,() =&gt; { inviteCount = Math.max(0,inviteCount - 1); render(); }));
+        app.querySelector(&#x27;[data-close-drawer]&#x27;)?.addEventListener(&#x27;click&#x27;,() =&gt; { drawerOpen = false; render(); });
+        app.querySelector(&#x27;.wrdl-menu-button&#x27;)?.addEventListener(&#x27;click&#x27;,() =&gt; { if (viewport === &#x27;mobile&#x27;) { screen = &#x27;menu&#x27;; drawerOpen = true; render(); } });
+      }
+
+      root.querySelectorAll(&#x27;[data-screen]&#x27;).forEach(button =&gt; button.addEventListener(&#x27;click&#x27;,() =&gt; {
+        screen = button.dataset.screen;
+        if (screen === &#x27;menu&#x27;) drawerOpen = true;
+        root.querySelectorAll(&#x27;[data-screen]&#x27;).forEach(item =&gt; item.classList.toggle(&#x27;is-selected&#x27;,item === button));
+        render();
+      }));
+      root.querySelectorAll(&#x27;[data-viewport]&#x27;).forEach(button =&gt; button.addEventListener(&#x27;click&#x27;,() =&gt; {
+        viewport = button.dataset.viewport;
+        if (viewport === &#x27;mobile&#x27; &amp;&amp; screen === &#x27;menu&#x27;) drawerOpen = true;
+        stage.classList.toggle(&#x27;is-mobile&#x27;,viewport === &#x27;mobile&#x27;);
+        root.querySelectorAll(&#x27;[data-viewport]&#x27;).forEach(item =&gt; item.classList.toggle(&#x27;is-selected&#x27;,item === button));
+        render();
+      }));
+      root.querySelectorAll(&#x27;[data-theme]&#x27;).forEach(button =&gt; button.addEventListener(&#x27;click&#x27;,() =&gt; {
+        root.classList.toggle(&#x27;is-dark&#x27;,button.dataset.theme === &#x27;dark&#x27;);
+        root.querySelectorAll(&#x27;[data-theme]&#x27;).forEach(item =&gt; item.classList.toggle(&#x27;is-selected&#x27;,item === button));
+      }));
+      root.querySelectorAll(&#x27;[data-confirm]&#x27;).forEach(button =&gt; button.addEventListener(&#x27;click&#x27;,() =&gt; {
+        confirmation = button.dataset.confirm;
+        root.querySelectorAll(&#x27;[data-confirm]&#x27;).forEach(item =&gt; item.classList.toggle(&#x27;is-selected&#x27;,item === button));
+        render();
+      }));
+      root.querySelectorAll(&#x27;[data-error]&#x27;).forEach(button =&gt; button.addEventListener(&#x27;click&#x27;,() =&gt; {
+        errorType = button.dataset.error;
+        root.querySelectorAll(&#x27;[data-error]&#x27;).forEach(item =&gt; item.classList.toggle(&#x27;is-selected&#x27;,item === button));
+        render();
+      }));
+      render();
+    })();
+  &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+  let lastPointerWasTouch = false;
+  let pinnedByTouch = false;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    pinnedByTouch = false;
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handlePointer = (event) =&gt; {
+    lastPointerWasTouch =
+      event.type === &quot;pointerdown&quot; &amp;&amp; event.pointerType === &quot;touch&quot;;
+  };
+  const handleTouchClick = (event) =&gt; {
+    const isTouch = event.pointerType === &quot;touch&quot; || lastPointerWasTouch;
+    lastPointerWasTouch = false;
+    if (!isTouch || event.detail === 0) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (
+      trigger == null ||
+      !trigger.isConnected ||
+      getContent(trigger).length === 0 ||
+      (pinnedByTouch &amp;&amp; activeTrigger === trigger)
+    ) {
+      if (pinnedByTouch) {
+        closeTooltip();
+      }
+      return;
+    }
+    openTooltip(trigger);
+    pinnedByTouch = activeTrigger === trigger;
+    window.setTimeout(() =&gt; {
+      if (activeTrigger === trigger &amp;&amp; !trigger.isConnected) {
+        closeTooltip(false);
+      }
+    }, 0);
+  };
+  const handleLeave = (event) =&gt; {
+    if (pinnedByTouch) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    lastPointerWasTouch = false;
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    lastPointerWasTouch = false;
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerdown&quot;, handlePointer);
+    document.removeEventListener(&quot;pointercancel&quot;, handlePointer);
+    document.removeEventListener(&quot;click&quot;, handleTouchClick);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerdown&quot;, handlePointer);
+  document.addEventListener(&quot;pointercancel&quot;, handlePointer);
+  document.addEventListener(&quot;click&quot;, handleTouchClick);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+</body>
+</html>

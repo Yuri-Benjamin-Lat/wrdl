@@ -1,0 +1,2 @@
+-- WRDL development seed data will be added alongside the first domain migrations.
+-- Keep this file deterministic so `pnpm db:reset` always reproduces local state.
