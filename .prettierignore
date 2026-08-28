@@ -10,3 +10,4 @@ supabase/config.toml
 **/AGENTS.md
 **/CLAUDE.md
 **/.env*
+**/next-env.d.ts
