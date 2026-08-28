@@ -1,2 +1,2 @@
--- WRDL development seed data will be added alongside the first domain migrations.
--- Keep this file deterministic so `pnpm db:reset` always reproduces local state.
+-- WRDL hosted development/staging fixtures will be added alongside the first
+-- domain migrations. Keep fixtures deterministic and free of real user data.

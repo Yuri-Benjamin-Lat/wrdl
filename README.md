@@ -4,7 +4,8 @@ WRDL is a personal, non-commercial Wordle-inspired web game with a Philippine-ti
 
 ## Project status
 
-Planning Phases 1–6 are complete. Production development is currently in Milestone M0: repository and environments.
+Planning Phases 1–6 and development Milestone M0 are complete. The next
+development target is Milestone M1: design foundation and application shell.
 
 ## Repository structure
 
@@ -16,18 +17,30 @@ Planning Phases 1–6 are complete. Production development is currently in Miles
 
 ## Local commands
 
-Install dependencies, then run the application and quality checks from the repository root:
+Install dependencies, then run the application and quality checks from Windows
+PowerShell at the repository root:
 
-```bash
+```powershell
 pnpm install
 pnpm dev
 pnpm lint
 pnpm typecheck
 pnpm test
 pnpm build
+pnpm secrets:check
 ```
 
-Copy `apps/web/.env.example` to `apps/web/.env.local` and replace its placeholders with values from the matching hosted Supabase project.
+Copy `apps/web/.env.development.example` to `apps/web/.env.local` and replace
+its placeholders with the browser-safe project URL and publishable key from the
+authorized hosted development/staging Supabase project. Then verify the remote
+connection:
+
+```powershell
+pnpm backend:check
+```
+
+The production template is separate at `apps/web/.env.production.example`.
+Never place a Supabase secret or service-role key in a `NEXT_PUBLIC_` variable.
 
 WRDL uses a Windows-native development workflow: Windows, PowerShell, Node.js, pnpm, and browser-based cloud services. Docker, Ubuntu, WSL, Linux development environments, and a local Supabase stack are prohibited. Backend development and integration testing use the private hosted development/staging Supabase project; production uses a separate hosted project. CI also runs on Windows.
 

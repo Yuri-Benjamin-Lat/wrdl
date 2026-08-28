@@ -10,8 +10,10 @@
     "dev": "pnpm --filter @wrdl/web dev",
     "build": "pnpm --filter @wrdl/web build",
     "lint": "pnpm --filter @wrdl/web lint",
-    "typecheck": "pnpm --filter @wrdl/web typecheck",
-    "test": "pnpm --recursive test"
+    "typecheck": "pnpm --recursive typecheck",
+    "test": "pnpm --recursive test",
+    "backend:check": "node --env-file-if-exists=apps/web/.env.local scripts/verify-hosted-supabase.mjs",
+    "secrets:check": "node scripts/check-secrets.mjs"
   },
   "devDependencies": {
     "supabase": "^2.116.0"

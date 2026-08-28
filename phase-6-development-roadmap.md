@@ -4,7 +4,7 @@
 
 This document turns the approved Phase 1–5 specifications, polished HTML previews, and technical architecture into an ordered implementation plan. Each milestone must leave WRDL in a working, testable state and must include its database, security, responsive UI, accessibility, and automated tests rather than postponing those concerns until the end.
 
-**Status:** Complete — roadmap approved; M0 development started
+**Status:** Complete — roadmap approved; M0 accepted; M1 is next
 
 ---
 
@@ -87,6 +87,8 @@ Effort estimates assume one developer working carefully, include implementation 
 ## 5. Milestone Details and Acceptance Gates
 
 ### M0 — Repository and Environments
+
+**Implementation status:** Complete — accepted on the Windows-native workflow
 
 **Build**
 

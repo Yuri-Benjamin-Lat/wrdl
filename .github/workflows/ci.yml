@@ -28,6 +28,9 @@ jobs:
           runtime: node@22
           cache: true
 
+      - name: Scan tracked files for secrets
+        run: pnpm secrets:check
+
       - name: Lint
         run: pnpm lint
 
