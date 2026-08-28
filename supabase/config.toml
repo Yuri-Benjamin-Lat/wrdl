@@ -1,5 +1,6 @@
-# WRDL does not run the Docker-based local Supabase stack. This file exists only
-# so the CLI can manage version-controlled migrations for linked hosted projects.
+# WRDL uses a Windows-native workflow and prohibits Docker, Ubuntu, WSL, Linux
+# development environments, and the local Supabase stack. This file exists only
+# so the Windows CLI can manage version-controlled migrations for linked hosted projects.
 # Do not run `supabase start`, `supabase db reset --local`, or equivalent local
 # container commands for this project.
 #

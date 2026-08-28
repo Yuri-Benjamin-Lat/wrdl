@@ -93,13 +93,13 @@ Effort estimates assume one developer working carefully, include implementation 
 - Create the Next.js App Router project with React, TypeScript, CSS Modules, formatting, linting, and strict type checking.
 - Establish the production folder structure for routes, shared components, domain logic, server operations, tests, and database migrations.
 - Configure the Fredoka font and the approved icon approach without importing the preview sandbox itself.
-- Initialize version-controlled Supabase migrations, hosted development/staging linkage, test fixtures, environment validation, and separate development/staging and production configuration templates without Docker.
+- Initialize version-controlled Supabase migrations, hosted development/staging linkage, test fixtures, environment validation, and separate development/staging and production configuration templates using only the approved Windows-native workflow, without Docker, Ubuntu, WSL, or Linux development environments.
 - Add CI checks for install, lint, type check, unit tests, and production build.
 - Add secret scanning and prevent local environment files, dumps, generated avatars, and protected word schedules from being committed.
 
 **Gate**
 
-- A new trusted checkout can start the WRDL frontend locally from documented commands and connect to its authorized hosted development/staging backend without Docker.
+- A new trusted Windows checkout can start the WRDL frontend from PowerShell using documented commands and connect to its authorized hosted development/staging backend without Docker, Ubuntu, WSL, or Linux.
 - CI passes from a clean checkout.
 - No secret or production identifier exists in the repository.
 

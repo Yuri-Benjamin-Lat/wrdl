@@ -29,6 +29,6 @@ pnpm build
 
 Copy `apps/web/.env.example` to `apps/web/.env.local` and replace its placeholders with values from the matching hosted Supabase project.
 
-WRDL does not use Docker or a local Supabase stack. Backend development and integration testing use the private hosted development/staging Supabase project; production uses a separate hosted project.
+WRDL uses a Windows-native development workflow: Windows, PowerShell, Node.js, pnpm, and browser-based cloud services. Docker, Ubuntu, WSL, Linux development environments, and a local Supabase stack are prohibited. Backend development and integration testing use the private hosted development/staging Supabase project; production uses a separate hosted project. CI also runs on Windows.
 
 Never commit `.env` files, Supabase secret/service-role keys, database exports, protected word schedules, or real user data.

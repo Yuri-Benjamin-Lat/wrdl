@@ -755,11 +755,11 @@ After reconnection, WRDL reloads the relevant server snapshot before accepting d
 
 | Environment | Purpose | Backend |
 |---|---|---|
-| Developer workstation | Next.js development plus unit, component, and browser tests that do not require a backend | No local backend and no Docker |
+| Windows developer workstation | Next.js development plus unit, component, and browser tests that do not require a backend | Windows-native PowerShell, Node.js, and pnpm; no Docker, Ubuntu, WSL, Linux environment, or local backend |
 | Development/staging | Database, security, Google sign-in, Realtime, mobile-device, migration, and release-candidate testing | First private Supabase Free cloud project |
 | Production | Real personal/friend accounts and live games | Second Supabase Free cloud project |
 
-- WRDL never uses Docker or a locally hosted Supabase stack. Backend-dependent development requires an internet connection to the private development/staging project.
+- WRDL development, required setup, commands, and CI are Windows-native. Docker, Ubuntu, WSL, Linux development environments, and a locally hosted Supabase stack are prohibited. Backend-dependent development requires an internet connection to the private development/staging project.
 - Development/staging and production never share users, secrets, storage buckets, database records, or OAuth callback configuration.
 - Vercel preview deployments use staging-safe configuration and never receive production service credentials.
 - Production deployment occurs only from the protected release branch after all required checks pass.
