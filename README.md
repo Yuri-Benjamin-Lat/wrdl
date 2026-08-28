@@ -4,8 +4,8 @@ WRDL is a personal, non-commercial Wordle-inspired web game with a Philippine-ti
 
 ## Project status
 
-Planning Phases 1–6 and development Milestone M0 are complete. The next
-development target is Milestone M1: design foundation and application shell.
+Planning Phases 1–6 and development Milestones M0–M1 are complete. The next
+development target is Milestone M2: authentication, profiles, and settings.
 
 ## Repository structure
 
@@ -15,6 +15,11 @@ development target is Milestone M1: design foundation and application shell.
 - `phase-*.md` — approved product, UX, design, architecture, and roadmap documents
 - `wrdl-*-preview.html` — approved visual implementation references
 
+The real M1 interface currently includes Home (`/`), Sign In (`/sign-in`), and
+Username Setup (`/username-setup`). A development-only component gallery is
+available at `/dev/components` while `pnpm dev` is running and returns Not Found
+in production builds.
+
 ## Local commands
 
 Install dependencies, then run the application and quality checks from Windows
@@ -23,6 +28,7 @@ PowerShell at the repository root:
 ```powershell
 pnpm install
 pnpm dev
+pnpm format:check
 pnpm lint
 pnpm typecheck
 pnpm test

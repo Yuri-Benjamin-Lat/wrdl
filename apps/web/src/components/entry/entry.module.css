@@ -1,0 +1,122 @@
+.screen {
+  min-height: 100dvh;
+  display: grid;
+  padding: 24px;
+  background: var(--surface);
+}
+.center {
+  width: min(100%, 430px);
+  display: grid;
+  align-self: center;
+  justify-self: center;
+  justify-items: center;
+  gap: 18px;
+  text-align: center;
+}
+.heading {
+  display: grid;
+  gap: 5px;
+}
+.heading h1 {
+  margin: 0;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+.heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.04rem;
+}
+.googleButton {
+  width: min(100%, 330px);
+}
+.googleMark {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--text);
+  background: var(--surface);
+  font-weight: 600;
+}
+.form {
+  width: 100%;
+  display: grid;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  text-align: left;
+  background: var(--surface-raised);
+  box-shadow: 0 9px 22px var(--shadow);
+}
+.fieldHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-weight: 500;
+}
+.count {
+  color: var(--muted);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+.inputWrap {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+.inputWrap:focus-within {
+  border-color: var(--green);
+  box-shadow: var(--focus-ring);
+}
+.prefix {
+  padding-left: 13px;
+  color: var(--muted);
+}
+.input {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 10px 12px 10px 4px;
+  border: 0;
+  outline: 0;
+  color: var(--text);
+  background: transparent;
+}
+.validation {
+  min-height: 22px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--green);
+}
+.error {
+  color: var(--danger);
+}
+.validationDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.note {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+@media (max-width: 520px) {
+  .screen {
+    padding: 18px;
+  }
+  .center {
+    gap: 16px;
+  }
+  .form {
+    padding: 17px;
+  }
+}

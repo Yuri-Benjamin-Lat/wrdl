@@ -24,19 +24,12 @@ export function validatePublicEnvironment(values: {
     throw new Error("NEXT_PUBLIC_SUPABASE_URL must be a valid URL.");
   }
 
-  if (
-    parsedUrl.protocol !== "https:" ||
-    !parsedUrl.hostname.endsWith(SUPABASE_HOST_SUFFIX)
-  ) {
-    throw new Error(
-      "NEXT_PUBLIC_SUPABASE_URL must use HTTPS and a hosted supabase.co project.",
-    );
+  if (parsedUrl.protocol !== "https:" || !parsedUrl.hostname.endsWith(SUPABASE_HOST_SUFFIX)) {
+    throw new Error("NEXT_PUBLIC_SUPABASE_URL must use HTTPS and a hosted supabase.co project.");
   }
 
   if (!supabasePublishableKey?.startsWith(PUBLISHABLE_KEY_PREFIX)) {
-    throw new Error(
-      "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY must be a Supabase publishable key.",
-    );
+    throw new Error("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY must be a Supabase publishable key.");
   }
 
   return { supabaseUrl, supabasePublishableKey };
@@ -45,7 +38,6 @@ export function validatePublicEnvironment(values: {
 export function getPublicEnvironment(): PublicEnvironment {
   return validatePublicEnvironment({
     supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL,
-    supabasePublishableKey:
-      process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+    supabasePublishableKey: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
   });
 }

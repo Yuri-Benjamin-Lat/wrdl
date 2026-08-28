@@ -1,0 +1,151 @@
+.shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  background: var(--surface);
+}
+.main {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  padding: 24px 28px 30px;
+}
+.topbar {
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.content {
+  min-height: 0;
+  display: grid;
+}
+.sidebar {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-content: start;
+  gap: 20px;
+  padding: 25px 18px;
+  border-left: 1px solid var(--line);
+  background: color-mix(in srgb, var(--neutral) 48%, var(--surface));
+}
+.person {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+.person span {
+  min-width: 0;
+}
+.person strong,
+.person small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.person strong {
+  font-weight: 500;
+}
+.person small {
+  color: var(--muted);
+}
+.sidebar nav,
+.drawer nav {
+  display: grid;
+  align-content: start;
+  gap: 7px;
+}
+.navLink,
+.activeLink,
+.signOut {
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+}
+.navLink svg,
+.activeLink svg,
+.signOut svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.7;
+}
+.activeLink {
+  color: var(--green-text);
+  background: var(--green);
+}
+.navLink:hover {
+  background: color-mix(in srgb, var(--neutral) 68%, transparent);
+}
+.menuButton {
+  display: none;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 0;
+  border-radius: var(--radius-md);
+  color: var(--text);
+  background: var(--neutral);
+}
+.menuButton svg {
+  width: 21px;
+  height: 21px;
+}
+.drawerLayer {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  display: grid;
+  justify-items: end;
+  background: rgb(16 22 18 / 42%);
+}
+.drawer {
+  width: min(84vw, 340px);
+  min-height: 100%;
+  display: grid;
+  align-content: start;
+  gap: 24px;
+  padding: 28px 22px;
+  background: var(--surface);
+  box-shadow: -14px 0 40px var(--shadow-strong);
+}
+.drawer nav {
+  margin-top: 2px;
+}
+.drawer b {
+  min-width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  margin-left: auto;
+  border-radius: 50%;
+  color: #fffdf7;
+  background: var(--danger);
+  font-size: 0.75rem;
+}
+.signOut {
+  width: 100%;
+  margin-top: 18px;
+  color: var(--danger);
+  text-align: left;
+}
+@media (max-width: 760px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+  .main {
+    padding: 16px 16px 24px;
+  }
+  .sidebar {
+    display: none;
+  }
+  .menuButton {
+    display: grid;
+  }
+}

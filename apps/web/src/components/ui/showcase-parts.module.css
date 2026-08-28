@@ -1,0 +1,204 @@
+.field {
+  display: grid;
+  gap: 7px;
+  font-weight: 500;
+}
+.field input,
+.field select {
+  width: 100%;
+  min-height: 46px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  outline: 0;
+  color: var(--text);
+  background: var(--surface);
+}
+.field input:focus,
+.field select:focus {
+  border-color: var(--green);
+  box-shadow: var(--focus-ring);
+}
+.field small {
+  color: var(--muted);
+  font-weight: 400;
+}
+.selectWrap {
+  position: relative;
+  display: block;
+}
+.selectWrap select {
+  appearance: none;
+  padding-right: 40px;
+}
+.selectWrap svg {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  width: 18px;
+  height: 18px;
+  color: var(--green);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+.toggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.toggleRow input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.toggle {
+  width: 46px;
+  height: 26px;
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--neutral-strong);
+  transition: background 140ms ease;
+}
+.toggle span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: 0 1px 3px var(--shadow);
+  transition: transform 140ms ease;
+}
+.toggleRow input:checked + .toggle {
+  background: var(--green);
+}
+.toggleRow input:checked + .toggle span {
+  transform: translateX(20px);
+}
+.toggleRow input:focus-visible + .toggle {
+  box-shadow: var(--focus-ring);
+}
+.stepperRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.stepper {
+  display: grid;
+  grid-template-columns: 38px minmax(78px, auto) 38px;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+.stepper button {
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  color: var(--green);
+  background: var(--neutral);
+}
+.stepper button:hover {
+  background: var(--green-soft);
+}
+.stepper strong {
+  padding-inline: 10px;
+  text-align: center;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.stepper svg {
+  width: 17px;
+  height: 17px;
+}
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+}
+.online,
+.offline {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--green);
+}
+.offline {
+  background: #8e938e;
+}
+.confirmation {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+.flipTile {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  color: var(--green-text);
+  background: var(--green);
+}
+.flipTile svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.2;
+}
+.skeleton {
+  height: 17px;
+  display: block;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--neutral) 20%,
+    var(--surface-raised) 45%,
+    var(--neutral) 70%
+  );
+  background-size: 220% 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+.dialog {
+  width: min(100%, 360px);
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface-raised);
+  box-shadow: 0 18px 45px var(--shadow-strong);
+}
+.dialog strong {
+  font-size: 1.15rem;
+}
+.dialog p {
+  margin: 0;
+  color: var(--muted);
+}
+.dialog div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+.dialog button {
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--neutral);
+}
+.dialog .dialogPrimary {
+  color: #fffdf7;
+  background: var(--danger);
+}
+@keyframes shimmer {
+  to {
+    background-position-x: -220%;
+  }
+}

@@ -31,6 +31,9 @@ jobs:
       - name: Scan tracked files for secrets
         run: pnpm secrets:check
 
+      - name: Check formatting
+        run: pnpm format:check
+
       - name: Lint
         run: pnpm lint
 

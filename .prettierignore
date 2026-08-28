@@ -1,0 +1,12 @@
+.next/
+node_modules/
+coverage/
+dist/
+out/
+*.html
+phase-*.md
+pnpm-lock.yaml
+supabase/config.toml
+**/AGENTS.md
+**/CLAUDE.md
+**/.env*

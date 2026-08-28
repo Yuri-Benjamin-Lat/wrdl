@@ -9,6 +9,8 @@
   "scripts": {
     "dev": "pnpm --filter @wrdl/web dev",
     "build": "pnpm --filter @wrdl/web build",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
     "lint": "pnpm --filter @wrdl/web lint",
     "typecheck": "pnpm --recursive typecheck",
     "test": "pnpm --recursive test",
@@ -16,6 +18,7 @@
     "secrets:check": "node scripts/check-secrets.mjs"
   },
   "devDependencies": {
+    "prettier": "^3.9.6",
     "supabase": "^2.116.0"
   }
 }

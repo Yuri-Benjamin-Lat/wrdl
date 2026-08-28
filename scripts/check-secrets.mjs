@@ -40,8 +40,7 @@ const secretRules = [
   },
   {
     name: "assigned server-side Supabase secret",
-    pattern:
-      /SUPABASE_(?:SECRET|SERVICE_ROLE)_KEY\s*=\s*(?!replace-|example|$)[^\s]+/i,
+    pattern: /SUPABASE_(?:SECRET|SERVICE_ROLE)_KEY\s*=\s*(?!replace-|example|$)[^\s]+/i,
   },
 ];
 

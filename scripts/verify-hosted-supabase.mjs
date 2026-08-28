@@ -1,6 +1,5 @@
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
-const publishableKey =
-  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY?.trim();
+const publishableKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY?.trim();
 
 if (!supabaseUrl || !publishableKey) {
   console.error(
@@ -17,10 +16,7 @@ try {
   process.exit(1);
 }
 
-if (
-  parsedUrl.protocol !== "https:" ||
-  !parsedUrl.hostname.endsWith(".supabase.co")
-) {
+if (parsedUrl.protocol !== "https:" || !parsedUrl.hostname.endsWith(".supabase.co")) {
   console.error("WRDL must connect to a hosted HTTPS Supabase project.");
   process.exit(1);
 }
@@ -43,9 +39,7 @@ try {
     throw new Error(`hosted backend returned HTTP ${response.status}`);
   }
 
-  console.log(
-    `Connected to the authorized hosted Supabase project (${parsedUrl.hostname}).`,
-  );
+  console.log(`Connected to the authorized hosted Supabase project (${parsedUrl.hostname}).`);
 } catch (error) {
   const reason = error instanceof Error ? error.message : "unknown error";
   console.error(`Unable to reach the hosted Supabase project: ${reason}`);

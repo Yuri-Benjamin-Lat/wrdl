@@ -1,0 +1,51 @@
+.lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.mark {
+  --tile-size: 36px;
+  --tile-gap: 5px;
+  display: grid;
+  grid-template-columns: repeat(2, var(--tile-size));
+  grid-template-rows: repeat(2, var(--tile-size));
+  gap: var(--tile-gap);
+  flex: none;
+  font-size: calc(var(--tile-size) * 0.43);
+  line-height: 1;
+}
+.mark span {
+  display: grid;
+  place-items: center;
+  padding-top: 0.08em;
+  color: #182019;
+  background: var(--green-light);
+  font-weight: 600;
+}
+.mark span:nth-child(2),
+.mark span:nth-child(3) {
+  background: var(--yellow);
+}
+.small {
+  --tile-size: 18px;
+  --tile-gap: 3px;
+}
+.medium {
+  --tile-size: 30px;
+  --tile-gap: 4px;
+}
+.large {
+  --tile-size: 46px;
+  --tile-gap: 7px;
+}
+.wordmark {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+@media (max-width: 520px) {
+  .large {
+    --tile-size: 40px;
+    --tile-gap: 6px;
+  }
+}

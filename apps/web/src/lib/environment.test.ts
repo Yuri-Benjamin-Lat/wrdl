@@ -9,9 +9,7 @@ const validEnvironment = {
 
 describe("public environment validation", () => {
   it("accepts a hosted Supabase URL and publishable key", () => {
-    expect(validatePublicEnvironment(validEnvironment)).toEqual(
-      validEnvironment,
-    );
+    expect(validatePublicEnvironment(validEnvironment)).toEqual(validEnvironment);
   });
 
   it("rejects a non-hosted or insecure backend", () => {

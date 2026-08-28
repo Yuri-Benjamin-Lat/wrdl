@@ -4,7 +4,7 @@
 
 This document turns the approved Phase 1–5 specifications, polished HTML previews, and technical architecture into an ordered implementation plan. Each milestone must leave WRDL in a working, testable state and must include its database, security, responsive UI, accessibility, and automated tests rather than postponing those concerns until the end.
 
-**Status:** Complete — roadmap approved; M0 accepted; M1 is next
+**Status:** Complete — roadmap approved; M0–M1 accepted; M2 is next
 
 ---
 
@@ -106,6 +106,8 @@ Effort estimates assume one developer working carefully, include implementation 
 - No secret or production identifier exists in the repository.
 
 ### M1 — Design Foundation and Application Shell
+
+**Implementation status:** Complete — responsive light/dark foundation and approved entry/home screens accepted
 
 **Reference previews**
 
