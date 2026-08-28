@@ -755,14 +755,15 @@ After reconnection, WRDL reloads the relevant server snapshot before accepting d
 
 | Environment | Purpose | Backend |
 |---|---|---|
-| Local | Daily development and automated testing | Local Supabase stack with disposable seed data |
-| Staging | Google sign-in, Realtime, mobile-device, migration, and release-candidate testing | First Supabase Free cloud project |
+| Developer workstation | Next.js development plus unit, component, and browser tests that do not require a backend | No local backend and no Docker |
+| Development/staging | Database, security, Google sign-in, Realtime, mobile-device, migration, and release-candidate testing | First private Supabase Free cloud project |
 | Production | Real personal/friend accounts and live games | Second Supabase Free cloud project |
 
-- Staging and production never share users, secrets, storage buckets, database records, or OAuth callback configuration.
+- WRDL never uses Docker or a locally hosted Supabase stack. Backend-dependent development requires an internet connection to the private development/staging project.
+- Development/staging and production never share users, secrets, storage buckets, database records, or OAuth callback configuration.
 - Vercel preview deployments use staging-safe configuration and never receive production service credentials.
 - Production deployment occurs only from the protected release branch after all required checks pass.
-- Database migrations are version-controlled, applied to local and staging first, backed up, and then applied to production as an explicit release step.
+- Database migrations are authored and reviewed locally as SQL, applied to development/staging first, backed up, and then applied to production as an explicit release step.
 
 ### 12.3 Supported Browsers and Layouts
 
@@ -823,7 +824,7 @@ No release may bypass failed required tests. Flaky tests are treated as defects 
 ### 12.9 Release Workflow
 
 1. Local tests, linting, type checking, and production build succeed.
-2. Database and security tests succeed against disposable local data.
+2. Database and security tests succeed against isolated disposable data in the hosted development/staging project and clean up their fixtures.
 3. A staging deployment runs the complete automated browser suite.
 4. Manual staging checks cover at least one desktop browser, one Android browser, and one iPhone Safari session, including a real multiplayer match.
 5. A pre-release backup and production migration rehearsal succeed.

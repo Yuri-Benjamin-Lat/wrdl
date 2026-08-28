@@ -65,7 +65,7 @@ Effort estimates assume one developer working carefully, include implementation 
 
 | Milestone | Outcome | Estimated effort |
 |---|---|---:|
-| M0 — Repository and environments | Reproducible local project, CI, local Supabase, staging skeleton | 2–3 working days |
+| M0 — Repository and environments | Reproducible frontend project, CI, hosted development/staging Supabase connection | 2–3 working days |
 | M1 — Design foundation and application shell | Shared WRDL design system, navigation, themes, responsive shell | 4–6 working days |
 | M2 — Authentication, profiles, and settings | Real accounts, username flow, profile editing, avatars, privacy/settings | 5–8 working days |
 | M3 — Word engine and Free Play | Tested Wordle rules and complete memory-only Free Play | 5–7 working days |
@@ -93,13 +93,13 @@ Effort estimates assume one developer working carefully, include implementation 
 - Create the Next.js App Router project with React, TypeScript, CSS Modules, formatting, linting, and strict type checking.
 - Establish the production folder structure for routes, shared components, domain logic, server operations, tests, and database migrations.
 - Configure the Fredoka font and the approved icon approach without importing the preview sandbox itself.
-- Initialize local Supabase development, seed data, environment validation, and separate staging/production configuration templates.
+- Initialize version-controlled Supabase migrations, hosted development/staging linkage, test fixtures, environment validation, and separate development/staging and production configuration templates without Docker.
 - Add CI checks for install, lint, type check, unit tests, and production build.
 - Add secret scanning and prevent local environment files, dumps, generated avatars, and protected word schedules from being committed.
 
 **Gate**
 
-- A new trusted checkout can start WRDL locally from documented commands.
+- A new trusted checkout can start the WRDL frontend locally from documented commands and connect to its authorized hosted development/staging backend without Docker.
 - CI passes from a clean checkout.
 - No secret or production identifier exists in the repository.
 

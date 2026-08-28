@@ -11,11 +11,7 @@
     "build": "pnpm --filter @wrdl/web build",
     "lint": "pnpm --filter @wrdl/web lint",
     "typecheck": "pnpm --filter @wrdl/web typecheck",
-    "test": "pnpm --recursive test",
-    "db:start": "supabase start",
-    "db:stop": "supabase stop",
-    "db:status": "supabase status",
-    "db:reset": "supabase db reset --local"
+    "test": "pnpm --recursive test"
   },
   "devDependencies": {
     "supabase": "^2.116.0"

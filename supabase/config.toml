@@ -1,3 +1,8 @@
+# WRDL does not run the Docker-based local Supabase stack. This file exists only
+# so the CLI can manage version-controlled migrations for linked hosted projects.
+# Do not run `supabase start`, `supabase db reset --local`, or equivalent local
+# container commands for this project.
+#
 # For detailed configuration reference documentation, visit:
 # https://supabase.com/docs/guides/local-development/cli/config
 # A string used to distinguish different Supabase projects on the same host. Defaults to the
