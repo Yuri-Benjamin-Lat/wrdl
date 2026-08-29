@@ -1,0 +1,205 @@
+.page {
+  width: min(100%, 760px);
+  display: grid;
+  align-content: start;
+  justify-self: center;
+  gap: 24px;
+  padding: 18px 0 40px;
+}
+.page h1 {
+  margin: 0;
+  font-size: clamp(1.9rem, 4vw, 2.45rem);
+  font-weight: 500;
+}
+.settingsStack {
+  display: grid;
+  gap: 24px;
+}
+.section {
+  display: grid;
+  gap: 10px;
+}
+.section h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+.settingList {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface-raised);
+}
+.settingRow {
+  min-height: 70px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 18px;
+}
+.settingRow + .settingRow {
+  border-top: 1px solid var(--line);
+}
+.settingRow > span:first-child {
+  display: grid;
+}
+.settingRow strong {
+  font-weight: 500;
+}
+.settingRow small {
+  color: var(--muted);
+}
+.selectWrap {
+  position: relative;
+  display: block;
+}
+.selectWrap select {
+  min-width: 148px;
+  min-height: 42px;
+  appearance: none;
+  padding: 8px 38px 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  outline: 0;
+  color: var(--text);
+  background: var(--surface);
+}
+.selectWrap select:focus {
+  border-color: var(--green);
+  box-shadow: var(--focus-ring);
+}
+.selectWrap svg {
+  position: absolute;
+  top: 50%;
+  right: 11px;
+  width: 17px;
+  height: 17px;
+  color: var(--green);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+.switchInput {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.switch {
+  width: 48px;
+  height: 27px;
+  display: block;
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--neutral-strong);
+  transition: background 140ms ease;
+}
+.switch span {
+  width: 21px;
+  height: 21px;
+  display: block;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: 0 1px 3px var(--shadow);
+  transition: transform 140ms ease;
+}
+.switchInput:checked + .switch {
+  background: var(--green);
+}
+.switchInput:checked + .switch span {
+  transform: translateX(21px);
+}
+.switchInput:focus-visible + .switch {
+  box-shadow: var(--focus-ring);
+}
+.accountActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 16px 0 0;
+}
+.error {
+  margin: -10px 0 0;
+  color: var(--danger);
+}
+.toast {
+  position: fixed;
+  z-index: 80;
+  right: 24px;
+  bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  color: var(--green-text);
+  background: var(--green);
+  box-shadow: 0 10px 26px var(--shadow-strong);
+}
+.toast svg {
+  width: 17px;
+  height: 17px;
+}
+.modalLayer {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgb(20 27 22 / 46%);
+}
+.modal {
+  width: min(100%, 430px);
+  display: grid;
+  gap: 14px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-playful);
+  background: var(--surface-raised);
+  box-shadow: 0 22px 60px var(--shadow-strong);
+}
+.modal header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.modal h2,
+.modal p {
+  margin: 0;
+}
+.modal header button {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--neutral);
+}
+@media (max-width: 600px) {
+  .page {
+    padding-top: 14px;
+  }
+  .settingRow {
+    min-height: 66px;
+    padding: 12px 14px;
+  }
+  .selectWrap select {
+    min-width: 126px;
+  }
+  .toast {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+@media (max-width: 380px) {
+  .settingRow {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 8px;
+  }
+  .selectWrap select {
+    min-width: 112px;
+    padding-left: 9px;
+  }
+}

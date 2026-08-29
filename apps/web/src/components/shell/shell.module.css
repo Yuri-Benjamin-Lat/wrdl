@@ -135,6 +135,9 @@
   color: var(--danger);
   text-align: left;
 }
+.sidebar .signOut {
+  margin-top: 8px;
+}
 @media (max-width: 760px) {
   .shell {
     grid-template-columns: 1fr;

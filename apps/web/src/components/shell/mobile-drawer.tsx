@@ -1,20 +1,15 @@
 "use client";
 
-import { House, LogOut, Menu, Settings, UserRound, UsersRound } from "lucide-react";
-import Link from "next/link";
+import { LogOut, Menu } from "lucide-react";
 import { useState } from "react";
 
+import { signOutAction } from "@/app/auth/actions";
 import { Avatar } from "@/components/ui/avatar";
+import type { ShellAccount } from "./app-shell";
+import { NavLinks } from "./nav-links";
 import styles from "./shell.module.css";
 
-const links = [
-  { href: "/", label: "Home", icon: House },
-  { href: "/profile", label: "Profile", icon: UserRound },
-  { href: "/friends", label: "Friends", icon: UsersRound },
-  { href: "/settings", label: "Settings", icon: Settings },
-];
-
-export function MobileDrawer() {
+export function MobileDrawer({ account }: { account: ShellAccount }) {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -35,29 +30,20 @@ export function MobileDrawer() {
             onMouseDown={(event) => event.stopPropagation()}
           >
             <div className={styles.person}>
-              <Avatar name="Yuri" />
+              <Avatar name={account.displayName} imageUrl={account.avatarUrl} />
               <span>
-                <strong>Yuri</strong>
-                <small>@yuri</small>
+                <strong>{account.displayName}</strong>
+                <small>@{account.username}</small>
               </span>
             </div>
             <nav>
-              {links.map(({ href, label, icon: Icon }, index) => (
-                <Link
-                  className={index === 0 ? styles.activeLink : styles.navLink}
-                  href={href}
-                  key={href}
-                  onClick={() => setOpen(false)}
-                >
-                  <Icon aria-hidden="true" />
-                  <span>{label}</span>
-                  {label === "Friends" ? <b>3</b> : null}
-                </Link>
-              ))}
-              <button className={styles.signOut} type="button">
-                <LogOut aria-hidden="true" />
-                Sign Out
-              </button>
+              <NavLinks onNavigate={() => setOpen(false)} />
+              <form action={signOutAction}>
+                <button className={styles.signOut} type="submit">
+                  <LogOut aria-hidden="true" />
+                  Sign Out
+                </button>
+              </form>
             </nav>
           </aside>
         </div>

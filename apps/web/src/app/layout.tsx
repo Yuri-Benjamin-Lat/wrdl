@@ -10,7 +10,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('wrdl-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;var h=localStorage.getItem('wrdl-high-contrast');if(h==='true')document.documentElement.setAttribute('data-high-contrast','');}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

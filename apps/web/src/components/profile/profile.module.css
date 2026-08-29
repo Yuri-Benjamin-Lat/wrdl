@@ -1,0 +1,382 @@
+.page {
+  width: min(100%, 980px);
+  display: grid;
+  align-content: start;
+  justify-self: center;
+  gap: 22px;
+  padding: 18px 0 36px;
+}
+.pageTitle,
+.sectionTitle {
+  margin: 0;
+  font-weight: 500;
+}
+.pageTitle {
+  font-size: clamp(1.9rem, 4vw, 2.45rem);
+}
+.hero {
+  display: grid;
+  gap: 18px;
+  padding: 22px;
+  border-radius: var(--radius-playful);
+  background: var(--neutral);
+}
+.identity {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.avatarControl {
+  position: relative;
+  flex: none;
+}
+.avatarButton {
+  position: relative;
+  display: block;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+}
+.cameraBadge {
+  position: absolute;
+  right: -2px;
+  bottom: -1px;
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border: 3px solid var(--neutral);
+  border-radius: 50%;
+  color: var(--green-text);
+  background: var(--green);
+}
+.cameraBadge svg {
+  width: 14px;
+  height: 14px;
+}
+.avatarMenu {
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + 9px);
+  left: 0;
+  width: 225px;
+  display: grid;
+  overflow: hidden;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-raised);
+  box-shadow: 0 14px 34px var(--shadow-strong);
+}
+.avatarMenu button,
+.iconButton,
+.textButton {
+  border: 0;
+  background: transparent;
+}
+.avatarMenu button {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+}
+.avatarMenu button:hover {
+  background: var(--neutral);
+}
+.avatarMenu svg {
+  width: 17px;
+  height: 17px;
+}
+.dangerText {
+  color: var(--danger);
+}
+.hiddenInput {
+  display: none;
+}
+.identityCopy {
+  min-width: 0;
+  display: grid;
+  justify-items: start;
+}
+.nameRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nameRow h2 {
+  margin: 0;
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+.iconButton {
+  display: grid;
+  place-items: center;
+  padding: 5px;
+  color: var(--green);
+}
+.iconButton svg {
+  width: 19px;
+  height: 19px;
+}
+.handle,
+.bio {
+  color: var(--muted);
+}
+.bio {
+  margin: 5px 0 0;
+}
+.textButton {
+  margin-top: 6px;
+  padding: 0;
+  color: var(--green);
+  font-size: 0.9rem;
+}
+.textButton:disabled {
+  color: var(--muted);
+  cursor: default;
+}
+.progressGrid {
+  display: grid;
+  grid-template-columns: 1fr 190px;
+  gap: 12px;
+}
+.progressCard,
+.streakCard {
+  min-height: 74px;
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+.progressTrack {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--neutral-strong);
+}
+.progressTrack span {
+  height: 100%;
+  display: block;
+  width: 0;
+  border-radius: inherit;
+  background: var(--green);
+}
+.streakCard {
+  justify-items: center;
+}
+.streakValue {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.18rem;
+}
+.streakValue svg {
+  width: 29px;
+  height: 29px;
+  fill: currentColor;
+  stroke: currentColor;
+}
+.dailySection,
+.section {
+  display: grid;
+  gap: 12px;
+}
+.dailyStrip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.arrowButton {
+  width: 42px;
+  height: 42px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--neutral);
+}
+.emptyCard,
+.contentBox {
+  width: 100%;
+  min-height: 132px;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  color: var(--muted);
+  background: var(--neutral);
+  text-align: center;
+}
+.lowerGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.sectionHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.statGroup {
+  width: 100%;
+  display: grid;
+  gap: 10px;
+  text-align: left;
+}
+.statGroup + .statGroup {
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.statRow {
+  display: grid;
+  grid-template-columns: 1fr minmax(48px, auto) 22px;
+  align-items: center;
+  gap: 10px;
+}
+.statRow strong {
+  text-align: right;
+}
+.statRow summary {
+  display: contents;
+  cursor: pointer;
+}
+.inlineMessage {
+  margin: 0;
+  color: var(--danger);
+}
+.modalLayer {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgb(20 27 22 / 46%);
+}
+.modal {
+  width: min(100%, 410px);
+  max-height: calc(100dvh - 36px);
+  overflow: auto;
+  display: grid;
+  gap: 14px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-playful);
+  background: var(--surface-raised);
+  box-shadow: 0 22px 60px var(--shadow-strong);
+}
+.modal header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.modal h2,
+.modal p {
+  margin: 0;
+}
+.modal header button {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--neutral);
+}
+.modal label {
+  display: grid;
+  gap: 6px;
+  font-weight: 500;
+}
+.modal label > span {
+  justify-self: end;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 400;
+}
+.modal input:not([type="range"]),
+.modal textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  outline: 0;
+  color: var(--text);
+  background: var(--surface);
+  resize: vertical;
+}
+.modal input:focus,
+.modal textarea:focus {
+  border-color: var(--green);
+  box-shadow: var(--focus-ring);
+}
+.modal small {
+  color: var(--muted);
+  font-weight: 400;
+}
+.imageModal {
+  padding: 10px;
+}
+.imageModal img {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius-lg);
+}
+.cropPreview {
+  width: min(64vw, 260px);
+  aspect-ratio: 1;
+  justify-self: center;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--neutral);
+}
+.cropPreview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 80ms linear;
+}
+@media (max-width: 760px) {
+  .page {
+    padding-top: 14px;
+  }
+  .hero {
+    padding: 18px;
+  }
+  .progressGrid,
+  .lowerGrid {
+    grid-template-columns: 1fr;
+  }
+  .identity {
+    align-items: flex-start;
+  }
+  .nameRow h2 {
+    font-size: 1.42rem;
+  }
+  .progressGrid {
+    grid-template-columns: minmax(0, 1fr) 145px;
+  }
+}
+@media (max-width: 430px) {
+  .hero {
+    padding: 16px;
+  }
+  .identity {
+    gap: 13px;
+  }
+  .progressGrid {
+    grid-template-columns: 1fr;
+  }
+  .arrowButton {
+    width: 36px;
+    height: 36px;
+  }
+}

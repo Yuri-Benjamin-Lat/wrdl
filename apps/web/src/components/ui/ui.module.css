@@ -68,6 +68,17 @@
   width: 45px;
   height: 45px;
 }
+.avatarlarge {
+  width: 88px;
+  height: 88px;
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: inherit;
+}
 .avatar svg {
   width: 55%;
   height: 55%;
@@ -121,6 +132,13 @@
   background: #f5793a;
 }
 .highContrast .tilepresent {
+  color: #15202a;
+  background: #85c0f9;
+}
+:global([data-high-contrast]) .tilecorrect {
+  background: #f5793a;
+}
+:global([data-high-contrast]) .tilepresent {
   color: #15202a;
   background: #85c0f9;
 }

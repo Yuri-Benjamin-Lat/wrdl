@@ -109,6 +109,19 @@
   color: var(--muted);
   font-size: 0.94rem;
 }
+.formMessage {
+  width: min(100%, 430px);
+  margin: 0;
+  color: var(--danger);
+  text-align: center;
+  font-size: 0.94rem;
+}
+.successMessage {
+  width: min(100%, 430px);
+  margin: 0;
+  color: var(--green);
+  text-align: center;
+}
 @media (max-width: 520px) {
   .screen {
     padding: 18px;

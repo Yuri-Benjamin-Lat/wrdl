@@ -1,5 +1,7 @@
 import { Swords, Trophy } from "lucide-react";
+import Link from "next/link";
 import { AppShell } from "@/components/shell/app-shell";
+import { requireCompleteAccount } from "@/lib/auth";
 import styles from "./page.module.css";
 
 const dailyColors = [
@@ -25,16 +27,27 @@ const dailyColors = [
   "green",
 ] as const;
 
-export default function HomePage() {
+export default async function HomePage() {
+  const account = await requireCompleteAccount();
+  const username = account.profile.username!;
+  const displayName = account.profile.display_name || username;
+  const shellAccount = {
+    displayName,
+    username,
+    avatarUrl: account.avatarUrl,
+    theme: account.settings.theme,
+    highContrast: account.settings.high_contrast_tiles,
+  };
+
   return (
-    <AppShell>
+    <AppShell account={shellAccount}>
       <section className={styles.home}>
         <header>
           <h1>Choose a game</h1>
-          <p>Welcome back, Yuri.</p>
+          <p>Welcome back, {displayName}.</p>
         </header>
         <div className={styles.grid}>
-          <button className={`${styles.card} ${styles.daily}`} type="button">
+          <Link className={`${styles.card} ${styles.daily}`} href="/daily">
             <span className={styles.copy}>
               <strong>Daily Wordle</strong>
               <span>Next puzzle 08:42:16</span>
@@ -44,8 +57,8 @@ export default function HomePage() {
                 <i className={styles[color]} key={index} />
               ))}
             </span>
-          </button>
-          <button className={`${styles.card} ${styles.free}`} type="button">
+          </Link>
+          <Link className={`${styles.card} ${styles.free}`} href="/free-play">
             <span className={styles.copy}>
               <strong>Free Play</strong>
               <span>Practice freely.</span>
@@ -55,21 +68,21 @@ export default function HomePage() {
               <i>R</i>
               <i>D</i>
             </span>
-          </button>
-          <button className={`${styles.card} ${styles.battle}`} type="button">
+          </Link>
+          <Link className={`${styles.card} ${styles.battle}`} href="/battle">
             <span className={styles.copy}>
               <strong>Friendly Battle</strong>
               <span>Play with friends.</span>
             </span>
             <Swords className={styles.largeIcon} aria-hidden="true" />
-          </button>
-          <button className={`${styles.card} ${styles.leaderboard}`} type="button">
+          </Link>
+          <Link className={`${styles.card} ${styles.leaderboard}`} href="/leaderboards">
             <span className={styles.copy}>
               <strong>Leaderboards</strong>
               <span>See the rankings.</span>
             </span>
             <Trophy className={styles.largeIcon} aria-hidden="true" />
-          </button>
+          </Link>
         </div>
       </section>
     </AppShell>
