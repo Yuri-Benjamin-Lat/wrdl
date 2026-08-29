@@ -2,9 +2,14 @@
 
 import { useActionState, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { completeUsernameAction, initialUsernameActionState } from "@/app/username-setup/actions";
+import { completeUsernameAction, type UsernameActionState } from "@/app/username-setup/actions";
 import { validateUsernameFormat } from "@/lib/username";
 import styles from "./entry.module.css";
+
+const initialUsernameActionState: UsernameActionState = {
+  status: "idle",
+  message: "",
+};
 
 export function UsernameSetupForm() {
   const [username, setUsername] = useState("");

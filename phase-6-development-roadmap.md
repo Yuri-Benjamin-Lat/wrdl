@@ -4,7 +4,7 @@
 
 This document turns the approved Phase 1–5 specifications, polished HTML previews, and technical architecture into an ordered implementation plan. Each milestone must leave WRDL in a working, testable state and must include its database, security, responsive UI, accessibility, and automated tests rather than postponing those concerns until the end.
 
-**Status:** Complete — roadmap approved; M0–M1 accepted; M2 is in progress
+**Status:** Complete — roadmap approved; M0–M2 accepted; M3 is the active milestone
 
 ---
 
@@ -132,7 +132,7 @@ Effort estimates assume one developer working carefully, include implementation 
 
 ### M2 — Authentication, Profiles, and Settings
 
-**Implementation status:** In progress — application, hosted database, RLS, profile/settings UI, avatars, and account lifecycle are implemented; live Google OAuth provider configuration and end-to-end account verification remain
+**Implementation status:** Complete — application, hosted database, RLS, profile/settings UI, avatars, account lifecycle, Google OAuth provider configuration, and live account onboarding are verified
 
 **Reference previews**
 
@@ -396,4 +396,4 @@ M2 and M3 may overlap only if separate work does not create conflicting changes 
 
 ---
 
-**Document Status:** Complete — development roadmap approved; M2 is the active milestone.
+**Document Status:** Complete — development roadmap approved; M2 is accepted and M3 is the active milestone.

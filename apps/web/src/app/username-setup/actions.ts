@@ -10,11 +10,6 @@ export type UsernameActionState = {
   message: string;
 };
 
-export const initialUsernameActionState: UsernameActionState = {
-  status: "idle",
-  message: "",
-};
-
 export async function completeUsernameAction(
   _state: UsernameActionState,
   formData: FormData,
