@@ -11,12 +11,15 @@ storage, OAuth redirect configuration, or secret credentials.
 - [x] Production environment template is separate from staging.
 - [x] Privacy-redacted Sentry SDK integration and public-surface smoke runner
       are implemented locally.
-- [ ] Review and commit the M3–M11 release revision on a release branch.
-- [ ] Free one Supabase project slot by deleting the disposable
+- [x] Review and commit the M3–M11 release revision on a release branch.
+- [x] Free one Supabase project slot by deleting the disposable
       `wrdl-restore-test` project, only after explicit owner approval.
-- [ ] Create the production Supabase project and store its database password in
+- [x] Create the production Supabase project and store its database password in
       the approved DPAPI-protected owner location.
-- [ ] Apply migrations to production and run the rollback-only database suites.
+- [x] Apply migrations to production, verify the remote migration ledger, and
+      confirm that a post-push dry run reports no pending migrations. Database
+      acceptance suites remain restricted to staging or disposable restore
+      targets and must not run against production.
 - [ ] Create the Vercel project, assign production environment variables, and
       deploy the reviewed release revision.
 - [ ] Create the Sentry project, assign DSN/build credentials only in Vercel,
