@@ -39,12 +39,14 @@ export function ComponentGallery() {
         </div>
         <div className={styles.themeSwitch} aria-label="Preview theme">
           <button
+            type="button"
             className={theme === "light" ? styles.selected : ""}
             onClick={() => setTheme("light")}
           >
             Light
           </button>
           <button
+            type="button"
             className={theme === "dark" ? styles.selected : ""}
             onClick={() => setTheme("dark")}
           >
@@ -64,7 +66,7 @@ export function ComponentGallery() {
             <Button>Primary action</Button>
             <Button variant="secondary">Secondary</Button>
             <Button variant="danger">Leave</Button>
-            <button className={styles.iconButton} aria-label="Settings">
+            <button type="button" className={styles.iconButton} aria-label="Settings">
               <Settings />
             </button>
           </div>

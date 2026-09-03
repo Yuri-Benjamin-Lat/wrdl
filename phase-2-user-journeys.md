@@ -157,8 +157,8 @@ This document defines how users move through the Wordle MVP, including successfu
 
 1. The player selects **Free Play** from the home page.
 2. The difficulty-selection screen opens with **Common** selected by default.
-3. Uncommon and Rare are independent toggles that expand the Common word pool. The player may choose Common only, Common + Uncommon, Common + Rare, or Common + Uncommon + Rare.
-4. On the player's first visit, a short, non-blocking tutorial callout explains what Common, Uncommon, and Rare mean.
+3. Common is always enabled. The optional Rare toggle expands selection from the 2,309-word answer list to all 12,966 accepted Wordle words.
+4. On the player's first visit, a short, non-blocking tutorial callout explains the Common and Rare pools.
 5. After dismissal, the explanation remains accessible through an information icon rather than appearing before every game.
 6. The player selects **Start Game** to begin Free Play.
 
@@ -175,7 +175,7 @@ This document defines how users move through the Wordle MVP, including successfu
 After either winning or using all six guesses, the result shows:
 
 - Correct answer
-- Word commonality: Common, Uncommon, or Rare
+- Word commonality: Common or Rare
 - Number of guesses used, or `X/6` for a loss
 - **Next Word** action
 
@@ -342,8 +342,8 @@ The host configures:
 - Round timer: 1–10 minutes in 30-second increments
 
 - These settings may be chosen before entering the lobby and adjusted by the host while still in the lobby.
-- Changing a setting does not reset any player's Ready status.
-- The final settings visible when the all-ready countdown begins govern the battle.
+- Settings remain editable while nobody is Ready. They lock while at least one player is Ready and unlock again if every player cancels Ready.
+- The settings captured by the atomic all-ready transition govern the battle.
 - The host's most recently used rounds and round timer are saved to their account.
 - Each left/right configuration control cycles continuously: advancing past the last option returns to the first option, and moving backward from the first returns to the last.
 - Those values are preselected when that player creates another lobby in the future, but remain editable before the next battle starts.
@@ -358,7 +358,7 @@ The host configures:
 6. Each invitation card shows the inviter's avatar and username, current lobby size, Accept, and Decline. It does not show rounds, round timer, or expiration information.
 7. If the recipient is already participating in a Friendly Battle, new invitation popups are suppressed.
 8. When a lobby starts or becomes unavailable, its outstanding invitation cards silently disappear without an unavailable-lobby message.
-9. The invitation picker supports searching the displayed online friends, remains open while several friends are invited, changes Invite to **Invited**, and marks players already present as **In Lobby**.
+9. The invitation picker supports searching the displayed online friends, remains open while several friends are invited, changes Invite to **Invited**, and distinguishes **In your lobby**, **Already in a lobby**, and **In a battle**.
 
 ### 6.4 Accepting or Declining
 
@@ -374,12 +374,15 @@ The host configures:
 - The lobby supports 2–8 players including the host.
 - Player cards show Waiting, Joined, or Ready status. The host retains a crown after the host's name and participates in ready-up like every other present player.
 - Pending invitations do not count toward the ready requirement.
-- Changing lobby settings does not reset existing Ready statuses.
-- Every present player, including the host, has a **Ready / Cancel Ready** toggle. There is no host-only **Start Game** control.
+- Selecting Ready locks lobby settings and membership actions while at least one player remains Ready. A Ready player may select **Cancel Ready**; if nobody remains Ready, those lobby controls unlock again.
+- Every present player, including the host, has a reversible **Ready** / **Cancel Ready** action while the party remains in Lobby. There is no host-only **Start Game** control.
 - The ready indicator shows ready players over the current lobby population, such as **2/4 ready**. If another player joins, it becomes **2/5 ready**; the eight-player maximum is not displayed beside the count.
-- Once at least two players are present and every present player is Ready, the synchronized `3… 2… 1…` start countdown begins automatically.
-- A player may select **Cancel Ready** before the countdown begins, which prevents the start condition. Ready controls lock once the countdown begins.
-- If another player joins before the countdown begins, the newcomer enters as Not Ready and the all-ready condition is no longer satisfied.
+- Ready is disabled and rejected by the server while the lobby has only one member.
+- A Ready player remains on the lobby setup screen and can cancel Ready while waiting for the others.
+- Once every present player is Ready, the roster freezes, the battle is created, every client enters **Waiting for players**, and each client has up to 30 seconds to acknowledge arrival at that battle screen.
+- With at least two arrived players, the server releases the same synchronized `3… 2… 1…` countdown to everyone; the round timer begins only at zero.
+- If fewer than two players arrive within 30 seconds, startup is cancelled and the original lobby returns without a result, history, statistics, or EXP.
+- Invitation acceptance and membership changes remain locked while anyone is Ready, preventing the roster from changing during ready-up.
 - A player who was removed and later reinvited returns as Not Ready.
 - At eight players, the host's Invite action becomes disabled and reads **Lobby Full**.
 - Starting the battle removes all outstanding invitations for that lobby.
@@ -481,6 +484,7 @@ The host configures:
 4. If the player returns within 30 seconds, they reconnect directly to the screen and state currently active for the battle.
 5. No additional `3… 2… 1…` countdown occurs because the battle never paused.
 6. If the player does not return in time, the connected opponent wins the entire battle and the outcome counts as a normal win and loss in battle statistics.
+7. Once that forfeit is committed, the departed loser loses the Home rejoin card and is removed from the reusable party. The connected winner's **Continue** action returns to a lobby that no longer contains the departed player.
 
 ### 8.2 Three-to-Eight-Player Disconnection
 
@@ -490,6 +494,7 @@ The host configures:
 - If the battle drops below two connected players, a 20-second preservation timer begins without pausing the battle or round timer.
 - If another participant returns within 20 seconds, the battle continues normally.
 - If nobody returns, the battle is voided and all of its earned points and statistics are discarded.
+- Home replaces **Friendly Battle in progress** with **Battle voided**. Opening Friendly Battle acknowledges that notice and starts a fresh lobby instead of rendering a separate terminal battle screen.
 
 ### 8.3 Rejoining the Synchronized Battle State
 

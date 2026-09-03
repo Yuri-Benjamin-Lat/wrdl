@@ -1,7 +1,12 @@
 import { Swords, Trophy } from "lucide-react";
 import Link from "next/link";
+
+import { HomeBattleStatus, type HomeBattleStatusKind } from "@/components/home/home-battle-status";
+import { HomeCountdown } from "@/components/home/home-countdown";
 import { AppShell } from "@/components/shell/app-shell";
 import { requireCompleteAccount } from "@/lib/auth";
+import { parseBattleSnapshot } from "@/lib/battle";
+import { getSupabaseServerClient } from "@/lib/supabase/server-client";
 import styles from "./page.module.css";
 
 const dailyColors = [
@@ -29,6 +34,18 @@ const dailyColors = [
 
 export default async function HomePage() {
   const account = await requireCompleteAccount();
+  const supabase = await getSupabaseServerClient();
+  const { data: battleData } = await supabase.rpc("get_my_battle", {});
+  let initialBattleStatus: HomeBattleStatusKind = null;
+  try {
+    if (battleData) {
+      const battle = parseBattleSnapshot(battleData);
+      initialBattleStatus =
+        battle.phase === "voided" ? "voided" : battle.phase === "battle_complete" ? null : "active";
+    }
+  } catch {
+    // An unavailable snapshot should never prevent Home from rendering.
+  }
   const username = account.profile.username!;
   const displayName = account.profile.display_name || username;
   const shellAccount = {
@@ -46,11 +63,12 @@ export default async function HomePage() {
           <h1>Choose a game</h1>
           <p>Welcome back, {displayName}.</p>
         </header>
+        <HomeBattleStatus initialStatus={initialBattleStatus} />
         <div className={styles.grid}>
           <Link className={`${styles.card} ${styles.daily}`} href="/daily">
             <span className={styles.copy}>
               <strong>Daily Wordle</strong>
-              <span>Next puzzle 08:42:16</span>
+              <HomeCountdown />
             </span>
             <span className={styles.dailyArt} aria-hidden="true">
               {dailyColors.map((color, index) => (

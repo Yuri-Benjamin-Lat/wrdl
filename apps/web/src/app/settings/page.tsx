@@ -8,7 +8,7 @@ type SettingsPageProps = {
 };
 
 export default async function SettingsPage({ searchParams }: SettingsPageProps) {
-  const account = await requireCompleteAccount();
+  const account = await requireCompleteAccount("/settings");
   const username = account.profile.username!;
   const displayName = account.profile.display_name || username;
   const { delete: deletionState } = await searchParams;
@@ -22,7 +22,7 @@ export default async function SettingsPage({ searchParams }: SettingsPageProps) 
 
   return (
     <AppShell account={shellAccount}>
-      <main className={styles.page}>
+      <div className={styles.page}>
         <h1>Settings</h1>
         <SettingsForm
           userId={account.userId}
@@ -30,7 +30,7 @@ export default async function SettingsPage({ searchParams }: SettingsPageProps) 
           avatarPath={account.profile.avatar_path}
           deletionConfirmed={deletionState === "confirmed"}
         />
-      </main>
+      </div>
     </AppShell>
   );
 }

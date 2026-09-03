@@ -14,8 +14,19 @@
     "lint": "pnpm --filter @wrdl/web lint",
     "typecheck": "pnpm --recursive typecheck",
     "test": "pnpm --recursive test",
+    "catalog:check": "node scripts/validate-word-catalog.mjs",
+    "catalog:write": "node scripts/validate-word-catalog.mjs --write",
+    "daily-catalog:check": "node scripts/generate-daily-word-migration.mjs",
+    "daily-catalog:write": "node scripts/generate-daily-word-migration.mjs --write",
     "backend:check": "node --env-file-if-exists=apps/web/.env.local scripts/verify-hosted-supabase.mjs",
-    "secrets:check": "node scripts/check-secrets.mjs"
+    "database:test": "pwsh -NoProfile -File scripts/Invoke-WrdlDatabaseTests.ps1",
+    "secrets:check": "node scripts/check-secrets.mjs",
+    "accessibility:check": "node scripts/check-accessibility-contracts.mjs",
+    "security:check": "node scripts/check-security-boundaries.mjs",
+    "performance:check": "node scripts/check-build-budget.mjs",
+    "realtime:rehearse": "pnpm --filter @wrdl/web realtime:rehearse",
+    "smoke:production": "node scripts/smoke-production.mjs",
+    "release:check": "node scripts/release-check.mjs"
   },
   "devDependencies": {
     "prettier": "^3.9.6",

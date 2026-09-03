@@ -1,24 +1,30 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "@fontsource-variable/fredoka/wght.css";
+
+import { NetworkStatus } from "@/components/support/network-status";
+import { MaintenanceState } from "@/components/support/supporting-state";
+import { ThemeBootstrap } from "@/components/support/theme-bootstrap";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "WRDL",
   description: "Daily word puzzles and friendly competition.",
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    shortcut: "/icon.svg",
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const maintenance = process.env.WRDL_MAINTENANCE_MODE === "true";
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('wrdl-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;var h=localStorage.getItem('wrdl-high-contrast');if(h==='true')document.documentElement.setAttribute('data-high-contrast','');}catch(e){}})();`,
-          }}
-        />
-      </head>
-      <body>{children}</body>
+      <body>
+        <ThemeBootstrap />
+        {maintenance ? <MaintenanceState /> : children}
+        {!maintenance ? <NetworkStatus /> : null}
+      </body>
     </html>
   );
 }

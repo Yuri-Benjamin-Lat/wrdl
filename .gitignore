@@ -20,6 +20,8 @@ supabase/.temp/
 backups/
 *.dump
 *.sql.gz
+wrdl-*.dump.gpg
+wrdl-*.dump.gpg.sha256
 
 # Tooling and operating-system files
 .turbo/

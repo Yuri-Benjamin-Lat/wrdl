@@ -1,0 +1,362 @@
+.page {
+  width: min(100%, 920px);
+  display: grid;
+  align-content: start;
+  justify-self: center;
+  gap: 18px;
+  padding: 18px 0 36px;
+}
+.pageHeader,
+.sectionHeader,
+.lobbyFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+.pageHeader h1,
+.sectionHeader h2,
+.pageHeader p,
+.sectionHeader p,
+.modal h2,
+.modal p,
+.confirmModal h2,
+.confirmModal p {
+  margin: 0;
+}
+.pageHeader h1 {
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  font-weight: 500;
+}
+.pageHeader p,
+.sectionHeader p,
+.modal p,
+.confirmModal p {
+  color: var(--muted);
+}
+.panel {
+  display: grid;
+  gap: 14px;
+  padding: 20px;
+  border-radius: var(--radius-playful);
+  background: var(--neutral);
+}
+.sectionHeader h2 {
+  font-weight: 500;
+}
+.sectionHeader .inviteButton {
+  background: var(--surface);
+}
+.settingsList,
+.memberList,
+.candidateList {
+  display: grid;
+  gap: 9px;
+}
+.settingsList,
+.memberList {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.settingRow {
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+.settingRow > span:first-child,
+.memberIdentity,
+.candidateList article > span {
+  min-width: 0;
+  display: grid;
+}
+.settingRow small,
+.memberIdentity small,
+.candidateList small {
+  color: var(--muted);
+}
+.stepper {
+  display: grid;
+  grid-template-columns: 40px minmax(92px, auto) 40px;
+  align-items: center;
+  text-align: center;
+}
+.stepper button,
+.memberOptions summary,
+.modal header > button {
+  border: 0;
+  background: transparent;
+}
+.stepper button {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+}
+.stepper button:not(:disabled):hover {
+  background: var(--neutral);
+}
+.stepper svg {
+  width: 18px;
+}
+.memberCard,
+.candidateList article {
+  position: relative;
+  min-width: 0;
+  min-height: 68px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 13px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+.memberIdentity strong {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.memberIdentity svg {
+  width: 18px;
+  height: 18px;
+  color: var(--yellow-deep);
+  fill: currentColor;
+}
+.memberStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.memberStatus i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.memberStatus.ready {
+  color: var(--green);
+}
+.memberOptions {
+  position: relative;
+}
+.memberOptions summary {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  list-style: none;
+  cursor: pointer;
+}
+.memberOptions summary::-webkit-details-marker {
+  display: none;
+}
+.memberOptions > div {
+  position: absolute;
+  z-index: 6;
+  top: calc(100% + 5px);
+  right: 0;
+  width: 170px;
+  display: grid;
+  gap: 3px;
+  padding: 7px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-raised);
+  box-shadow: 0 12px 30px var(--shadow-strong);
+}
+.memberOptions button {
+  min-height: 38px;
+  padding: 8px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  text-align: left;
+}
+.memberOptions .danger {
+  color: var(--danger);
+}
+.lobbyFooter {
+  margin-top: 2px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--green) 13%, var(--surface));
+}
+.message {
+  margin: 0;
+  color: var(--muted);
+  text-align: center;
+}
+.loading {
+  min-height: 60dvh;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 12px;
+  text-align: center;
+}
+.loading svg {
+  width: 42px;
+  height: 42px;
+  color: var(--green);
+}
+.loading h1,
+.loading p {
+  margin: 0;
+}
+.modalLayer,
+.countdownOverlay {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgb(20 27 22 / 46%);
+}
+.modal,
+.confirmModal {
+  width: min(100%, 480px);
+  max-height: calc(100dvh - 36px);
+  overflow: auto;
+  display: grid;
+  gap: 14px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-playful);
+  background: var(--surface-raised);
+  box-shadow: 0 22px 60px var(--shadow-strong);
+}
+.modal header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.modal header > button {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-md);
+  background: var(--neutral);
+}
+.searchField {
+  min-height: 46px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 9px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+.searchField svg {
+  width: 19px;
+  color: var(--muted);
+}
+.searchField input {
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+}
+.candidateList article {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  background: var(--neutral);
+}
+.candidateList button {
+  min-height: 38px;
+  padding: 8px 11px;
+  border: 0;
+  border-radius: 9px;
+  color: var(--green-text);
+  background: var(--green);
+}
+.candidateList button:disabled {
+  color: var(--muted);
+  background: var(--surface);
+}
+.candidateList > p {
+  color: var(--muted);
+  text-align: center;
+}
+.confirmModal > div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.countdownOverlay {
+  z-index: 120;
+  color: #fffdf7;
+  background: rgb(25 52 35 / 72%);
+  backdrop-filter: blur(3px);
+}
+.countdownOverlay span {
+  font-size: clamp(4rem, 15vw, 8rem);
+  font-weight: 600;
+  text-shadow: 0 3px 14px rgb(0 0 0 / 30%);
+}
+@media (max-width: 620px) {
+  .page {
+    padding-top: 8px;
+  }
+  .pageHeader,
+  .sectionHeader {
+    align-items: flex-start;
+  }
+  .pageHeader p,
+  .sectionHeader p {
+    font-size: 0.9rem;
+  }
+  .panel {
+    padding: 16px;
+  }
+  .memberCard {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+  .memberStatus {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+  }
+  .memberOptions {
+    grid-column: 3;
+    grid-row: 2;
+    justify-self: end;
+  }
+}
+@media (max-width: 760px) {
+  .settingsList,
+  .memberList {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 430px) {
+  .pageHeader {
+    flex-wrap: wrap;
+  }
+  .pageHeader > button {
+    margin-left: auto;
+  }
+  .settingRow {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .stepper {
+    width: 100%;
+    grid-template-columns: 40px 1fr 40px;
+  }
+  .lobbyFooter {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

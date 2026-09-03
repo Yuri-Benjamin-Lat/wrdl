@@ -142,6 +142,13 @@
   color: #15202a;
   background: #85c0f9;
 }
+:global([data-high-contrast]) .keycorrect {
+  background: #f5793a;
+}
+:global([data-high-contrast]) .keypresent {
+  color: #15202a;
+  background: #85c0f9;
+}
 .keyboard {
   width: min(100%, 570px);
   display: grid;
@@ -157,7 +164,7 @@
 }
 .key,
 .keyWide {
-  height: 48px;
+  height: 46px;
   display: grid;
   place-items: center;
   border: 0;
@@ -178,6 +185,28 @@
 .keyWide svg {
   width: 20px;
   height: 20px;
+}
+.keycorrect,
+.keypresent,
+.keyabsent {
+  color: #fffdf7;
+}
+.keycorrect {
+  background: var(--green);
+}
+.keypresent {
+  color: #202219;
+  background: var(--yellow);
+}
+.keyabsent {
+  background: #858b84;
+}
+.tileShake {
+  animation: tile-shake 280ms ease-in-out;
+}
+.tile[data-revealing="true"] {
+  animation: tile-reveal 460ms ease both;
+  transform-style: preserve-3d;
 }
 @media (max-width: 520px) {
   .board {
@@ -206,5 +235,37 @@
 @keyframes tile-pop {
   50% {
     transform: scale(1.04);
+  }
+}
+@keyframes tile-shake {
+  25% {
+    transform: translateX(-4px);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+}
+@keyframes tile-reveal {
+  0% {
+    transform: rotateX(0deg);
+  }
+  48% {
+    transform: rotateX(88deg);
+  }
+  52% {
+    transform: rotateX(88deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile[data-revealing="true"] {
+    animation-duration: 1ms;
+    animation-delay: 0ms !important;
   }
 }

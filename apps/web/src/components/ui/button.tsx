@@ -24,7 +24,7 @@ export function Button({
     .filter(Boolean)
     .join(" ");
   return (
-    <button className={classes} {...props}>
+    <button type="button" className={classes} {...props}>
       {icon ? <span className={styles.buttonIcon}>{icon}</span> : null}
       <span>{children}</span>
     </button>

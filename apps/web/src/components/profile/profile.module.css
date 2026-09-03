@@ -14,6 +14,25 @@
 .pageTitle {
   font-size: clamp(1.9rem, 4vw, 2.45rem);
 }
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.returnButton {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  border-radius: var(--radius-md);
+  background: var(--neutral);
+  font-weight: 500;
+}
+.returnButton svg {
+  width: 18px;
+}
 .hero {
   display: grid;
   gap: 18px;
@@ -70,8 +89,7 @@
   box-shadow: 0 14px 34px var(--shadow-strong);
 }
 .avatarMenu button,
-.iconButton,
-.textButton {
+.iconButton {
   border: 0;
   background: transparent;
 }
@@ -121,22 +139,220 @@
   width: 19px;
   height: 19px;
 }
-.handle,
-.bio {
+.handle {
   color: var(--muted);
 }
 .bio {
+  min-width: 0;
+  max-width: 100%;
   margin: 5px 0 0;
+  color: var(--text);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
-.textButton {
-  margin-top: 6px;
-  padding: 0;
-  color: var(--green);
-  font-size: 0.9rem;
+.friendIdentity {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
 }
-.textButton:disabled {
+.friendIdentityCopy {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+.friendBioRow {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+}
+.friendBioRow .friendActions {
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+.friendNameRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.friendNameRow h2 {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  font-size: 1.7rem;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.activityStatus {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 7px;
   color: var(--muted);
-  cursor: default;
+  white-space: nowrap;
+}
+.activityStatus i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+.activityStatus .activityOnline {
+  background: var(--green);
+}
+.friendActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.friendProfileFooter {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) 190px;
+  align-items: stretch;
+  gap: 12px;
+}
+.friendActionToast {
+  position: fixed;
+  z-index: 80;
+  right: 24px;
+  bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  color: var(--green-text);
+  background: var(--green);
+  box-shadow: 0 10px 26px var(--shadow-strong);
+}
+.friendActionToast svg {
+  width: 17px;
+  height: 17px;
+}
+.friendActions > small {
+  width: 100%;
+  color: var(--muted);
+}
+.primaryAction,
+.secondaryAction {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 13px;
+  border: 0;
+  border-radius: var(--radius-md);
+  color: var(--green-text);
+  background: var(--green);
+  font-weight: 500;
+}
+.primaryAction svg {
+  width: 18px;
+}
+.secondaryAction {
+  color: var(--text);
+  background: var(--surface);
+}
+.relationshipStatus {
+  color: var(--green);
+  font-weight: 500;
+}
+.profileOptions {
+  position: relative;
+}
+.profileOptions summary {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  list-style: none;
+  cursor: pointer;
+}
+.profileOptions summary::-webkit-details-marker {
+  display: none;
+}
+.profileOptions > div {
+  position: absolute;
+  z-index: 8;
+  top: calc(100% + 7px);
+  right: 0;
+  width: 270px;
+  display: grid;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-raised);
+  box-shadow: 0 14px 34px var(--shadow-strong);
+}
+.profileOptions label {
+  display: grid;
+  gap: 6px;
+  padding: 7px;
+  font-size: 0.86rem;
+}
+.profileOptions label span {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px;
+}
+.profileOptions input {
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.profileOptions button {
+  min-height: 38px;
+  padding: 8px 9px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  text-align: left;
+}
+.profileOptions label button {
+  color: var(--green-text);
+  background: var(--green);
+}
+.privateBox {
+  min-height: 132px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  color: var(--muted);
+  background: var(--neutral);
+}
+.privateBox svg {
+  width: 19px;
+}
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.modalActions button {
+  min-height: 42px;
+  padding: 9px 13px;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--neutral);
+}
+.modalActions .dangerAction {
+  color: #fffdf7;
+  background: var(--danger);
 }
 .progressGrid {
   display: grid;
@@ -152,6 +368,12 @@
   padding: 14px;
   border-radius: var(--radius-md);
   background: var(--surface);
+}
+.progressMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 .progressTrack {
   height: 8px;
@@ -187,18 +409,76 @@
   gap: 12px;
 }
 .dailyStrip {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 42px;
+  align-items: stretch;
   gap: 12px;
+}
+.dailyCards {
+  min-width: 0;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.dailyCards::-webkit-scrollbar {
+  display: none;
+}
+.dailyCard {
+  width: 218px;
+  flex: 0 0 218px;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--neutral);
+  scroll-snap-align: start;
+}
+.dailyCard header {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.dailyCard header > div {
+  display: grid;
+}
+.dailyCard header span,
+.dailyCard small {
+  color: var(--muted);
+}
+.dailyCard :global([role="grid"]) {
+  --tile-size: 25px;
+}
+.dailyStatus {
+  padding: 3px 7px;
+  border-radius: 999px;
+  color: var(--text) !important;
+  background: var(--surface);
+  font-size: 0.76rem;
+  white-space: nowrap;
+}
+.dailyCard[data-status="win"] .dailyStatus {
+  color: var(--green-text) !important;
+  background: var(--green);
+}
+.dailyCard[data-status="failed"] .dailyStatus,
+.dailyCard[data-status="missed"] .dailyStatus {
+  color: #fffdf7 !important;
+  background: var(--danger);
 }
 .arrowButton {
   width: 42px;
-  height: 42px;
-  flex: none;
+  min-height: 100%;
   display: grid;
   place-items: center;
   border: 0;
-  border-radius: 50%;
+  border-radius: var(--radius-md);
   background: var(--neutral);
 }
 .emptyCard,
@@ -215,13 +495,133 @@
 }
 .lowerGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(280px, 1fr) minmax(0, 2fr);
+  align-items: start;
   gap: 18px;
 }
 .sectionHead {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.lowerGrid .section {
+  min-width: 0;
+  grid-template-rows: auto auto;
+}
+.historySection .battleHistoryList,
+.historySection .historyBox {
+  height: 420px;
+}
+.statisticsSection .contentBox {
+  align-content: start;
+  place-items: stretch;
+  text-align: left;
+}
+.historyBox {
+  min-height: 0;
+}
+.historyEmpty {
+  margin: auto;
+  color: var(--muted);
+  text-align: center;
+}
+.battleHistoryList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  padding-right: 3px;
+  scrollbar-width: none;
+}
+.battleHistoryList::-webkit-scrollbar {
+  display: none;
+}
+.battleHistoryCard {
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--neutral);
+}
+.battleHistorySummary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px 18px;
+  padding: 18px;
+  list-style: none;
+  cursor: pointer;
+}
+.battleHistorySummary::-webkit-details-marker {
+  display: none;
+}
+.battleHistorySummary > :nth-child(even) {
+  color: var(--muted);
+  text-align: right;
+}
+.battleWin {
+  color: var(--green);
+}
+.historyResult {
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  white-space: nowrap;
+}
+.forfeitReason {
+  color: var(--muted);
+  white-space: nowrap;
+}
+.standingsToggle {
+  grid-column: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  color: var(--green) !important;
+  font-weight: 500;
+}
+.standingsToggle svg {
+  width: 18px;
+  transition: transform 160ms ease;
+}
+.battleHistoryCard[open] .standingsToggle svg {
+  transform: rotate(180deg);
+}
+.battleStandings {
+  display: grid;
+  gap: 7px;
+  padding: 0 18px 18px;
+  border-top: 1px solid var(--line);
+}
+.battleStandingRow {
+  display: grid;
+  grid-template-columns: 32px auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+.battleStandingRow:first-child {
+  margin-top: 14px;
+}
+.battleStandingOwner {
+  box-shadow: inset 0 0 0 2px var(--green);
+}
+.battleStandingIdentity {
+  min-width: 0;
+  display: grid;
+  text-align: left;
+}
+.battleStandingIdentity strong,
+.battleStandingIdentity small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.battleStandingIdentity small {
+  color: var(--muted);
 }
 .statGroup {
   width: 100%;
@@ -242,6 +642,9 @@
 }
 .statRow strong {
   text-align: right;
+}
+.statNestedRow > :first-child {
+  padding-left: 18px;
 }
 .statRow summary {
   display: contents;
@@ -296,7 +699,14 @@
   gap: 6px;
   font-weight: 500;
 }
-.modal label > span {
+.fieldLabel {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.fieldLabel > span:last-child {
   justify-self: end;
   color: var(--muted);
   font-size: 0.88rem;
@@ -355,11 +765,38 @@
   .lowerGrid {
     grid-template-columns: 1fr;
   }
+  .statisticsSection .contentBox {
+    min-height: 0;
+  }
+  .historySection .battleHistoryList,
+  .historySection .historyBox {
+    height: min(420px, 62dvh);
+  }
+  .friendProfileFooter {
+    grid-template-columns: minmax(0, 1fr) 145px;
+  }
   .identity {
     align-items: flex-start;
   }
   .nameRow h2 {
     font-size: 1.42rem;
+  }
+  .friendNameRow {
+    align-items: flex-start;
+  }
+  .friendNameRow h2 {
+    font-size: 1.42rem;
+  }
+  .activityStatus {
+    max-width: 145px;
+    text-align: right;
+    white-space: normal;
+  }
+  .friendBioRow {
+    grid-template-columns: 1fr;
+  }
+  .friendBioRow .friendActions {
+    justify-content: flex-start;
   }
   .progressGrid {
     grid-template-columns: minmax(0, 1fr) 145px;
@@ -369,14 +806,36 @@
   .hero {
     padding: 16px;
   }
+  .pageHeader {
+    align-items: flex-start;
+  }
+  .returnButton {
+    min-height: 40px;
+    padding: 8px 10px;
+    font-size: 0.86rem;
+  }
   .identity {
     gap: 13px;
   }
   .progressGrid {
     grid-template-columns: 1fr;
   }
+  .friendProfileFooter {
+    grid-template-columns: 1fr;
+  }
+  .friendActionToast {
+    right: 16px;
+    bottom: 16px;
+  }
   .arrowButton {
     width: 36px;
-    height: 36px;
+  }
+  .dailyStrip {
+    grid-template-columns: 36px minmax(0, 1fr) 36px;
+    gap: 8px;
+  }
+  .dailyCard {
+    width: 205px;
+    flex-basis: 205px;
   }
 }

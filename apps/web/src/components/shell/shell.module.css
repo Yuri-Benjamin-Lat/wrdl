@@ -1,13 +1,18 @@
 .shell {
-  min-height: 100dvh;
+  height: 100dvh;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 220px;
+  grid-template-columns: minmax(0, 1fr) 48px;
+  overflow: hidden;
   background: var(--surface);
+  transition: grid-template-columns 180ms ease;
 }
 .main {
+  position: relative;
   min-width: 0;
+  min-height: 0;
   display: grid;
   grid-template-rows: auto 1fr;
+  overflow: hidden;
   padding: 24px 28px 30px;
 }
 .topbar {
@@ -19,15 +24,61 @@
 .content {
   min-height: 0;
   display: grid;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 .sidebar {
+  position: relative;
+  height: 100dvh;
+  overflow: hidden;
+  border-left: 1px solid var(--line);
+  background: color-mix(in srgb, var(--neutral) 48%, var(--surface));
+  outline: none;
+}
+.sidebarContent {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 220px;
   display: grid;
   grid-template-rows: auto 1fr;
   align-content: start;
   gap: 20px;
   padding: 25px 18px;
-  border-left: 1px solid var(--line);
-  background: color-mix(in srgb, var(--neutral) 48%, var(--surface));
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(12px);
+  visibility: hidden;
+  transition:
+    opacity 120ms ease,
+    transform 180ms ease,
+    visibility 0s linear 180ms;
+}
+.sidebarCue {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  pointer-events: none;
+  transition: opacity 100ms ease;
+}
+.sidebarCue svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 1.8;
+}
+.sidebarOpen {
+  grid-template-columns: minmax(0, 1fr) 220px;
+}
+.sidebarOpen .sidebarContent {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
+  transition-delay: 40ms, 0s, 0s;
+}
+.sidebarOpen .sidebarCue {
+  opacity: 0;
 }
 .person {
   display: grid;
@@ -76,6 +127,19 @@
   height: 20px;
   stroke-width: 1.7;
 }
+.navBadge {
+  min-width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  margin-left: auto;
+  padding: 0 6px;
+  border-radius: 999px;
+  color: #fffdf7;
+  background: var(--danger);
+  font-size: 0.72rem;
+  line-height: 1;
+}
 .activeLink {
   color: var(--green-text);
   background: var(--green);
@@ -118,22 +182,14 @@
 .drawer nav {
   margin-top: 2px;
 }
-.drawer b {
-  min-width: 24px;
-  height: 24px;
-  display: grid;
-  place-items: center;
-  margin-left: auto;
-  border-radius: 50%;
-  color: #fffdf7;
-  background: var(--danger);
-  font-size: 0.75rem;
-}
 .signOut {
   width: 100%;
   margin-top: 18px;
   color: var(--danger);
   text-align: left;
+}
+.signOut:hover {
+  background: color-mix(in srgb, var(--danger) 13%, transparent);
 }
 .sidebar .signOut {
   margin-top: 8px;
@@ -141,6 +197,7 @@
 @media (max-width: 760px) {
   .shell {
     grid-template-columns: 1fr;
+    transition: none;
   }
   .main {
     padding: 16px 16px 24px;

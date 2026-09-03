@@ -15,11 +15,7 @@ A personal Wordle web application for friends featuring daily puzzles, free play
 - **6 attempts maximum** to solve the word
 - **Progress saves** if player leaves mid-game; resets next day when new word appears
 - **Internet required** to play; if connectivity is lost, saved progress is retained and play resumes after reconnection
-- **Word selection criteria** (matching NYT standards):
-  - Common/everyday words preferred
-  - No proper nouns, vulgar/offensive words, or archaic terminology
-  - Family-friendly and age-appropriate
-  - Balanced difficulty
+- **Daily answer pool**: Uses the exact archived 2,309-word Wordle answer list without WRDL-specific exclusions or reclassification
 - **Guess validation**: Players may submit any valid accepted five-letter word, even when it is not eligible to be selected as a Daily answer
 - **Answer repetition**: Daily answers do not repeat until the curated answer pool has been exhausted
 - **Winning condition**: Solve word within 6 attempts
@@ -29,14 +25,9 @@ A personal Wordle web application for friends featuring daily puzzles, free play
 ### 1.2 Free Play Mode
 - **Unlimited games**: Players can start and play as many consecutive Wordle games as they want
 - **6 guesses per game**: Each individual word still follows the traditional six-guess limit
-- **Word pool**: Curated list expanded with optional uncommon/rare words
-- **Word commonality badges**: 
-  - Common (everyday words)
-  - Uncommon (lesser-known words)
-  - Rare (rarely used words)
-- **Commonality toggle**: Players can choose to include/exclude uncommon and rare words
-  - Uncommon and Rare are independent toggles
-  - Available combinations: Common only, Common + Uncommon, Common + Rare, or Common + Uncommon + Rare
+- **Word pools**: Common uses the exact 2,309-word answer list; optional Rare expands selection to all 12,966 accepted Wordle words
+- **Word commonality badges**: Common or Rare, based on which source list contains the selected word
+- **Commonality toggle**: Common is always enabled; Rare can be enabled to use the full accepted-word pool
 - **No statistics recording** — wins, losses, abandoned games, and word commonality are not recorded
 - **UI distinction**: Clear visual separation from Daily Wordle mode
 - **Restart button**: Players can easily start a new word
@@ -88,14 +79,13 @@ A personal Wordle web application for friends featuring daily puzzles, free play
 ### 2.3 Free Play Gameplay Flow
 1. User clicks "Free Play" on home page
 2. Difficulty selection screen appears:
-   - Toggle: Include Uncommon Words? (Yes/No)
    - Toggle: Include Rare Words? (Yes/No)
 3. User confirms selection → game loads
 4. Gameplay identical to Daily Wordle (6 attempts, color feedback)
 5. **Win**: Completes word
    - Restart button appears
    - Can click to load new word from same difficulty settings
-   - Word commonality badge shown (Common/Uncommon/Rare)
+   - Word commonality badge shown (Common/Rare)
    - No stats recorded
 6. **Loss**: Uses all 6 attempts
    - Word revealed
@@ -125,17 +115,18 @@ A personal Wordle web application for friends featuring daily puzzles, free play
      - "Joined" (player accepted, not ready)
      - "Ready" (player clicked ready button)
    - Counter displays only ready players over the current lobby population, such as "3/4 ready"; it does not separately show the eight-player capacity
-   - Every present player, including the host, has a "Ready" / "Cancel Ready" toggle
+   - Every present player, including the host, has a reversible "Ready" / "Cancel Ready" action while the party remains in the lobby
    - There is no host-only "Start Game" button
-   - Host may adjust the rounds and round timer without resetting player Ready statuses
+   - Host may adjust the rounds and round timer while nobody is Ready; those controls lock while at least one player is Ready and unlock again if every player cancels Ready
    - Host may invite additional friends while fewer than 8 players occupy the lobby
 8. Pending invitations do not block the battle from starting
 9. As friends accept invites → player cards update to "Joined"
 10. Players click "Ready" button on their screen
 11. Host sees ready status update in real-time
-12. When all joined and present players are ready → synchronized `3… 2… 1…` countdown begins automatically
-13. Ready controls lock once the countdown begins; before it begins, any player may select "Cancel Ready" and prevent the start condition
-14. After the countdown finishes, the battle begins with the same word for all players
+12. Each Ready player remains on the lobby setup screen, may select **Cancel Ready**, and sees the shared ready count update
+13. When all joined players are Ready, the roster freezes, every client enters the battle screen, and each has up to 30 seconds to reach and acknowledge **Waiting for players**
+14. If at least two players arrive, every arrived player receives the same synchronized `3… 2… 1…` countdown; the round timer starts only when it reaches zero
+15. If fewer than two players arrive within 30 seconds, startup is cancelled with no result, statistics, history, or EXP
 
 ### 2.5 Friendly Battle - Join Flow
 1. User receives battle invite (via in-app popup/modal)
@@ -147,7 +138,7 @@ A personal Wordle web application for friends featuring daily puzzles, free play
    - Redirected to battle lobby
    - User's card shows "Joined" status
    - User clicks "Ready" button
-   - May cancel Ready before the synchronized start countdown begins
+   - The user remains in the lobby and may select **Cancel Ready** until all lobby members are Ready; after the all-ready transition, **Waiting for players** appears on the battle screen until the arrival barrier completes
 4. **Decline path**:
    - Invite dismissed
    - If same person invites again within 3 seconds, popup appears
@@ -284,7 +275,7 @@ A personal Wordle web application for friends featuring daily puzzles, free play
 - **3-to-8-player reconnection grace period**: If a multiplayer battle drops below 2 connected players, the battle and round timer continue while a 20-second preservation timer runs; if nobody returns, void the battle and discard its points and statistics
 - **2-player reconnection grace period**: If one player disconnects, the battle and round timer continue while a 30-second reconnection timer runs; the connected player may keep playing, the returning player resumes on the current synchronized screen without a new countdown, and failure to return awards the connected opponent the battle win
 - **Individual multiplayer disconnect**: If at least 2 players remain connected, a disconnected player has no personal rejoin deadline and may return during any ongoing round
-- **All players disconnect**: The applicable grace period begins; if nobody returns before it expires, the battle is voided with no statistics recorded
+- **All players disconnect**: The applicable grace period begins; if nobody returns before it expires, the battle is voided with no statistics recorded. Home changes the active-battle card to **Battle voided** instead of reopening a terminal battle screen; acknowledging it starts a fresh lobby.
 
 ### 3.2 Timer Edge Cases
 - **Round timer expires**: All players stop attempting; solvers get points
@@ -319,6 +310,7 @@ A personal Wordle web application for friends featuring daily puzzles, free play
 - **Level/EXP always visible**: Cannot hide
 
 ### 3.7 Daily Wordle Edge Cases
+- **Global numbering**: Daily puzzle numbers belong to the shared Philippine-day schedule rather than individual accounts. A player who joins after launch starts with the current global puzzle number and cannot replay earlier Daily puzzles.
 - **Account creation day**: The player's creation day is free and is not recorded as Missed if they do not play, regardless of the time the account was created
 - **Playing on the creation day**: A successful attempt records a Win and an unsuccessful completed or expired attempt records a Failed loss
 - **Missed-day tracking start**: Missed losses begin on the first complete Daily Wordle day after account creation; earlier days are not counted
@@ -341,14 +333,14 @@ A personal Wordle web application for friends featuring daily puzzles, free play
 - **Host leaves battle**: Host control transfers to the second player who joined the lobby; the former host can rejoin as a regular player
 - **Host succession fallback**: If the second player who joined is no longer present, control transfers to the earliest-joined player who is still present
 - **Manual host transfer**: In the lobby, the host may select another present player's card and use a small confirmation modal to transfer the host role to that player
-- **Host disconnect during a 2-player battle**: If the host fails to return within 30 seconds, the battle ends, the connected winner returns to the lobby, and that player becomes host
+- **Host disconnect during a 2-player battle**: If the host fails to return within 30 seconds, the battle ends, the connected winner returns to the lobby and becomes host, while the departed loser is removed from that reusable party
 - **Host disconnect during a 3–8-player battle**: Host control transfers immediately to the next eligible present player, who receives a small side notification
 - **Only 1 connected player remains in a 3–8-player battle**: The 20-second preservation period begins; the battle is voided only if nobody returns
 - **Player accepts invite, then leaves before the initial lobby ready-up**: Treated as left; can rejoin if game ongoing
-- **Initial lobby ready-up**: Waits indefinitely until all present players, including the host, are ready; then a synchronized `3… 2… 1…` countdown starts automatically with no host-only Start button
+- **Initial lobby ready-up**: Ready is disabled while only one player is present. With at least two players, Ready remains reversible in the lobby through **Cancel Ready**. When all present players are Ready, the roster freezes and every client enters **Waiting for players**; arrived battle clients wait up to 30 seconds for the minimum two participants before the synchronized `3… 2… 1…` countdown. An under-populated startup is cancelled without a result, statistics, history, or EXP
 - **Between-round transition**: Every non-final round is followed by a fixed visible 10-second leaderboard intermission and then a synchronized `3… 2… 1…`; there are no between-round Ready buttons, ready counts, configurable ready-up duration, or host removal controls
 - **Disconnected-player intermission status**: A player who leaves or disconnects during the intermission is marked Disconnected, remains a battle participant, and may return during the intermission or any ongoing round under the existing reconnect rules
-- **In-battle moderation lock**: The host cannot remove any player after the first battle-start countdown begins; lobby removal exists only before a battle starts or after players return to the original lobby following Battle Complete
+- **In-battle moderation lock**: The host cannot remove a player while anyone is Ready or after the all-ready transition; lobby removal exists only while nobody is Ready or after players return to the original lobby following Battle Complete
 - **Lobby moderation**: The host may remove any player from the lobby before the game begins
 - **Removed player**: Sees **You were removed from the lobby** and may join again only after receiving and accepting a new invitation
 - **Unavailable invitation**: An invitation silently disappears as soon as its lobby starts, closes, becomes full, or otherwise becomes unavailable, preventing late acceptance
@@ -397,7 +389,7 @@ A personal Wordle web application for friends featuring daily puzzles, free play
 ### 4.4 Friend Aliases
 - **Personal nicknames for friends** (only visible to you)
 - **Setup location**: Profile page
-- **Function**: Helps organize/identify friends in your own view
+- **Function**: Replaces that friend's display name everywhere in your own view, including their profile, Friends, leaderboards, invitations, lobbies, battles, results, and history; their username remains unchanged
 - **Privacy**: Friends cannot see the alias you've given them
 
 ---
@@ -411,12 +403,16 @@ A personal Wordle web application for friends featuring daily puzzles, free play
 - **Daily Wordle Losses**: Umbrella category subdivided into:
   - **Missed**: Days the player didn't attempt the puzzle
   - **Failed**: Days the player attempted but didn't solve within 6 attempts
+- **Current Streak**: The player's active consecutive Daily Wordle win streak
+- **Highest Streak**: The greatest consecutive Daily Wordle win streak the player has ever achieved
 - **Display format**: 
   ```
   Daily Wordle Wins: 9
   Daily Wordle Losses: 3
     └─ Missed: 1
     └─ Failed: 2
+  Current Streak: 4
+  Highest Streak: 12
   ```
 
 ### 5.2 Battle Statistics
@@ -685,15 +681,10 @@ A personal Wordle web application for friends featuring daily puzzles, free play
 ## 9. Word Selection & Curation
 
 ### 9.1 Word Pool Strategy
-- **Curated list**: Common 5-letter words (similar to NYT approach)
-- **NYT criteria applied**:
-  - No proper nouns
-  - No vulgar/offensive words
-  - Everyday/common vocabulary preferred
-  - Age-appropriate
-  - Balanced difficulty
-- **Total words**: Not all 12,000+ 5-letter words; only commonly known ones
-- **Expansion**: Optional uncommon/rare word categories for Free Play difficulty
+- **Common list**: Exact archived 2,309-word Wordle answer list
+- **Rare list**: Exact archived 10,657-word Wordle accepted-guess-only list
+- **Total words**: 12,966 unique accepted words with no WRDL-specific exclusions or reclassification
+- **Free Play expansion**: Optional Rare selection expands Common to the complete accepted-word pool
 - **Deferred implementation detail**: Define the detailed daily word-selection algorithm during Phase 5: Technical Architecture
 
 ---

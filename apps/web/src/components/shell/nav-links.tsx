@@ -13,7 +13,13 @@ const links = [
   { href: "/settings", label: "Settings", icon: Settings },
 ];
 
-export function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
+export function NavLinks({
+  onNavigate,
+  pendingFriendRequests = 0,
+}: {
+  onNavigate?: () => void;
+  pendingFriendRequests?: number;
+}) {
   const pathname = usePathname();
 
   return links.map(({ href, label, icon: Icon }) => {
@@ -28,6 +34,11 @@ export function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
       >
         <Icon aria-hidden="true" />
         <span>{label}</span>
+        {label === "Friends" && pendingFriendRequests > 0 ? (
+          <b className={styles.navBadge} aria-label={`${pendingFriendRequests} pending requests`}>
+            {pendingFriendRequests > 99 ? "99+" : pendingFriendRequests}
+          </b>
+        ) : null}
       </Link>
     );
   });

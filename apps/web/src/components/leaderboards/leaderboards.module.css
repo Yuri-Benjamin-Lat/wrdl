@@ -1,0 +1,196 @@
+.page {
+  width: min(100%, 980px);
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto auto minmax(220px, 1fr) auto auto;
+  align-self: stretch;
+  justify-self: center;
+  padding: 18px 0 24px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+.header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  font-weight: 500;
+}
+.exit {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  border-radius: 12px;
+  background: var(--neutral);
+  font-weight: 500;
+}
+.exit svg {
+  width: 18px;
+}
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 12px 0 18px;
+}
+.tab,
+.activeTab {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 14px;
+  color: var(--muted);
+  background: var(--neutral);
+}
+.activeTab {
+  color: var(--green-text);
+  background: var(--green);
+}
+.tab svg,
+.activeTab svg {
+  width: 21px;
+}
+.rankingViewport {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.rankingList {
+  display: grid;
+  gap: 9px;
+  padding-bottom: 12px;
+}
+.rankGroup {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+  align-items: stretch;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  background: var(--neutral);
+  overflow: hidden;
+}
+.rank1 {
+  background: var(--yellow-soft);
+}
+.rank2 {
+  background: color-mix(in srgb, var(--neutral) 72%, var(--surface-raised));
+}
+.rank3 {
+  background: color-mix(in srgb, #b7794e 18%, var(--neutral));
+}
+.rankLabel {
+  display: grid;
+  place-items: center;
+  padding: 14px 8px;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+.players {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+}
+.player {
+  min-width: 0;
+  min-height: 72px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 11px;
+  padding: 10px 14px;
+  border-left: 1px solid color-mix(in srgb, var(--line) 76%, transparent);
+}
+.groupStreak {
+  min-width: 64px;
+  display: grid;
+  place-items: center;
+  padding: 10px 16px;
+  border-left: 1px solid color-mix(in srgb, var(--line) 76%, transparent);
+}
+.viewerGroup {
+  border-color: var(--green);
+  box-shadow: inset 0 0 0 1px var(--green);
+}
+.identity {
+  min-width: 0;
+  display: grid;
+}
+.identity strong,
+.identity small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.identity strong {
+  font-weight: 500;
+}
+.identity small {
+  color: var(--muted);
+}
+.streak {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.05rem;
+}
+.streak svg {
+  width: 23px;
+  height: 23px;
+  fill: currentColor;
+  stroke: currentColor;
+}
+.pinned {
+  position: sticky;
+  bottom: 0;
+  padding-top: 10px;
+  background: var(--surface);
+}
+.pinnedPlayer {
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
+  border: 2px solid var(--green);
+  border-radius: 15px;
+  background: var(--surface-raised);
+  box-shadow: 0 8px 24px var(--shadow);
+}
+.pinnedRank {
+  min-width: 44px;
+  color: var(--green);
+  text-align: center;
+}
+.message {
+  margin: 8px 0 0;
+  color: var(--muted);
+  text-align: center;
+}
+@media (max-width: 620px) {
+  .page {
+    padding-top: 8px;
+  }
+  .rankGroup {
+    grid-template-columns: 49px minmax(0, 1fr) auto;
+  }
+  .players {
+    grid-template-columns: 1fr;
+  }
+  .player {
+    min-height: 66px;
+    padding-inline: 10px;
+  }
+  .pinnedPlayer {
+    grid-template-columns: auto auto minmax(0, 1fr) auto;
+  }
+  .pinnedRank {
+    min-width: 32px;
+  }
+  .groupStreak {
+    min-width: 54px;
+    padding-inline: 10px;
+  }
+}

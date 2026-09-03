@@ -1,14 +1,13 @@
 "use client";
 
 import { Camera, Eye, PenLine, Trash2, Upload, X } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { getSupabaseBrowserClient } from "@/lib/supabase/browser-client";
-import { usernameChangeAvailableAt, validateBio, validateDisplayName } from "@/lib/profile";
-import { validateUsernameFormat } from "@/lib/username";
+import { validateBio, validateDisplayName } from "@/lib/profile";
 import styles from "./profile.module.css";
 
 type ProfileEditorProps = {
@@ -19,7 +18,6 @@ type ProfileEditorProps = {
   bio: string;
   avatarPath: string | null;
   avatarUrl: string | null;
-  usernameChangedAt: string | null;
 };
 
 async function cropAvatar(source: string, zoom: number, horizontal: number, vertical: number) {
@@ -51,23 +49,32 @@ async function cropAvatar(source: string, zoom: number, horizontal: number, vert
 export function ProfileEditor(props: ProfileEditorProps) {
   const router = useRouter();
   const fileInput = useRef<HTMLInputElement>(null);
+  const avatarControl = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
-  const [usernameOpen, setUsernameOpen] = useState(false);
   const [viewOpen, setViewOpen] = useState(false);
   const [cropSource, setCropSource] = useState<string | null>(null);
   const [zoom, setZoom] = useState(1);
   const [horizontal, setHorizontal] = useState(0);
   const [vertical, setVertical] = useState(0);
   const [pending, setPending] = useState(false);
-  const [renderedAt] = useState(() => Date.now());
   const [message, setMessage] = useState("");
   const [displayName, setDisplayName] = useState(props.storedDisplayName ?? "");
   const [bio, setBio] = useState(props.bio);
-  const [nextUsername, setNextUsername] = useState("");
 
-  const availableAt = usernameChangeAvailableAt(props.usernameChangedAt);
-  const usernameLocked = Boolean(availableAt && availableAt.getTime() > renderedAt);
+  useEffect(() => {
+    if (!menuOpen) return;
+    const closeOutside = (event: PointerEvent) => {
+      if (!avatarControl.current?.contains(event.target as Node)) setMenuOpen(false);
+    };
+    window.addEventListener("pointerdown", closeOutside);
+    return () => window.removeEventListener("pointerdown", closeOutside);
+  }, [menuOpen]);
+
+  function closeCrop() {
+    if (cropSource) URL.revokeObjectURL(cropSource);
+    setCropSource(null);
+  }
 
   async function saveProfile() {
     const displayValidation = validateDisplayName(displayName);
@@ -89,26 +96,6 @@ export function ProfileEditor(props: ProfileEditorProps) {
       return;
     }
     setEditOpen(false);
-    router.refresh();
-  }
-
-  async function changeUsername() {
-    const validation = validateUsernameFormat(nextUsername);
-    if (!validation.valid) {
-      setMessage(validation.message);
-      return;
-    }
-    setPending(true);
-    setMessage("");
-    const { error } = await getSupabaseBrowserClient().rpc("change_my_username", {
-      candidate: nextUsername,
-    });
-    setPending(false);
-    if (error) {
-      setMessage(error.message || "Username couldn’t be changed.");
-      return;
-    }
-    setUsernameOpen(false);
     router.refresh();
   }
 
@@ -183,7 +170,7 @@ export function ProfileEditor(props: ProfileEditorProps) {
   return (
     <>
       <div className={styles.identity}>
-        <div className={styles.avatarControl}>
+        <div className={styles.avatarControl} ref={avatarControl}>
           <button
             className={styles.avatarButton}
             type="button"
@@ -199,7 +186,13 @@ export function ProfileEditor(props: ProfileEditorProps) {
           {menuOpen ? (
             <div className={styles.avatarMenu}>
               {props.avatarUrl ? (
-                <button type="button" onClick={() => setViewOpen(true)}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setViewOpen(true);
+                  }}
+                >
                   <Eye aria-hidden="true" /> View profile picture
                 </button>
               ) : null}
@@ -239,16 +232,6 @@ export function ProfileEditor(props: ProfileEditorProps) {
           ) : (
             <p className={styles.bio}>Add a bio.</p>
           )}
-          <button
-            className={styles.textButton}
-            type="button"
-            disabled={usernameLocked}
-            onClick={() => setUsernameOpen(true)}
-          >
-            {usernameLocked && availableAt
-              ? `Username change available ${availableAt.toLocaleDateString()}`
-              : "Change username"}
-          </button>
         </div>
       </div>
 
@@ -287,7 +270,10 @@ export function ProfileEditor(props: ProfileEditorProps) {
               <small>Letters and numbers only. Leave blank to use your username.</small>
             </label>
             <label>
-              Bio <span>{bio.length}/60</span>
+              <span className={styles.fieldLabel}>
+                <span>Bio</span>
+                <span>{bio.length}/60</span>
+              </span>
               <textarea
                 value={bio}
                 maxLength={60}
@@ -297,44 +283,6 @@ export function ProfileEditor(props: ProfileEditorProps) {
             </label>
             <Button fullWidth disabled={pending} onClick={saveProfile}>
               {pending ? "Saving…" : "Save changes"}
-            </Button>
-          </section>
-        </div>
-      ) : null}
-
-      {usernameOpen ? (
-        <div
-          className={styles.modalLayer}
-          role="presentation"
-          onMouseDown={() => setUsernameOpen(false)}
-        >
-          <section
-            className={styles.modal}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="change-username-title"
-            onMouseDown={(event) => event.stopPropagation()}
-          >
-            <header>
-              <h2 id="change-username-title">Change username</h2>
-              <button type="button" aria-label="Close" onClick={() => setUsernameOpen(false)}>
-                <X aria-hidden="true" />
-              </button>
-            </header>
-            <p>
-              Your old username stays reserved for 30 days. You cannot change again for 90 days.
-            </p>
-            <label>
-              New username
-              <input
-                value={nextUsername}
-                maxLength={20}
-                autoComplete="username"
-                onChange={(event) => setNextUsername(event.target.value)}
-              />
-            </label>
-            <Button fullWidth disabled={pending} onClick={changeUsername}>
-              {pending ? "Changing…" : "Confirm username"}
             </Button>
           </section>
         </div>
@@ -350,6 +298,7 @@ export function ProfileEditor(props: ProfileEditorProps) {
             className={`${styles.modal} ${styles.imageModal}`}
             role="dialog"
             aria-modal="true"
+            onMouseDown={(event) => event.stopPropagation()}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={props.avatarUrl} alt={`${props.displayName}'s profile`} />
@@ -358,23 +307,17 @@ export function ProfileEditor(props: ProfileEditorProps) {
       ) : null}
 
       {cropSource ? (
-        <div className={styles.modalLayer} role="presentation">
+        <div className={styles.modalLayer} role="presentation" onMouseDown={closeCrop}>
           <section
             className={styles.modal}
             role="dialog"
             aria-modal="true"
             aria-labelledby="crop-title"
+            onMouseDown={(event) => event.stopPropagation()}
           >
             <header>
               <h2 id="crop-title">Adjust profile picture</h2>
-              <button
-                type="button"
-                aria-label="Close"
-                onClick={() => {
-                  URL.revokeObjectURL(cropSource);
-                  setCropSource(null);
-                }}
-              >
+              <button type="button" aria-label="Close" onClick={closeCrop}>
                 <X aria-hidden="true" />
               </button>
             </header>

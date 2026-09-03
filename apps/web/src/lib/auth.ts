@@ -39,14 +39,17 @@ export const getOptionalAccount = cache(async (): Promise<CurrentAccount | null>
   return { userId: user.id, profile, settings, avatarUrl };
 });
 
-export async function requireSignedInAccount() {
+export async function requireSignedInAccount(returnTo?: string) {
   const account = await getOptionalAccount();
-  if (!account) redirect("/sign-in");
+  if (!account) {
+    const next = returnTo?.startsWith("/") && !returnTo.startsWith("//") ? returnTo : null;
+    redirect(next ? `/sign-in?next=${encodeURIComponent(next)}` : "/sign-in");
+  }
   return account;
 }
 
-export async function requireCompleteAccount() {
-  const account = await requireSignedInAccount();
+export async function requireCompleteAccount(returnTo?: string) {
+  const account = await requireSignedInAccount(returnTo);
   if (!account.profile.username) redirect("/username-setup");
   return account;
 }

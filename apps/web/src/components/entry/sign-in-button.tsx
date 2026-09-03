@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { getSupabaseBrowserClient } from "@/lib/supabase/browser-client";
 import { entryStyles } from "./entry-screen";
 
-export function SignInButton() {
+export function SignInButton({ returnTo }: { returnTo?: string | null }) {
   const [pending, setPending] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
 
@@ -17,7 +17,8 @@ export function SignInButton() {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${window.location.origin}/auth/callback`,
+        redirectTo: `${window.location.origin}/auth/callback${returnTo ? `?next=${encodeURIComponent(returnTo)}` : ""}`,
+        queryParams: { prompt: "select_account" },
       },
     });
 

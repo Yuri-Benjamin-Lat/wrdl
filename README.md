@@ -4,8 +4,8 @@ WRDL is a personal, non-commercial Wordle-inspired web game with a Philippine-ti
 
 ## Project status
 
-Planning Phases 1–6 and development Milestones M0–M1 are complete. The next
-development target is Milestone M2: authentication, profiles, and settings.
+Planning Phases 1–6 and development Milestones M0–M9 are complete. Milestone M10
+(security, performance, and release hardening) is in progress.
 
 ## Repository structure
 
@@ -34,7 +34,15 @@ pnpm typecheck
 pnpm test
 pnpm build
 pnpm secrets:check
+pnpm accessibility:check
+pnpm security:check
+pnpm performance:check
+pnpm release:check
 ```
+
+The hosted rollback-only database suite is intentionally separate from the
+local release check. After configuring the approved native PostgreSQL client
+and staging database URL, run `pnpm database:test`.
 
 Copy `apps/web/.env.development.example` to `apps/web/.env.local` and replace
 its placeholders with the browser-safe project URL and publishable key from the
@@ -51,3 +59,6 @@ Never place a Supabase secret or service-role key in a `NEXT_PUBLIC_` variable.
 WRDL uses a Windows-native development workflow: Windows, PowerShell, Node.js, pnpm, and browser-based cloud services. Docker, Ubuntu, WSL, Linux development environments, and a local Supabase stack are prohibited. Backend development and integration testing use the private hosted development/staging Supabase project; production uses a separate hosted project. CI also runs on Windows.
 
 Never commit `.env` files, Supabase secret/service-role keys, database exports, protected word schedules, or real user data.
+
+Owner release, rollback, recovery, security, performance, and encrypted-backup
+guidance is collected in [`operations/README.md`](operations/README.md).

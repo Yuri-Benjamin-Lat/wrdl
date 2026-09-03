@@ -11,15 +11,20 @@ export async function GET(request: Request) {
   const code = url.searchParams.get("code");
   const providerError = url.searchParams.get("error");
   const requestedNext = safeNextPath(url.searchParams.get("next"));
+  const signInDestination = (error: "cancelled" | "failed") => {
+    const params = new URLSearchParams({ error });
+    if (requestedNext) params.set("next", requestedNext);
+    return new URL(`/sign-in?${params.toString()}`, url.origin);
+  };
 
   if (providerError || !code) {
-    return NextResponse.redirect(new URL("/sign-in?error=cancelled", url.origin));
+    return NextResponse.redirect(signInDestination("cancelled"));
   }
 
   const supabase = await getSupabaseServerClient();
   const { error } = await supabase.auth.exchangeCodeForSession(code);
   if (error) {
-    return NextResponse.redirect(new URL("/sign-in?error=failed", url.origin));
+    return NextResponse.redirect(signInDestination("failed"));
   }
 
   if (requestedNext) {
@@ -31,7 +36,7 @@ export async function GET(request: Request) {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return NextResponse.redirect(new URL("/sign-in?error=failed", url.origin));
+    return NextResponse.redirect(signInDestination("failed"));
   }
 
   const { data: profile } = await supabase

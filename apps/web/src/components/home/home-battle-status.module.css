@@ -1,0 +1,54 @@
+.card {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid color-mix(in srgb, var(--green) 72%, transparent);
+  border-radius: 15px;
+  color: var(--text);
+  background: color-mix(in srgb, var(--green) 11%, var(--surface));
+  box-shadow: 0 7px 18px var(--shadow);
+}
+.card:hover {
+  background: color-mix(in srgb, var(--green) 17%, var(--surface));
+}
+.copy {
+  min-width: 0;
+  display: grid;
+  gap: 1px;
+}
+.copy strong,
+.copy small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.copy small {
+  color: var(--muted);
+}
+.icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: #fffdf7;
+  background: var(--green);
+}
+.icon svg,
+.card > svg {
+  width: 19px;
+  height: 19px;
+}
+.voided {
+  border-color: color-mix(in srgb, var(--danger) 60%, transparent);
+  background: color-mix(in srgb, var(--danger) 8%, var(--surface));
+}
+.voided:hover {
+  background: color-mix(in srgb, var(--danger) 8%, var(--surface));
+}
+.voided .icon {
+  background: var(--danger);
+}

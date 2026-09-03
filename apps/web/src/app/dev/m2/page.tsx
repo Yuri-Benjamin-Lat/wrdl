@@ -1,4 +1,5 @@
 import { ChevronDown, ChevronLeft, ChevronRight, Flame, UsersRound } from "lucide-react";
+import { experienceRequiredForLevel } from "@wrdl/game-core";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -19,6 +20,9 @@ const demoSettings: UserSettingsRow = {
   statistics_audience: "friends",
   battle_history_audience: "none",
   activity_visible: true,
+  free_play_rare_enabled: false,
+  preferred_battle_rounds: 3,
+  preferred_battle_timer_seconds: 180,
   created_at: "2026-08-29T00:00:00.000Z",
   updated_at: "2026-08-29T00:00:00.000Z",
 };
@@ -55,8 +59,12 @@ export default async function M2PreviewPage({ searchParams }: PreviewPageProps) 
 
 function ProfilePreview() {
   const streak = 12;
+  const level = 5;
+  const experience = 200;
+  const experienceCap = experienceRequiredForLevel(level);
+  const experienceProgress = (experience / experienceCap) * 100;
   return (
-    <main className={profileStyles.page}>
+    <div className={profileStyles.page}>
       <h1 className={profileStyles.pageTitle}>Profile</h1>
       <section className={profileStyles.hero}>
         <ProfileEditor
@@ -67,15 +75,21 @@ function ProfilePreview() {
           bio="Wordle fan who likes friendly battles and rare words."
           avatarPath={null}
           avatarUrl={null}
-          usernameChangedAt={null}
         />
         <div className={profileStyles.progressGrid}>
           <div className={profileStyles.progressCard}>
             <span>
-              <strong>Level 5</strong> · 200 EXP
+              <strong>Level {level}</strong> · {experience}/{experienceCap} EXP
             </span>
-            <div className={profileStyles.progressTrack}>
-              <span style={{ width: "62%" }} />
+            <div
+              className={profileStyles.progressTrack}
+              role="progressbar"
+              aria-label={`Level ${level} experience`}
+              aria-valuemin={0}
+              aria-valuemax={experienceCap}
+              aria-valuenow={experience}
+            >
+              <span aria-hidden="true" style={{ width: `${experienceProgress}%` }} />
             </div>
           </div>
           <div className={profileStyles.streakCard}>
@@ -123,17 +137,27 @@ function ProfilePreview() {
                   <strong>10</strong>
                   <ChevronDown />
                 </summary>
-                <div className={profileStyles.statRow}>
+                <div className={`${profileStyles.statRow} ${profileStyles.statNestedRow}`}>
                   <span>Missed</span>
                   <strong>2</strong>
                   <span />
                 </div>
-                <div className={profileStyles.statRow}>
+                <div className={`${profileStyles.statRow} ${profileStyles.statNestedRow}`}>
                   <span>Failed</span>
                   <strong>8</strong>
                   <span />
                 </div>
               </details>
+              <div className={profileStyles.statRow}>
+                <span>Current Streak</span>
+                <strong>12</strong>
+                <span />
+              </div>
+              <div className={profileStyles.statRow}>
+                <span>Highest Streak</span>
+                <strong>27</strong>
+                <span />
+              </div>
             </div>
             <div className={profileStyles.statGroup}>
               <strong>Friendly Battles</strong>
@@ -143,12 +167,12 @@ function ProfilePreview() {
                   <strong>63%</strong>
                   <ChevronDown />
                 </summary>
-                <div className={profileStyles.statRow}>
+                <div className={`${profileStyles.statRow} ${profileStyles.statNestedRow}`}>
                   <span>Wins</span>
                   <strong>19</strong>
                   <span />
                 </div>
-                <div className={profileStyles.statRow}>
+                <div className={`${profileStyles.statRow} ${profileStyles.statNestedRow}`}>
                   <span>Losses</span>
                   <strong>11</strong>
                   <span />
@@ -172,18 +196,20 @@ function ProfilePreview() {
             <h2 className={profileStyles.sectionTitle}>Friendly Battle History</h2>
             <UsersRound />
           </div>
-          <div className={profileStyles.emptyCard}>
-            Your completed friendly battles will appear here.
+          <div className={`${profileStyles.contentBox} ${profileStyles.historyBox}`}>
+            <p className={profileStyles.historyEmpty}>
+              Your completed friendly battles will appear here.
+            </p>
           </div>
         </section>
       </div>
-    </main>
+    </div>
   );
 }
 
 function SettingsPreview() {
   return (
-    <main className={settingsStyles.page}>
+    <div className={settingsStyles.page}>
       <h1>Settings</h1>
       <SettingsForm
         userId={demoSettings.user_id}
@@ -191,6 +217,6 @@ function SettingsPreview() {
         avatarPath={null}
         deletionConfirmed={false}
       />
-    </main>
+    </div>
   );
 }

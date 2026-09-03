@@ -1,0 +1,256 @@
+.page {
+  width: min(100%, 820px);
+  display: grid;
+  align-content: start;
+  justify-self: center;
+  padding: 20px 0 40px;
+}
+.page h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  font-weight: 500;
+}
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 12px 0 20px;
+}
+.tab,
+.activeTab {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 14px;
+  color: var(--muted);
+  background: var(--neutral);
+}
+.tab svg,
+.activeTab svg {
+  width: 21px;
+  height: 21px;
+}
+.activeTab {
+  color: var(--green-text);
+  background: var(--green);
+}
+.tabs b {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 21px;
+  height: 21px;
+  display: grid;
+  place-items: center;
+  padding: 0 5px;
+  border: 2px solid var(--surface);
+  border-radius: 999px;
+  color: #fffdf7;
+  background: var(--danger);
+  font-size: 0.72rem;
+}
+.toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.searchField {
+  position: relative;
+  display: block;
+}
+.searchField > svg {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  width: 18px;
+  color: var(--muted);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.searchField input {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 14px 10px 42px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: var(--surface);
+}
+.sortMenu {
+  position: relative;
+}
+.sortMenu summary {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: var(--surface);
+  list-style: none;
+  cursor: pointer;
+}
+.sortMenu summary::-webkit-details-marker {
+  display: none;
+}
+.sortMenu summary svg {
+  width: 19px;
+}
+.sortMenu > div {
+  position: absolute;
+  z-index: 5;
+  top: calc(100% + 7px);
+  right: 0;
+  width: 220px;
+  display: grid;
+  gap: 3px;
+  padding: 7px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: var(--surface-raised);
+  box-shadow: 0 12px 26px var(--shadow);
+}
+.sortMenu > div button {
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  text-align: left;
+}
+.sortMenu > div .selectedSort {
+  color: var(--green);
+  background: var(--green-soft);
+}
+.list {
+  display: grid;
+  gap: 9px;
+  margin-top: 14px;
+}
+.personRow {
+  min-height: 72px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 14px;
+  border-radius: 15px;
+  background: var(--neutral);
+}
+.identity {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.identity > span:last-child {
+  min-width: 0;
+  display: grid;
+  gap: 1px;
+}
+.identity strong,
+.identity small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.identity strong {
+  font-size: 1.02rem;
+  font-weight: 500;
+}
+.identity small {
+  color: var(--muted);
+}
+.activity {
+  max-width: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  color: var(--muted);
+  text-align: right;
+  white-space: nowrap;
+}
+.online,
+.offline {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--muted);
+}
+.online {
+  background: var(--green);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--green) 18%, transparent);
+}
+.requestActions {
+  display: flex;
+  gap: 8px;
+}
+.requestActions button {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 11px;
+  color: var(--green-text);
+  background: var(--green);
+}
+.requestActions button:last-child {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+.requestActions svg {
+  width: 19px;
+}
+.friendAction {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 13px;
+  border: 1px solid var(--green);
+  border-radius: 11px;
+  color: var(--green);
+  background: transparent;
+  font-weight: 500;
+}
+.friendAction svg {
+  width: 17px;
+}
+.relationship {
+  padding-right: 6px;
+  color: var(--green);
+  font-weight: 500;
+}
+.empty {
+  margin: 28px 0;
+  color: var(--muted);
+  text-align: center;
+}
+.message {
+  margin: 14px 0 0;
+  color: var(--muted);
+  text-align: center;
+}
+@media (max-width: 560px) {
+  .page {
+    padding-top: 10px;
+  }
+  .personRow {
+    min-height: 68px;
+    padding: 9px 11px;
+  }
+  .activity {
+    max-width: 170px;
+    font-size: 0.82rem;
+  }
+  .friendAction {
+    padding-inline: 10px;
+    font-size: 0.86rem;
+  }
+}

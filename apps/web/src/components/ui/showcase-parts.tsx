@@ -95,8 +95,10 @@ export function DialogSample() {
       <strong>Leave this game?</strong>
       <p>Your current Free Play progress will restart.</p>
       <div>
-        <button>Cancel</button>
-        <button className={styles.dialogPrimary}>Leave</button>
+        <button type="button">Cancel</button>
+        <button type="button" className={styles.dialogPrimary}>
+          Leave
+        </button>
       </div>
     </div>
   );

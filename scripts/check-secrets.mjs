@@ -2,9 +2,13 @@ import { readFileSync, statSync } from "node:fs";
 import { extname } from "node:path";
 import { spawnSync } from "node:child_process";
 
-const trackedFilesResult = spawnSync("git", ["ls-files", "-z"], {
-  encoding: "utf8",
-});
+const trackedFilesResult = spawnSync(
+  "git",
+  ["ls-files", "--cached", "--others", "--exclude-standard", "-z"],
+  {
+    encoding: "utf8",
+  },
+);
 
 if (trackedFilesResult.status !== 0) {
   console.error("Unable to list tracked files for secret scanning.");
@@ -34,6 +38,7 @@ const textExtensions = new Set([
 const secretRules = [
   { name: "Supabase secret key", pattern: /sb_secret_[A-Za-z0-9_-]{16,}/ },
   { name: "GitHub token", pattern: /gh[pousr]_[A-Za-z0-9]{20,}/ },
+  { name: "Sentry authentication token", pattern: /sntrys_[A-Za-z0-9_=-]{20,}/ },
   {
     name: "credential-bearing Postgres URL",
     pattern: /postgres(?:ql)?:\/\/[^\s:/]+:[^\s@/]+@/i,
@@ -74,4 +79,4 @@ if (findings.length > 0) {
   process.exit(1);
 }
 
-console.log(`Secret scan passed for ${trackedFiles.length} tracked files.`);
+console.log(`Secret scan passed for ${trackedFiles.length} tracked and untracked project files.`);

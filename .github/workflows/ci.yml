@@ -31,8 +31,20 @@ jobs:
       - name: Scan tracked files for secrets
         run: pnpm secrets:check
 
+      - name: Check security boundaries
+        run: pnpm security:check
+
+      - name: Check accessibility contracts
+        run: pnpm accessibility:check
+
       - name: Check formatting
         run: pnpm format:check
+
+      - name: Validate word catalog
+        run: pnpm catalog:check
+
+      - name: Validate Daily database catalog
+        run: pnpm daily-catalog:check
 
       - name: Lint
         run: pnpm lint
@@ -45,3 +57,6 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      - name: Check production bundle budget
+        run: pnpm performance:check

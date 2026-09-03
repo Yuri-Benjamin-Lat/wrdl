@@ -1,5 +1,5 @@
 .home {
-  width: min(100%, 406px);
+  width: min(100%, 472px);
   display: grid;
   align-self: center;
   justify-self: center;
@@ -15,9 +15,53 @@
   margin: 4px 0 0;
   color: var(--muted);
 }
+.rejoin {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid color-mix(in srgb, var(--green) 72%, transparent);
+  border-radius: 15px;
+  color: var(--text);
+  background: color-mix(in srgb, var(--green) 11%, var(--surface));
+  box-shadow: 0 7px 18px var(--shadow);
+}
+.rejoin:hover {
+  background: color-mix(in srgb, var(--green) 17%, var(--surface));
+}
+.rejoin > span:nth-child(2) {
+  min-width: 0;
+  display: grid;
+  gap: 1px;
+}
+.rejoin strong,
+.rejoin small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rejoin small {
+  color: var(--muted);
+}
+.rejoinIcon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: #fffdf7;
+  background: var(--green);
+}
+.rejoinIcon svg,
+.rejoin > svg {
+  width: 19px;
+  height: 19px;
+}
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 190px));
+  grid-template-columns: repeat(2, minmax(0, 228px));
   justify-content: center;
   gap: 16px;
 }
@@ -119,8 +163,8 @@
   transform: translateY(-9px) rotate(-5deg);
 }
 .largeIcon {
-  width: 74px;
-  height: 74px;
+  width: 56px;
+  height: 56px;
   stroke-width: 1.45;
 }
 .battle .largeIcon {

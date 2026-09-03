@@ -148,7 +148,7 @@ The first low-fidelity wireframe covers the desktop shell, mobile header/menu, 2
 ### 4.3 Free Play Setup
 
 - Commonality choices use playful, game-like selection surfaces rather than settings rows.
-- Common, Uncommon, and Rare all remain visibly represented; Common appears selected by default as the base pool.
+- Common and Rare remain visibly represented; Common is the permanent base pool and Rare is optional.
 - Start Game aligns to the right.
 
 ### 4.4 Tabs
@@ -184,6 +184,7 @@ The first low-fidelity wireframe covers the desktop shell, mobile header/menu, 2
 - Privacy-controlled headings on the owner's profile include selectable audience icons for Public, Friends, and Private.
 - Statistics separates Daily Wordle and Friendly Battle information.
 - Daily Wordle **Losses** is an expandable row: collapsed it shows only total losses; expanded it reveals **Missed** and **Failed** counts.
+- Daily Wordle statistics also show **Current Streak** and the player's lifetime **Highest Streak** as aligned rows.
 - The **2-player** battle-stat row shows only win rate while collapsed; expanding it reveals separate **Wins** and **Losses** counts.
 - Every Friendly Battle History entry has its own rounded match container. Its summary places the result at top-left, date at top-right, player count at bottom-left, match settings at bottom-right, and **View standings** on a third row at bottom-right.
 - Every battle-history entry, including 2-player matches, includes a clearly visible expandable control for final standings. Two-player summaries show **2 players** rather than “vs Player.”
@@ -220,6 +221,7 @@ The first low-fidelity wireframe covers the desktop shell, mobile header/menu, 2
 - Non-host players see live setting values without editable arrow controls.
 - Every present player, including the host, has a Ready / Cancel Ready action. There is no Start Game button.
 - The lobby footer shows only ready players over the current lobby population, such as **2/4 ready**. When a player joins or leaves, the denominator changes with the lobby population; the eight-player maximum is not shown beside this count.
+- With only one player present, the Ready action is disabled and the footer asks the player to invite at least one friend.
 - Once at least two players are present and everyone is Ready, the synchronized `3… 2… 1…` countdown begins automatically.
 - A player may cancel Ready before the countdown begins and thereby prevent the battle from starting; ready controls lock during the countdown.
 - At eight players, Invite becomes the disabled label Lobby Full.
@@ -243,7 +245,8 @@ The first low-fidelity wireframe covers the desktop shell, mobile header/menu, 2
 - When the 10-second intermission expires, the synchronized `3… 2… 1…` countdown begins automatically without host approval.
 - Two-player sudden-death screens use labels such as **Sudden Death · Round 1**. Three-to-eight-player battles never enter sudden death; tied placements use dense ranking.
 - The final leaderboard uses **Battle Complete**, final placements, total points, and an individual Continue action instead of Ready controls or a countdown.
-- After a player selects Continue, they return to the existing canonical Battle Setup and Lobby screen rather than a separately designed post-battle lobby. Players who remain on the final leaderboard appear there as **Waiting for player**.
+- After a player selects Continue, they return to the existing canonical Battle Setup and Lobby screen rather than a separately designed post-battle lobby. Players who remain on a normally completed final leaderboard appear there as **Waiting for player**; a player whose disconnect produced a two-player forfeit is removed instead.
+- A fully abandoned battle replaces the Home **Friendly Battle in progress** card with **Battle voided**. Following that card or reopening Friendly Battle acknowledges the terminal state and prepares a fresh lobby without showing a separate voided screen.
 
 ### 4.9 Active Battle
 
@@ -287,12 +290,12 @@ The first low-fidelity wireframe covers the desktop shell, mobile header/menu, 2
 ### 4.11 Free Play Game and Result
 
 - Free Play gameplay reuses the responsive Daily Wordle board-and-keyboard layout.
-- A centered game-screen label identifies only the current puzzle word's rarity: **Common**, **Uncommon**, or **Rare**. It does not list all word pools selected for the session.
+- A centered game-screen label identifies only the current puzzle word's rarity: **Common** or **Rare**. It does not list all word pools selected for the session.
 - After a win or failure, the complete 5-column × 6-row board remains visible, the keyboard is removed, and the result panel may appear beside the board on wide screens.
 - On narrow desktop and mobile screens, the result panel moves below the board.
 - A win shows **You got it!** and may use the same short, reduced-motion-aware confetti treatment as Daily Wordle.
 - A failure shows **Better luck next time**.
-- Both result states show the result (`1/6` through `6/6`, or `X/6`), the correct answer, and whether the answer is Common, Uncommon, or Rare.
+- Both result states show the result (`1/6` through `6/6`, or `X/6`), the correct answer, and whether the answer is Common or Rare.
 - The primary **Next Word** action immediately starts a fresh board using the same selected word pools, without a countdown or return to setup.
 - Free Play has no **Share Results** action and displays no statistics, streak, EXP, or level progress.
 - The player uses normal navigation to return to Free Play setup and adjust word-pool selections; there is no dedicated Change Difficulty action on the result panel.

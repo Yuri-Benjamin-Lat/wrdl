@@ -4,7 +4,7 @@
 
 This document turns the approved Phase 1–5 specifications, polished HTML previews, and technical architecture into an ordered implementation plan. Each milestone must leave WRDL in a working, testable state and must include its database, security, responsive UI, accessibility, and automated tests rather than postponing those concerns until the end.
 
-**Status:** Complete — roadmap approved; M0–M2 accepted; M3 is the active milestone
+**Status:** Active — roadmap approved; M0–M9 accepted; M10 is complete for staging; M11 is next
 
 ---
 
@@ -164,9 +164,9 @@ Effort estimates assume one developer working carefully, include implementation 
 
 **Build**
 
-- Create the curated answer and accepted-guess catalogs with documented licensing/source review.
+- Create the exact archived Wordle answer and accepted-guess catalogs with documented source review.
 - Implement and exhaustively test five-letter validation and repeated-letter evaluation.
-- Build Common, Uncommon, and Rare Free Play selection with Common always enabled and the approved independent toggles.
+- Build the approved two-pool Free Play selection: Common uses the 2,309-word answer list, while optional Rare expands the pool to all 12,966 accepted words.
 - Implement the complete grid/keyboard interaction, typing during flips, invalid-word shake, sounds, win confetti, failure result, and Next Word.
 - Keep the current round memory-only while persisting only word-pool preferences.
 - Support continuing an already-open Free Play round during a temporary network interruption.
@@ -179,6 +179,27 @@ Effort estimates assume one developer working carefully, include implementation 
 
 ### M4 — Daily Wordle
 
+**Implementation status:** Complete — protected schedule, exact catalog, saved
+gameplay, duplicate-safe submission, Win/Failed/Missed/Voided resolution,
+streak/EXP updates, midnight repair, own-profile history, and the spoiler-free
+1080 × 1080 Share Results PNG are implemented. The hosted schema and migration
+history are aligned through `20260829045000`, including persistent current and
+highest streak statistics
+
+**Permanent numbering decision:** Daily puzzle **#1** begins on the Philippine
+calendar date when M4 is accepted. Pre-acceptance development fixtures do not
+consume public puzzle numbers. Before #1 is scheduled, fixture attempts,
+fixture-derived Daily statistics, and fixture-derived progression rewards are
+removed. Numbering is global rather than per account, so later players join the
+current Philippine-day puzzle instead of starting a personal sequence at #1.
+
+The `#1,893` development fixture and all of its derived attempt, guess,
+statistics, streak, and EXP data were removed on 2026-08-30. No official puzzle
+was scheduled by that cleanup. A disposable test puzzle #1 was subsequently
+published for 2026-08-30 Philippine Time. It remains a development fixture
+until the user explicitly declares the launch official; it and every derived
+record must be purged before official puzzle #1 is scheduled again.
+
 **Reference previews**
 
 - `wrdl-solo-polished-preview.html`
@@ -187,7 +208,7 @@ Effort estimates assume one developer working carefully, include implementation 
 **Build**
 
 - Add protected puzzle schedule, permanent puzzle numbering, Philippine-date authority, reset/repair operations, and account-creation-day eligibility.
-- Implement duplicate-safe server guess submission, saved progress, Win/Failed/Missed/Voided outcomes, streak, EXP, and the last 30 eligible cards.
+- Implement duplicate-safe server guess submission, saved progress, Win/Failed/Missed/Voided outcomes, current/highest streak statistics, EXP, and the last 30 eligible cards.
 - Implement midnight screen reset behavior and no-answer failed result.
 - Generate the approved 1080 × 1080 spoiler-free result PNG, copy it to the clipboard, and provide the download fallback.
 - Add offline, retry, expired-day, and service-failure behavior.
@@ -199,6 +220,13 @@ Effort estimates assume one developer working carefully, include implementation 
 - Copied and downloaded images contain the correct constant 5 × 6 layout and no letters or answer.
 
 ### M5 — Friends, Activity, and Leaderboards
+
+**Implementation status:** Complete — the hosted social schema, transactional
+friend requests, accepted friendships, private aliases, invite blocking,
+privacy-safe activity/search, friend and request screens, friend-profile
+contracts, Global/Friends dense streak leaderboards, latest-20 battle
+histories, expandable standings, and lifetime battle statistics are implemented
+and verified through transaction-rolled-back multi-account acceptance
 
 **Reference previews**
 
@@ -230,16 +258,24 @@ Effort estimates assume one developer working carefully, include implementation 
 
 - Implement Party records, private channels, host preference persistence, rounds/timer steppers, two-to-eight-player membership, and reusable returned lobbies.
 - Implement online-friend invitations, invitation bubble/panel, Accept/Decline, removal when unavailable, and blocked-invite rules.
-- Implement host transfer, pre-game/returned-lobby removal, host crown, Leave, Ready/Cancel Ready for everyone, and the automatic all-ready start countdown.
-- Lock settings, membership changes, host actions, Ready cancellation, and invitations at Match Starting.
+- Implement host transfer, pre-game/returned-lobby removal, host crown, Leave, reversible lobby Ready for everyone, and the automatic all-ready transition.
+- Lock settings, membership changes, host actions, and invitations while at least one player is Ready, and unlock them if everybody cancels Ready.
 
 **Gate**
 
-- Simultaneous joins, invitation acceptance, Ready cancellation, host transfer, removal, and start attempts produce one authoritative result.
+- Simultaneous joins, invitation acceptance, Ready/Cancel Ready, host transfer, removal, and start attempts produce one authoritative result.
 - The host cannot remove anyone after Match Starting.
 - Every participant enters the same countdown and first-round state.
 
 ### M7 — Two-Player Friendly Battle
+
+**Implementation status:** Complete and owner-accepted — the hosted authoritative two-player state
+machine, protected answers, duplicate-safe guesses, target scoring, exact-tie
+sudden death, 30-second arrival barrier, synchronized first-round countdown,
+30-second reconnect/forfeit rules, fixed intermissions, original lobby return,
+score/forfeit history labels, active-battle Home rejoin, and the approved
+responsive battle screens are implemented. The rollback-only hosted two-account
+acceptance suite and full repository quality gate pass.
 
 **Reference previews**
 
@@ -250,8 +286,10 @@ Effort estimates assume one developer working carefully, include implementation 
 **Build**
 
 - Implement protected shared answer selection, server-clock timer, duplicate-safe guesses, color-only opponent progress, and post-finish letter access.
+- Implement reversible per-player lobby Ready, the atomic all-ready transition into Waiting for Players, the 30-second arrival barrier, startup cancellation without a result, and one synchronized first-round countdown.
 - Implement one-point rounds, target-based early match conclusion, exact two-decimal ties, 0–0 rounds, and two-player-only sudden death.
 - Implement 30-second disconnect grace without pausing, continued connected-player input, automatic win on expiry, and host outcome behavior.
+- Detach a two-player forfeit loser from Home rejoin state and the reusable party, and represent full abandonment as a Home **Battle voided** card that opens a fresh lobby.
 - Implement fixed 10-second standings intermission, synchronized next-round countdown, final results, history/statistics, and Continue to the original lobby.
 
 **Gate**
@@ -261,6 +299,16 @@ Effort estimates assume one developer working carefully, include implementation 
 - Results and statistics commit exactly once.
 
 ### M8 — Three-to-Eight-Player Friendly Battle
+
+**Implementation status:** Complete and owner-accepted — the hosted battle
+runtime now supports every population from three through eight with full-roster
+arrival synchronization, protected progress snapshots, dense placement scoring,
+shared round and final ranks, fixed scheduled rounds without sudden death,
+scrollable opponent grids, finished/disconnected split overlays, immediate host
+succession, 20-second below-two-connected preservation, monotonic client
+convergence, immutable history/statistics, and individual return to the reusable
+lobby. The player-count acceptance matrix is version-controlled and the client,
+production build, hosted migration, and connectivity gates pass.
 
 **Reference previews**
 
@@ -283,6 +331,11 @@ Effort estimates assume one developer working carefully, include implementation 
 
 ### M9 — Supporting and Cross-Device States
 
+**Implementation status:** Complete and owner-accepted — shaped recovery states,
+maintenance/offline handling, stale-action feedback, one controlling battle
+connection with explicit transfer, resilient Realtime fallback checks, and
+sign-out/refresh/exit connection behavior are implemented and regression-tested.
+
 **Reference preview**
 
 - `wrdl-supporting-states-polished-preview.html`
@@ -301,6 +354,17 @@ Effort estimates assume one developer working carefully, include implementation 
 
 ### M10 — Security, Performance, and Release Hardening
 
+**Implementation status:** Complete for staging — production security headers, static
+security-boundary checks, a production bundle budget, a deterministic mixed-size
+100-player database workload, database planner correction, release automation,
+privacy-safe application error reporting, a native hosted database-test runner,
+automated accessibility contracts, authenticated browser audits, and owner
+runbooks are implemented. The live 100-client Realtime staging rehearsal,
+encrypted isolated restore rehearsal, dependency advisory review, service quota
+confirmation, and desktop/mobile browser matrix pass. Hosted OAuth-origin and
+production monitoring-sink verification require a deployed WRDL environment and
+therefore remain explicit M11 production checks.
+
 **Build and verify**
 
 - Run the complete unit, database, component, integration, end-to-end, accessibility, and recovery suites.
@@ -317,6 +381,11 @@ Effort estimates assume one developer working carefully, include implementation 
 - A clean staging release and restore rehearsal pass.
 
 ### M11 — Invited Beta and Production MVP
+
+**Implementation status:** In progress — production monitoring instrumentation,
+privacy redaction, and an automated public-surface smoke runner are prepared.
+Production service creation, deployment, OAuth verification, authenticated smoke
+testing, and the invited cross-device beta remain.
 
 **Build and verify**
 
@@ -396,4 +465,4 @@ M2 and M3 may overlap only if separate work does not create conflicting changes 
 
 ---
 
-**Document Status:** Complete — development roadmap approved; M2 is accepted and M3 is the active milestone.
+**Document Status:** Complete — development roadmap approved; M0–M9 are accepted and M10 is complete for staging. Hosted production checks continue in M11.

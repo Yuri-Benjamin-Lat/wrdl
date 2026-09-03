@@ -37,7 +37,10 @@ export function MobileDrawer({ account }: { account: ShellAccount }) {
               </span>
             </div>
             <nav>
-              <NavLinks onNavigate={() => setOpen(false)} />
+              <NavLinks
+                onNavigate={() => setOpen(false)}
+                pendingFriendRequests={account.pendingFriendRequests}
+              />
               <form action={signOutAction}>
                 <button className={styles.signOut} type="submit">
                   <LogOut aria-hidden="true" />

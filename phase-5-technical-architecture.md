@@ -289,7 +289,7 @@ The current active state is durable enough to rebuild every participant's screen
 
 ### 7.5 Retention for the Free Database
 
-- Daily Wordle lifetime totals, current streak, level, and EXP are retained as compact aggregate records.
+- Daily Wordle lifetime totals, current streak, highest-ever streak, level, and EXP are retained as compact aggregate records.
 - Full Daily Wordle card details are retained for the latest 30 eligible Philippine dates because that is the maximum visible history.
 - Older detailed Daily guesses may be removed after their outcome has been safely included in lifetime aggregates.
 - Each player retains only their latest 20 battle-history summaries and associated final standings.
@@ -308,7 +308,7 @@ Postgres Row Level Security and restricted database grants enforce privacy even 
 - Only accepted friends satisfy a **Friends** audience; pending friend requests do not.
 - **None** content is visible only to its owner.
 - Hidden online activity is returned to other players as offline; its private actual presence is not exposed.
-- Friend aliases are readable only by the player who created them.
+- Friend aliases are readable only by the player who created them. Viewer-specific profile, leaderboard, invitation, Party, Battle, result, and history contracts substitute that private alias for the friend's display name without changing the underlying username or exposing the alias to another viewer.
 - Battle channels are private. Only eligible lobby or battle members may subscribe to that battle's events.
 - Only the current host may change host-controlled lobby settings, remove lobby members, or transfer the host role. Member removal is rejected while a battle is starting or active and becomes available again only in the returned reusable lobby.
 - A player may change only their own ready state and submit guesses only for their own active board.
@@ -343,10 +343,10 @@ Each word is stored once in normalized lowercase and may carry separate capabili
 - **Allowed guess:** May be submitted as a valid five-letter guess.
 - **Daily answer eligible:** May be scheduled as a Daily Wordle answer.
 - **Free Play answer eligible:** May be selected in Free Play.
-- **Rarity:** Exactly one of Common, Uncommon, or Rare for Free Play filtering and display.
+- **Rarity:** Exactly one of Common or Rare for Free Play filtering and display.
 - **Active:** Can be disabled without deleting historical references.
 
-The allowed-guess catalog is broader than the answer catalog. A familiar inflected form or alternate spelling may be accepted as a guess without being used as a Daily answer. WRDL will maintain its own curated, version-controlled word catalog rather than depend on another Wordle product's live list.
+The accepted-guess catalog is broader than the answer catalog. WRDL uses the exact archived 2,309-word Wordle answer list and 10,657-word accepted-guess-only list, versioned locally so gameplay never depends on another product's live service.
 
 ### 8.2 Daily Answer Schedule
 
@@ -358,7 +358,7 @@ The allowed-guess catalog is broader than the answer catalog. A familiar inflect
 - A scheduled future word may be replaced before publication if curation discovers a problem; published puzzle records are immutable.
 - The production schedule should always have at least 90 reviewed future days, with an operational warning before the buffer falls below 30 days.
 - The detailed schedule and answer references exist only in the protected server/database schema.
-- WRDL Daily puzzle numbering begins at **#1** on the public launch date; larger numbers used in design previews are sample content.
+- WRDL Daily puzzle numbering begins at **#1** on the Philippine calendar date when M4 is accepted. Development days before acceptance do not consume permanent puzzle numbers; larger numbers used in design previews are sample content.
 
 ### 8.3 Philippine-Date Authority and Reset
 
@@ -405,7 +405,7 @@ The unique command identifier and database constraints make retries safe without
 
 ### 8.7 Free Play Word Handling
 
-- Starting Free Play requests one answer from the union of the player's enabled Common, Uncommon, and Rare pools.
+- Starting Free Play requests one answer from Common alone or from the complete Common-plus-Rare pool when Rare is enabled.
 - The selected word's single rarity label is displayed during the game.
 - Selection should avoid immediately repeating the previous Free Play answer when another eligible word exists.
 - The answer, guesses, and result live only in browser memory for that round.
@@ -414,8 +414,7 @@ The unique command identifier and database constraints make retries safe without
 
 ### 8.8 Catalog and Operational Decisions
 
-- Common American and British spellings may be accepted guesses. Daily answers favor words broadly familiar to international English speakers.
-- Offensive or vulgar words are excluded from both answers and accepted guesses.
+- The exact archived source lists determine acceptance and Daily eligibility; WRDL applies no additional word exclusions or reclassification.
 - The catalog and reviewed schedule use a version-controlled CSV/spreadsheet plus validation script for the MVP; a private administration interface is not required.
 - Free Play avoids immediately repeating its previous answer when another eligible answer exists, but does not save longer-term Free Play history.
 - If a verified WRDL-wide outage makes a Daily puzzle meaningfully unavailable, an administrator may mark that puzzle date **Voided**. A voided date produces no Missed or Failed loss, EXP, or streak reset. This is an operational correction and not an individual player mercy feature.
@@ -441,25 +440,28 @@ This separation allows the same group to play again without editing completed ma
 
 | State | Permitted behavior | Exit condition |
 |---|---|---|
-| Lobby | Host edits settings and invitations; members Ready or Cancel Ready | At least two present members and all present members Ready |
-| Match Starting | Settings, participants, Ready controls, and invitations are locked; synchronized `3… 2… 1…` | Server start deadline arrives |
+| Lobby | Host edits settings and invitations while nobody is Ready; Ready players remain in the lobby and may Cancel Ready | At least two present members and all present members Ready |
+| Match Starting | Roster and settings are frozen; battle clients acknowledge arrival for up to 30 seconds | At least two clients arrive, or the arrival deadline cancels startup |
+| Round Starting | Synchronized `3… 2… 1…`; input and round timer remain locked | Server start deadline arrives |
 | Round Active | Players submit guesses; timer and disconnect rules run | Approved round-end condition |
 | Round Resolving | Secure operation fixes placements, points, total scores, and next state | Transaction completes |
 | Between Rounds | Standings and a fixed visible 10-second intermission are shown | Intermission deadline expires |
-| Round Starting | Synchronized `3… 2… 1…`; input remains locked | Server start deadline arrives |
-| Battle Complete | Final standings fixed; members individually Continue | Each member returns to party lobby or leaves |
-| Voided | No earned battle points or statistics are retained | Members return home or to the reusable party as applicable |
+| Battle Complete | Final standings fixed; members individually Continue; a two-player forfeit loser is already detached | Retained members return to the party lobby |
+| Voided | No earned battle points or statistics are retained; Home displays the terminal notification card | A member acknowledges the void and starts a fresh party |
 
-Every state has a monotonically increasing version. Commands are serialized against the current Battle or Party row, so simultaneous Ready, Cancel Ready, settings, guesses, exits, and timer claims cannot create two conflicting transitions.
+Every state has a monotonically increasing version. Commands are serialized against the current Battle or Party row, so simultaneous Ready, settings, guesses, exits, and timer claims cannot create two conflicting transitions.
 
 ### 9.3 Lobby Start Rules
 
-- Every present member, including the host, has Ready / Cancel Ready.
+- Every present member, including the host, has a reversible Ready / Cancel Ready action while the Party remains in Lobby.
 - Pending invitees are not members and are never counted in Ready totals.
-- Host setting changes do not reset Ready states.
+- Settings, invitations, host controls, and membership actions are locked while at least one member is Ready and unlock if every member cancels Ready.
 - The transaction that observes at least two present members and all of them Ready changes the party to Match Starting immediately.
-- Once Match Starting is committed, Ready cancellation, settings changes, joins, kicks, host transfer, and old invitation acceptance are rejected.
-- The same transaction snapshots the final participants and settings, removes outstanding invitations, chooses the first protected answer, and issues the shared countdown deadline.
+- Cancelling Ready is accepted only while the Party remains in Lobby. Once the atomic all-ready transaction commits Match Starting, Ready changes, settings changes, joins, kicks, host transfer, and old invitation acceptance are rejected.
+- The same transaction snapshots the final participants and settings, removes outstanding invitations, chooses the first protected answer, and issues a 30-second arrival deadline.
+- Ready players continue rendering the lobby. The all-ready transaction creates the Battle and sends every participant to **Waiting for players**; reaching that battle screen records an authoritative arrival.
+- When at least two frozen participants have arrived, the server issues one shared three-second countdown. The round deadline is created only when that countdown reaches zero.
+- If fewer than two participants arrive before the arrival deadline, the startup is cancelled and the party returns to Lobby without history, statistics, EXP, or a result.
 - A player who joined just before that transaction is included and must be Ready; a player whose acceptance reaches the server afterward receives an unavailable invitation result.
 
 ### 9.4 Round Timing and Word Selection
@@ -522,6 +524,7 @@ Tied players receive the full points for their shared dense placement. The next 
 - If the connected player earns the match-winning point during the grace period, the battle ends normally before the disconnect deadline.
 - Otherwise, a completed round advances to Between Rounds while the same remaining grace deadline continues.
 - If the disconnected player was host and does not return, the connected winner becomes party host.
+- Committing the forfeit marks the departed loser as finished with that Battle and removes them from the reusable Party. The winner's Continue action therefore returns to a lobby without the departed player.
 
 ### 9.9 Three-to-Eight-Player Disconnection
 
@@ -546,13 +549,14 @@ Tied players receive the full points for their shared dense placement. The next 
 ### 9.11 Final Results and Returned Lobby
 
 - Final standings and battle statistics are committed exactly once before Battle Complete is published.
-- Each member's Continue action changes only their party return status.
+- For score-completed battles, each retained member's Continue action changes only their party return status. A two-player forfeit loser is detached automatically when the result commits.
 - Continue redirects each player to the original party lobby used before that battle. Returned players may see and edit it as their permissions allow; members still on results appear as **Waiting for player**.
 - The next match cannot enter its all-ready start countdown while a retained party member is still on the previous result screen, disconnected, or otherwise not Ready.
 - The host may remove a waiting or disconnected member from the returned lobby under the normal lobby removal confirmation.
 - Once the party is eligible again, the same canonical Setup and Lobby interface is reused for the next battle.
+- When every player disconnects and the Battle is voided, Home replaces the active-battle rejoin card with **Battle voided**. Acknowledging it clears the terminal attachment and opens a fresh lobby rather than rendering a separate voided battle screen.
 
-**Decision:** Approved in full. The pre-game lobby keeps Ready / Cancel Ready for all present members. After the match begins, every non-final round uses an automatic fixed 10-second standings intermission followed by the synchronized start countdown; there are no between-round Ready controls, configurable intermission durations, or in-battle host removal controls.
+**Decision:** Approved in full. Pre-game Ready remains reversible in the lobby until the atomic all-ready transition sends every participant to an authoritative Waiting for Players barrier before the synchronized first-round countdown. After the match begins, every non-final round uses an automatic fixed 10-second standings intermission followed by the synchronized start countdown; there are no between-round Ready controls, configurable intermission durations, or in-battle host removal controls.
 
 ---
 
@@ -591,7 +595,7 @@ A successful response returns `command_id`, `committed_version`, `server_time`, 
 | Account and profile | Complete username setup, update display name or bio, update avatar reference, change privacy/settings, sign out, delete account |
 | Friends | Send or cancel request, accept or decline request, remove friend, set alias, block or unblock battle invitations |
 | Daily Wordle | Load today's private state, submit guess, resolve expired unfinished puzzle, load eligible history/share data |
-| Party lobby | Create party, invite friend, accept invitation, leave, update rounds/timer, Ready or Cancel Ready, transfer host, remove member |
+| Party lobby | Create party, invite friend, accept invitation, leave, update rounds/timer, select or cancel Ready, transfer host, remove member before Ready locks the roster |
 | Active battle | Load snapshot, claim controlling connection, heartbeat, submit guess, request eligible opponent letters, request a due transition, leave battle, Continue to original lobby |
 
 Commands are named by action rather than by screen. The same server operation is reused anywhere that action appears, preventing the profile, Friends page, invitation bubble, and lobby from implementing different rules.
@@ -699,7 +703,7 @@ The browser cache is never allowed to overwrite newer server state. Refreshing o
 
 - Theme, high-contrast tiles, sound settings, privacy settings, and the host's rounds/timer preferences sync to the signed-in account.
 - A small local copy may apply appearance immediately during startup, but the newest server version wins after authentication.
-- Free Play remembers enabled Common, Uncommon, and Rare toggles, but never saves its current answer, guesses, or result.
+- Free Play remembers the optional Rare toggle, but never saves its current answer, guesses, or result.
 - The optional 30-day Free Play exit-warning preference is stored locally because it controls only that browser's confirmation behavior.
 - Draft display-name, bio, and settings input remains on screen after a retryable failure but is not treated as saved until confirmed.
 
@@ -870,7 +874,7 @@ No release may bypass failed required tests. Flaky tests are treated as defects 
 ### 13.2 Consistency Corrections Completed
 
 - Removed the obsolete between-round Ready screen and configurable ready-up references from Phases 1–5 and both affected battle previews.
-- Preserved Ready / Cancel Ready only in the pre-game and returned reusable lobby.
+- Restored pre-game Ready / Cancel Ready in the lobby and retained the player-arrival barrier after the all-ready transition; returned reusable lobbies use that same start flow.
 - Confirmed that host removal is available only in those lobby states and never during a starting or active battle.
 - Confirmed sudden death is exclusive to two-player ties; three-to-eight-player battles use dense tied placements.
 - Confirmed Free Play has no statistics, progression, persistence, or Share Results action.
