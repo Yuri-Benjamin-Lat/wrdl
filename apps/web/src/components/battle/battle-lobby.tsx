@@ -64,6 +64,8 @@ export function BattleLobby({
   const [invitingCandidateIds, setInvitingCandidateIds] = useState<Set<string>>(() => new Set());
   const [message, setMessage] = useState("");
   const [realtimeHealthy, setRealtimeHealthy] = useState(false);
+  const [readyPending, setReadyPending] = useState(false);
+  const [syncDelayed, setSyncDelayed] = useState(false);
   const [manageAction, setManageAction] = useState<ManageAction>(null);
   const [pending, startTransition] = useTransition();
   const creating = useRef(false);
@@ -72,6 +74,7 @@ export function BattleLobby({
   const allReadyRecovery = useRef<string | null>(null);
   const startingRecovery = useRef<string | null>(null);
   const enteringBattle = useRef(false);
+  const refreshingParty = useRef(false);
 
   const enterBattle = useCallback((battleId: string) => {
     if (enteringBattle.current) return;
@@ -80,12 +83,15 @@ export function BattleLobby({
   }, []);
 
   const refreshParty = useCallback(async () => {
-    if (leaving.current) return;
+    if (leaving.current || refreshingParty.current) return;
+    refreshingParty.current = true;
+    const delayedTimer = window.setTimeout(() => setSyncDelayed(true), 1_200);
     try {
       const response = await fetch("/api/party", { cache: "no-store" });
-      if (!response.ok) return;
+      if (!response.ok) throw new Error("Party refresh failed");
       const envelope = (await response.json()) as PartyEnvelope;
       if (leaving.current) return;
+      setSyncDelayed(false);
       if (envelope.removed) setMessage("You were removed from the lobby.");
       setParty((current) => {
         if (!current || !envelope.party) return envelope.party;
@@ -98,7 +104,11 @@ export function BattleLobby({
         return envelope.party;
       });
     } catch {
-      // Realtime or the fallback poll retries automatically.
+      setSyncDelayed(true);
+      // Realtime or the safety poll retries automatically.
+    } finally {
+      window.clearTimeout(delayedTimer);
+      refreshingParty.current = false;
     }
   }, []);
 
@@ -129,10 +139,23 @@ export function BattleLobby({
   }, [partyId, refreshParty]);
 
   useEffect(() => {
-    if (!partyId || realtimeHealthy) return;
-    const fallback = window.setInterval(refreshParty, 10_000);
-    return () => window.clearInterval(fallback);
-  }, [partyId, realtimeHealthy, refreshParty]);
+    if (!partyId) return;
+    const urgent = party?.phase === "match_starting" || (party?.readyCount ?? 0) > 0;
+    const intervalMs = urgent ? 1_000 : realtimeHealthy ? 3_000 : 1_500;
+    const safetyPoll = window.setInterval(refreshParty, intervalMs);
+    const handleVisibility = () => {
+      if (document.visibilityState === "visible") void refreshParty();
+    };
+    window.addEventListener("focus", refreshParty);
+    window.addEventListener("online", refreshParty);
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () => {
+      window.clearInterval(safetyPoll);
+      window.removeEventListener("focus", refreshParty);
+      window.removeEventListener("online", refreshParty);
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
+  }, [party?.phase, party?.readyCount, partyId, realtimeHealthy, refreshParty]);
 
   useEffect(() => {
     if (party?.phase !== "match_starting" || !party.activeBattleId) return;
@@ -255,7 +278,7 @@ export function BattleLobby({
 
   const ownMember = party.members.find((member) => member.relationship === "self");
   const controlsLocked = party.phase !== "lobby";
-  const setupLocked = controlsLocked || party.readyCount > 0;
+  const membershipLocked = controlsLocked || party.readyCount > 0;
 
   function changeSettings(rounds: number, timer: number) {
     startTransition(async () => {
@@ -266,11 +289,16 @@ export function BattleLobby({
   }
 
   function toggleReady() {
+    setReadyPending(true);
     startTransition(async () => {
-      const result = await setPartyReadyAction(!ownMember?.ready);
-      if (!result.ok) return setMessage(result.message);
-      setParty(result.party);
-      if (result.party.activeBattleId) enterBattle(result.party.activeBattleId);
+      try {
+        const result = await setPartyReadyAction(!ownMember?.ready);
+        if (!result.ok) return setMessage(result.message);
+        setParty(result.party);
+        if (result.party.activeBattleId) enterBattle(result.party.activeBattleId);
+      } finally {
+        setReadyPending(false);
+      }
     });
   }
 
@@ -361,7 +389,7 @@ export function BattleLobby({
                 <button
                   type="button"
                   aria-label="Decrease rounds"
-                  disabled={pending || setupLocked}
+                  disabled={pending || controlsLocked}
                   onClick={() =>
                     changeSettings(cycle(roundValues, party.rounds, -1), party.roundTimerSeconds)
                   }
@@ -374,7 +402,7 @@ export function BattleLobby({
                 <button
                   type="button"
                   aria-label="Increase rounds"
-                  disabled={pending || setupLocked}
+                  disabled={pending || controlsLocked}
                   onClick={() =>
                     changeSettings(cycle(roundValues, party.rounds, 1), party.roundTimerSeconds)
                   }
@@ -398,7 +426,7 @@ export function BattleLobby({
                 <button
                   type="button"
                   aria-label="Decrease round timer"
-                  disabled={pending || setupLocked}
+                  disabled={pending || controlsLocked}
                   onClick={() =>
                     changeSettings(party.rounds, cycle(timerValues, party.roundTimerSeconds, -1))
                   }
@@ -409,7 +437,7 @@ export function BattleLobby({
                 <button
                   type="button"
                   aria-label="Increase round timer"
-                  disabled={pending || setupLocked}
+                  disabled={pending || controlsLocked}
                   onClick={() =>
                     changeSettings(party.rounds, cycle(timerValues, party.roundTimerSeconds, 1))
                   }
@@ -428,14 +456,21 @@ export function BattleLobby({
         <div className={styles.sectionHeader}>
           <div>
             <h2>Battle lobby</h2>
-            <p>Everyone present must be Ready.</p>
+            <p>
+              Everyone present must be Ready.
+              {syncDelayed ? (
+                <span className={styles.syncStatus} role="status">
+                  Lobby is catching up…
+                </span>
+              ) : null}
+            </p>
           </div>
           {party.isHost ? (
             <Button
               className={styles.inviteButton}
               variant="secondary"
               icon={<UserPlus />}
-              disabled={pending || setupLocked || party.memberCount >= 8}
+              disabled={pending || membershipLocked || party.memberCount >= 8}
               onClick={() => setInviteOpen(true)}
             >
               {party.memberCount >= 8 ? "Lobby Full" : "Invite"}
@@ -457,7 +492,7 @@ export function BattleLobby({
                 <i aria-hidden="true" />
                 {member.ready ? "Ready" : member.returnedToLobby ? "Joined" : "Waiting for player"}
               </span>
-              {party.isHost && !member.isHost && !setupLocked ? (
+              {party.isHost && !member.isHost && !membershipLocked ? (
                 <details className={styles.memberOptions}>
                   <summary aria-label={`Manage ${playerName(member)}`}>
                     <MoreHorizontal />
@@ -491,9 +526,22 @@ export function BattleLobby({
           <Button
             onClick={toggleReady}
             variant={ownMember?.ready ? "secondary" : "primary"}
-            disabled={pending || controlsLocked || (!ownMember?.ready && party.memberCount < 2)}
+            disabled={
+              pending ||
+              readyPending ||
+              controlsLocked ||
+              (!ownMember?.ready && party.memberCount < 2)
+            }
           >
-            {ownMember?.ready ? "Cancel Ready" : "Ready"}
+            {party.memberCount >= 2 && party.readyCount === party.memberCount
+              ? "Starting battle…"
+              : readyPending
+                ? ownMember?.ready
+                  ? "Cancelling…"
+                  : "Getting ready…"
+                : ownMember?.ready
+                  ? "Cancel Ready"
+                  : "Ready"}
           </Button>
         </footer>
       </section>

@@ -47,6 +47,14 @@
 .sectionHeader .inviteButton {
   background: var(--surface);
 }
+.syncStatus {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
+  color: var(--yellow-deep);
+  font-size: 0.86rem;
+  white-space: nowrap;
+}
 .settingsList,
 .memberList,
 .candidateList {

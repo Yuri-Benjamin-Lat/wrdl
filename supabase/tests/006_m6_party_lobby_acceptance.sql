@@ -160,6 +160,20 @@ end;
 $$;
 
 select set_config('request.jwt.claim.sub', 'b6000000-0000-4000-8000-000000000002', true);
+
+do $$
+declare
+  snapshot jsonb := public.update_party_settings(3, 90);
+begin
+  assert snapshot ->> 'rounds' = '3',
+    'host could not change rounds while another player was Ready';
+  assert snapshot ->> 'roundTimerSeconds' = '90',
+    'host could not change the timer while another player was Ready';
+  assert snapshot ->> 'readyCount' = '1',
+    'changing settings cleared an existing Ready state';
+end;
+$$;
+
 select public.leave_party();
 
 select set_config('request.jwt.claim.sub', 'a6000000-0000-4000-8000-000000000001', true);

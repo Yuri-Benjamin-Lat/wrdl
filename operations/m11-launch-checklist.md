@@ -49,6 +49,25 @@ storage, OAuth redirect configuration, or secret credentials.
 - Remaining launch gates: authenticated, multiplayer, multi-device/mobile,
   maintenance/rollback, and owner-acceptance testing with synthetic beta users.
 
+## Owner smoke progress — 2026-09-08
+
+- Google sign-in is accepted.
+- Daily remains intentionally unavailable until the owner asks to enable it;
+  unavailable-state testing is accepted and available-state testing is deferred.
+- Free Play has not yet been tested in production.
+- Friend, privacy, and leaderboard behavior is accepted.
+- Lobby testing found two release blockers: hosts could not change settings while
+  another member was Ready, and missed or delayed lobby signals could prevent
+  unanimous Ready from advancing every player without a browser refresh. The
+  fixes are implemented and pass local checks, but still require deployment and
+  two-account production retesting.
+- Battle gameplay, exit/rejoin, disconnect, result/history, and returned-lobby
+  behavior still require production testing.
+- Three-to-eight-player production testing is pending.
+- Desktop presentation is provisionally accepted; mobile testing is pending.
+- Maintenance and rollback rehearsal is pending.
+- Further card and visual-design upgrades are deferred as post-MVP polish.
+
 ## Automated production smoke
 
 After deployment, run:
