@@ -23,7 +23,7 @@ const routes = [
   { path: "/sign-in", statuses: [200], html: true },
   { path: "/maintenance", statuses: [200], html: true },
   { path: "/icon.svg", statuses: [200] },
-  { path: "/api/activity", statuses: [401], privateApi: true },
+  { path: "/api/activity", method: "POST", statuses: [401], privateApi: true },
 ];
 
 const requiredSecurityHeaders = new Map([
@@ -43,6 +43,7 @@ for (const route of routes) {
   let response;
   try {
     response = await fetch(`${origin}${route.path}`, {
+      method: route.method ?? "GET",
       redirect: "follow",
       signal: AbortSignal.timeout(15_000),
       headers: { "User-Agent": "WRDL-production-smoke/1.0" },

@@ -4,7 +4,7 @@ M11 promotes the reviewed M10 staging revision into a separate production
 environment. Staging and production must never share database records, users,
 storage, OAuth redirect configuration, or secret credentials.
 
-## Current status — 2026-09-03
+## Current status — 2026-09-08
 
 - [x] M10 staging release, 100-client rehearsal, encrypted restore drill, and
       complete release check passed.
@@ -20,9 +20,9 @@ storage, OAuth redirect configuration, or secret credentials.
       confirm that a post-push dry run reports no pending migrations. Database
       acceptance suites remain restricted to staging or disposable restore
       targets and must not run against production.
-- [ ] Create the Vercel project, assign production environment variables, and
+- [x] Create the Vercel project, assign production environment variables, and
       deploy the reviewed release revision.
-- [ ] Create the Sentry project, assign DSN/build credentials only in Vercel,
+- [x] Create the Sentry project, assign DSN/build credentials only in Vercel,
       and verify one redacted sample event.
 - [ ] Add the deployed origin to Supabase and Google OAuth allowlists and verify
       sign-in/sign-out.
@@ -31,6 +31,23 @@ storage, OAuth redirect configuration, or secret credentials.
       release-blocking defect.
 - [ ] Record the final revision, deployment origin, backup result, smoke result,
       and owner acceptance without recording secrets or personal data.
+
+## Launch verification — 2026-09-08
+
+- Production deployment `AcrwuGjxHA1ZqkB7qG9zCnk7CNH4` reached Ready at
+  `https://wrdl-web.vercel.app` from revision `e3f7e50`.
+- The public production smoke passed for the home, sign-in, maintenance, icon,
+  and unauthenticated private-API surfaces, including security headers and
+  no-store caching.
+- Sentry received one synthetic privacy-redacted verification event. Release
+  `e3f7e50` was finalized for `vercel-production` with 400 source-map artifacts.
+- Encrypted production backup `wrdl-20260908-180605.dump.gpg` was created in the
+  approved owner-controlled location and its SHA-256 checksum matched.
+- The production Supabase site/callback URLs and Google OAuth production origin
+  and callback are configured. Interactive sign-in/sign-out remains part of the
+  invited-account smoke below.
+- Remaining launch gates: authenticated, multiplayer, multi-device/mobile,
+  maintenance/rollback, and owner-acceptance testing with synthetic beta users.
 
 ## Automated production smoke
 
