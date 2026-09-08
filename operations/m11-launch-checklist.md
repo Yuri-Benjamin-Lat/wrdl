@@ -43,6 +43,11 @@ storage, OAuth redirect configuration, or secret credentials.
   `e3f7e50` was finalized for `vercel-production` with 400 source-map artifacts.
 - Encrypted production backup `wrdl-20260908-180605.dump.gpg` was created in the
   approved owner-controlled location and its SHA-256 checksum matched.
+- Before the M11 lobby correction, encrypted production backup
+  `wrdl-20260908-235430.dump.gpg` was created in the approved owner-controlled
+  location and its SHA-256 checksum matched. Migration
+  `20260908010000_m11_ready_players_allow_host_settings.sql` then applied
+  successfully, and the post-push dry run reports production is up to date.
 - The production Supabase site/callback URLs and Google OAuth production origin
   and callback are configured. Interactive sign-in/sign-out remains part of the
   invited-account smoke below.
