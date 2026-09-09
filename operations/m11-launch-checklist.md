@@ -48,6 +48,11 @@ storage, OAuth redirect configuration, or secret credentials.
   location and its SHA-256 checksum matched. Migration
   `20260908010000_m11_ready_players_allow_host_settings.sql` then applied
   successfully, and the post-push dry run reports production is up to date.
+- Production deployment `94ALaSk6Q8nrXkpM1EveY1XypS8E` reached Ready from
+  revision `f16e5b4`. The public production smoke passed after deployment.
+- Daily Wordle officially launched on 2026-09-09 Philippine Time. Puzzle #1 is
+  published, and 90 protected future puzzles are scheduled through 2026-12-08;
+  verification recorded counts, dates, and status only, without answers.
 - The production Supabase site/callback URLs and Google OAuth production origin
   and callback are configured. Interactive sign-in/sign-out remains part of the
   invited-account smoke below.
@@ -57,15 +62,15 @@ storage, OAuth redirect configuration, or secret credentials.
 ## Owner smoke progress — 2026-09-08
 
 - Google sign-in is accepted.
-- Daily remains intentionally unavailable until the owner asks to enable it;
-  unavailable-state testing is accepted and available-state testing is deferred.
+- Daily unavailable-state testing is accepted. The owner requested activation
+  on 2026-09-09; puzzle #1 is now available and gameplay testing is pending.
 - Free Play has not yet been tested in production.
 - Friend, privacy, and leaderboard behavior is accepted.
 - Lobby testing found two release blockers: hosts could not change settings while
   another member was Ready, and missed or delayed lobby signals could prevent
   unanimous Ready from advancing every player without a browser refresh. The
-  fixes are implemented and pass local checks, but still require deployment and
-  two-account production retesting.
+  fixes are deployed and pass automated checks, but still require two-account
+  production retesting.
 - Battle gameplay, exit/rejoin, disconnect, result/history, and returned-lobby
   behavior still require production testing.
 - Three-to-eight-player production testing is pending.
